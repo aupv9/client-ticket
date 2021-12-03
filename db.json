@@ -1,0 +1,652 @@
+{
+    "movies": [
+        {
+            "id": 100,
+            "name": "Venus",
+            "thumbnail": "movie01.jpg",
+            "banner_url": "banner03.jpg",
+            "language": "ENGLISH, TIẾNG VIỆT",
+            "genre": "HORROR",
+            "released_date": "2021-12-06",
+            "duration_min": "170",
+            "score": "8.66",
+            "trailer_url": "https://www.youtube.com/embed/KGeBMAgc46E",
+            "synopsis": "After the mysterious mana calamity, Rudeus Greyrat and his fierce student Eris Boreas Greyrat are teleported to the Demon Continent. There, they team up with their newfound companion Ruijerd Supardia—the former leader of the Superd's Warrior group—to form \"Dead End,\" a successful adventurer party. Making a name for themselves, the trio journeys across the continent to make their way back home to Fittoa.\nFollowing the advice he received from the faceless god Hitogami, Rudeus saves Kishirika Kishirisu, the Great Emperor of the Demon World, who rewards him by granting him a strange power. Now, as Rudeus masters the powerful ability that offers a number of new opportunities, it might prove to be more than what he bargained for when unexpected dangers threaten to hinder their travels.",
+            "photo_urls": [
+                "movie-details01.jpg",
+                "movie-details02.jpg",
+                "movie-details03.jpg"
+            ],
+            "casts": [
+                {
+                    "name": "Jin Aketagawa",
+                    "profile": "/assets/images/cast/cast01.jpg",
+                    "role": "director"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast02.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast03.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast04.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast05.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast06.jpg",
+                    "role": "supporting"
+                }
+            ],
+            "tags": [
+                "2D",
+                "3D"
+            ]
+        },
+        {
+            "id": 101,
+            "name": "Horror Night",
+            "thumbnail": "movie02.jpg",
+            "banner_url": "banner03.jpg",
+            "language": "ENGLISH, TIẾNG VIỆT",
+            "genre": "HORROR",
+            "released_date": "2021-12-06",
+            "duration_min": "170",
+            "score": "8.66",
+            "trailer_url": "https://www.youtube.com/embed/KGeBMAgc46E",
+            "synopsis": "After the mysterious mana calamity, Rudeus Greyrat and his fierce student Eris Boreas Greyrat are teleported to the Demon Continent. There, they team up with their newfound companion Ruijerd Supardia—the former leader of the Superd's Warrior group—to form \"Dead End,\" a successful adventurer party. Making a name for themselves, the trio journeys across the continent to make their way back home to Fittoa.\nFollowing the advice he received from the faceless god Hitogami, Rudeus saves Kishirika Kishirisu, the Great Emperor of the Demon World, who rewards him by granting him a strange power. Now, as Rudeus masters the powerful ability that offers a number of new opportunities, it might prove to be more than what he bargained for when unexpected dangers threaten to hinder their travels.",
+            "photo_urls": [
+                "movie-details01.jpg",
+                "movie-details02.jpg",
+                "movie-details03.jpg"
+            ],
+            "casts": [
+                {
+                    "name": "Jin Aketagawa",
+                    "profile": "/assets/images/cast/cast01.jpg",
+                    "role": "director"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast02.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast03.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast04.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast05.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast06.jpg",
+                    "role": "supporting"
+                }
+            ],
+            "tags": [
+                "2D",
+                "3D"
+            ]
+        },
+        {
+            "id": 102,
+            "name": "Alone",
+            "thumbnail": "movie03.jpg",
+            "banner_url": "banner03.jpg",
+            "language": "ENGLISH, TIẾNG VIỆT",
+            "genre": "HORROR",
+            "released_date": "2021-12-06",
+            "duration_min": "170",
+            "score": "8.66",
+            "trailer_url": "https://www.youtube.com/embed/KGeBMAgc46E",
+            "synopsis": "After the mysterious mana calamity, Rudeus Greyrat and his fierce student Eris Boreas Greyrat are teleported to the Demon Continent. There, they team up with their newfound companion Ruijerd Supardia—the former leader of the Superd's Warrior group—to form \"Dead End,\" a successful adventurer party. Making a name for themselves, the trio journeys across the continent to make their way back home to Fittoa.\nFollowing the advice he received from the faceless god Hitogami, Rudeus saves Kishirika Kishirisu, the Great Emperor of the Demon World, who rewards him by granting him a strange power. Now, as Rudeus masters the powerful ability that offers a number of new opportunities, it might prove to be more than what he bargained for when unexpected dangers threaten to hinder their travels.",
+            "photo_urls": [
+                "movie-details01.jpg",
+                "movie-details02.jpg",
+                "movie-details03.jpg"
+            ],
+            "casts": [
+                {
+                    "name": "Jin Aketagawa",
+                    "profile": "/assets/images/cast/cast01.jpg",
+                    "role": "director"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast02.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast03.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast04.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast05.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast06.jpg",
+                    "role": "supporting"
+                }
+            ],
+            "tags": [
+                "2D",
+                "3D"
+            ]
+        },
+        {
+            "id": 103,
+            "name": "Mars",
+            "thumbnail": "movie04.jpg",
+            "banner_url": "banner03.jpg",
+            "language": "ENGLISH, TIẾNG VIỆT",
+            "genre": "HORROR",
+            "released_date": "2021-12-06",
+            "duration_min": "170",
+            "score": "8.66",
+            "trailer_url": "https://www.youtube.com/embed/KGeBMAgc46E",
+            "synopsis": "After the mysterious mana calamity, Rudeus Greyrat and his fierce student Eris Boreas Greyrat are teleported to the Demon Continent. There, they team up with their newfound companion Ruijerd Supardia—the former leader of the Superd's Warrior group—to form \"Dead End,\" a successful adventurer party. Making a name for themselves, the trio journeys across the continent to make their way back home to Fittoa.\nFollowing the advice he received from the faceless god Hitogami, Rudeus saves Kishirika Kishirisu, the Great Emperor of the Demon World, who rewards him by granting him a strange power. Now, as Rudeus masters the powerful ability that offers a number of new opportunities, it might prove to be more than what he bargained for when unexpected dangers threaten to hinder their travels.",
+            "photo_urls": [
+                "movie-details01.jpg",
+                "movie-details02.jpg",
+                "movie-details03.jpg"
+            ],
+            "casts": [
+                {
+                    "name": "Jin Aketagawa",
+                    "profile": "/assets/images/cast/cast01.jpg",
+                    "role": "director"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast02.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast03.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast04.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast05.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast06.jpg",
+                    "role": "supporting"
+                }
+            ],
+            "tags": [
+                "2D",
+                "3D"
+            ]
+        },
+        {
+            "id": 104,
+            "name": "Venus",
+            "thumbnail": "movie05.jpg",
+            "banner_url": "banner03.jpg",
+            "language": "ENGLISH, TIẾNG VIỆT",
+            "genre": "HORROR",
+            "released_date": "2021-12-06",
+            "duration_min": "170",
+            "score": "8.66",
+            "trailer_url": "https://www.youtube.com/embed/KGeBMAgc46E",
+            "synopsis": "After the mysterious mana calamity, Rudeus Greyrat and his fierce student Eris Boreas Greyrat are teleported to the Demon Continent. There, they team up with their newfound companion Ruijerd Supardia—the former leader of the Superd's Warrior group—to form \"Dead End,\" a successful adventurer party. Making a name for themselves, the trio journeys across the continent to make their way back home to Fittoa.\nFollowing the advice he received from the faceless god Hitogami, Rudeus saves Kishirika Kishirisu, the Great Emperor of the Demon World, who rewards him by granting him a strange power. Now, as Rudeus masters the powerful ability that offers a number of new opportunities, it might prove to be more than what he bargained for when unexpected dangers threaten to hinder their travels.",
+            "photo_urls": [
+                "movie-details01.jpg",
+                "movie-details02.jpg",
+                "movie-details03.jpg"
+            ],
+            "casts": [
+                {
+                    "name": "Jin Aketagawa",
+                    "profile": "/assets/images/cast/cast01.jpg",
+                    "role": "director"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast02.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast03.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast04.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast05.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast06.jpg",
+                    "role": "supporting"
+                }
+            ],
+            "tags": [
+                "2D",
+                "3D"
+            ]
+        },
+        {
+            "id": 105,
+            "name": "Venus",
+            "thumbnail": "movie06.jpg",
+            "banner_url": "banner03.jpg",
+            "language": "ENGLISH, TIẾNG VIỆT",
+            "genre": "HORROR",
+            "released_date": "2021-12-06",
+            "duration_min": "170",
+            "score": "8.66",
+            "trailer_url": "https://www.youtube.com/embed/KGeBMAgc46E",
+            "synopsis": "After the mysterious mana calamity, Rudeus Greyrat and his fierce student Eris Boreas Greyrat are teleported to the Demon Continent. There, they team up with their newfound companion Ruijerd Supardia—the former leader of the Superd's Warrior group—to form \"Dead End,\" a successful adventurer party. Making a name for themselves, the trio journeys across the continent to make their way back home to Fittoa.\nFollowing the advice he received from the faceless god Hitogami, Rudeus saves Kishirika Kishirisu, the Great Emperor of the Demon World, who rewards him by granting him a strange power. Now, as Rudeus masters the powerful ability that offers a number of new opportunities, it might prove to be more than what he bargained for when unexpected dangers threaten to hinder their travels.",
+            "photo_urls": [
+                "movie-details01.jpg",
+                "movie-details02.jpg",
+                "movie-details03.jpg"
+            ],
+            "casts": [
+                {
+                    "name": "Jin Aketagawa",
+                    "profile": "/assets/images/cast/cast01.jpg",
+                    "role": "director"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast02.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast03.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast04.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast05.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast06.jpg",
+                    "role": "supporting"
+                }
+            ],
+            "tags": [
+                "2D",
+                "3D"
+            ]
+        },
+        {
+            "id": 106,
+            "name": "Venus",
+            "thumbnail": "movie07.jpg",
+            "banner_url": "banner03.jpg",
+            "language": "ENGLISH, TIẾNG VIỆT",
+            "genre": "HORROR",
+            "released_date": "2021-12-06",
+            "duration_min": "170",
+            "score": "8.66",
+            "trailer_url": "https://www.youtube.com/embed/KGeBMAgc46E",
+            "synopsis": "After the mysterious mana calamity, Rudeus Greyrat and his fierce student Eris Boreas Greyrat are teleported to the Demon Continent. There, they team up with their newfound companion Ruijerd Supardia—the former leader of the Superd's Warrior group—to form \"Dead End,\" a successful adventurer party. Making a name for themselves, the trio journeys across the continent to make their way back home to Fittoa.\nFollowing the advice he received from the faceless god Hitogami, Rudeus saves Kishirika Kishirisu, the Great Emperor of the Demon World, who rewards him by granting him a strange power. Now, as Rudeus masters the powerful ability that offers a number of new opportunities, it might prove to be more than what he bargained for when unexpected dangers threaten to hinder their travels.",
+            "photo_urls": [
+                "movie-details01.jpg",
+                "movie-details02.jpg",
+                "movie-details03.jpg"
+            ],
+            "casts": [
+                {
+                    "name": "Jin Aketagawa",
+                    "profile": "/assets/images/cast/cast01.jpg",
+                    "role": "director"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast02.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast03.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast04.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast05.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast06.jpg",
+                    "role": "supporting"
+                }
+            ],
+            "tags": [
+                "2D",
+                "3D"
+            ]
+        },
+        {
+            "id": 107,
+            "name": "Venus",
+            "thumbnail": "movie08.jpg",
+            "banner_url": "banner03.jpg",
+            "language": "ENGLISH, TIẾNG VIỆT",
+            "genre": "HORROR",
+            "released_date": "2021-12-06",
+            "duration_min": "170",
+            "score": "8.66",
+            "trailer_url": "https://www.youtube.com/embed/KGeBMAgc46E",
+            "synopsis": "After the mysterious mana calamity, Rudeus Greyrat and his fierce student Eris Boreas Greyrat are teleported to the Demon Continent. There, they team up with their newfound companion Ruijerd Supardia—the former leader of the Superd's Warrior group—to form \"Dead End,\" a successful adventurer party. Making a name for themselves, the trio journeys across the continent to make their way back home to Fittoa.\nFollowing the advice he received from the faceless god Hitogami, Rudeus saves Kishirika Kishirisu, the Great Emperor of the Demon World, who rewards him by granting him a strange power. Now, as Rudeus masters the powerful ability that offers a number of new opportunities, it might prove to be more than what he bargained for when unexpected dangers threaten to hinder their travels.",
+            "photo_urls": [
+                "movie-details01.jpg",
+                "movie-details02.jpg",
+                "movie-details03.jpg"
+            ],
+            "casts": [
+                {
+                    "name": "Jin Aketagawa",
+                    "profile": "/assets/images/cast/cast01.jpg",
+                    "role": "director"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast02.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast03.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast04.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast05.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast06.jpg",
+                    "role": "supporting"
+                }
+            ],
+            "tags": [
+                "2D",
+                "3D"
+            ]
+        },
+        {
+            "id": 108,
+            "name": "Venus",
+            "thumbnail": "movie09.jpg",
+            "banner_url": "banner03.jpg",
+            "language": "ENGLISH, TIẾNG VIỆT",
+            "genre": "HORROR",
+            "released_date": "2021-12-06",
+            "duration_min": "170",
+            "score": "8.66",
+            "trailer_url": "https://www.youtube.com/embed/KGeBMAgc46E",
+            "synopsis": "After the mysterious mana calamity, Rudeus Greyrat and his fierce student Eris Boreas Greyrat are teleported to the Demon Continent. There, they team up with their newfound companion Ruijerd Supardia—the former leader of the Superd's Warrior group—to form \"Dead End,\" a successful adventurer party. Making a name for themselves, the trio journeys across the continent to make their way back home to Fittoa.\nFollowing the advice he received from the faceless god Hitogami, Rudeus saves Kishirika Kishirisu, the Great Emperor of the Demon World, who rewards him by granting him a strange power. Now, as Rudeus masters the powerful ability that offers a number of new opportunities, it might prove to be more than what he bargained for when unexpected dangers threaten to hinder their travels.",
+            "photo_urls": [
+                "movie-details01.jpg",
+                "movie-details02.jpg",
+                "movie-details03.jpg"
+            ],
+            "casts": [
+                {
+                    "name": "Jin Aketagawa",
+                    "profile": "/assets/images/cast/cast01.jpg",
+                    "role": "director"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast02.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast03.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast04.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast05.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast06.jpg",
+                    "role": "supporting"
+                }
+            ],
+            "tags": [
+                "2D",
+                "3D"
+            ]
+        },
+        {
+            "id": 109,
+            "name": "Venus",
+            "thumbnail": "movie10.jpg",
+            "banner_url": "banner03.jpg",
+            "language": "ENGLISH, TIẾNG VIỆT",
+            "genre": "HORROR",
+            "released_date": "2021-12-06",
+            "duration_min": "170",
+            "score": "8.66",
+            "trailer_url": "https://www.youtube.com/embed/KGeBMAgc46E",
+            "synopsis": "After the mysterious mana calamity, Rudeus Greyrat and his fierce student Eris Boreas Greyrat are teleported to the Demon Continent. There, they team up with their newfound companion Ruijerd Supardia—the former leader of the Superd's Warrior group—to form \"Dead End,\" a successful adventurer party. Making a name for themselves, the trio journeys across the continent to make their way back home to Fittoa.\nFollowing the advice he received from the faceless god Hitogami, Rudeus saves Kishirika Kishirisu, the Great Emperor of the Demon World, who rewards him by granting him a strange power. Now, as Rudeus masters the powerful ability that offers a number of new opportunities, it might prove to be more than what he bargained for when unexpected dangers threaten to hinder their travels.",
+            "photo_urls": [
+                "movie-details01.jpg",
+                "movie-details02.jpg",
+                "movie-details03.jpg"
+            ],
+            "casts": [
+                {
+                    "name": "Jin Aketagawa",
+                    "profile": "/assets/images/cast/cast01.jpg",
+                    "role": "director"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast02.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast03.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast04.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast05.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast06.jpg",
+                    "role": "supporting"
+                }
+            ],
+            "tags": [
+                "2D",
+                "3D"
+            ]
+        },
+        {
+            "id": 110,
+            "name": "Venus",
+            "thumbnail": "movie11.jpg",
+            "banner_url": "banner03.jpg",
+            "language": "ENGLISH, TIẾNG VIỆT",
+            "genre": "HORROR",
+            "released_date": "2021-12-06",
+            "duration_min": "170",
+            "score": "8.66",
+            "trailer_url": "https://www.youtube.com/embed/KGeBMAgc46E",
+            "synopsis": "After the mysterious mana calamity, Rudeus Greyrat and his fierce student Eris Boreas Greyrat are teleported to the Demon Continent. There, they team up with their newfound companion Ruijerd Supardia—the former leader of the Superd's Warrior group—to form \"Dead End,\" a successful adventurer party. Making a name for themselves, the trio journeys across the continent to make their way back home to Fittoa.\nFollowing the advice he received from the faceless god Hitogami, Rudeus saves Kishirika Kishirisu, the Great Emperor of the Demon World, who rewards him by granting him a strange power. Now, as Rudeus masters the powerful ability that offers a number of new opportunities, it might prove to be more than what he bargained for when unexpected dangers threaten to hinder their travels.",
+            "photo_urls": [
+                "movie-details01.jpg",
+                "movie-details02.jpg",
+                "movie-details03.jpg"
+            ],
+            "casts": [
+                {
+                    "name": "Jin Aketagawa",
+                    "profile": "/assets/images/cast/cast01.jpg",
+                    "role": "director"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast02.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast03.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast04.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast05.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast06.jpg",
+                    "role": "supporting"
+                }
+            ],
+            "tags": [
+                "2D",
+                "3D"
+            ]
+        },
+        {
+            "id": 111,
+            "name": "Venus",
+            "thumbnail": "movie12.jpg",
+            "banner_url": "banner03.jpg",
+            "language": "ENGLISH, TIẾNG VIỆT",
+            "genre": "HORROR",
+            "released_date": "2021-12-06",
+            "duration_min": "170",
+            "score": "8.66",
+            "trailer_url": "https://www.youtube.com/embed/KGeBMAgc46E",
+            "synopsis": "After the mysterious mana calamity, Rudeus Greyrat and his fierce student Eris Boreas Greyrat are teleported to the Demon Continent. There, they team up with their newfound companion Ruijerd Supardia—the former leader of the Superd's Warrior group—to form \"Dead End,\" a successful adventurer party. Making a name for themselves, the trio journeys across the continent to make their way back home to Fittoa.\nFollowing the advice he received from the faceless god Hitogami, Rudeus saves Kishirika Kishirisu, the Great Emperor of the Demon World, who rewards him by granting him a strange power. Now, as Rudeus masters the powerful ability that offers a number of new opportunities, it might prove to be more than what he bargained for when unexpected dangers threaten to hinder their travels.",
+            "photo_urls": [
+                "movie-details01.jpg",
+                "movie-details02.jpg",
+                "movie-details03.jpg"
+            ],
+            "casts": [
+                {
+                    "name": "Jin Aketagawa",
+                    "profile": "/assets/images/cast/cast01.jpg",
+                    "role": "director"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast02.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast03.jpg",
+                    "role": "main mc"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast04.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast05.jpg",
+                    "role": "supporting"
+                },
+                {
+                    "name": "abc",
+                    "profile": "/assets/images/cast/cast06.jpg",
+                    "role": "supporting"
+                }
+            ],
+            "tags": [
+                "2D",
+                "3D"
+            ]
+        }
+    ]
+}

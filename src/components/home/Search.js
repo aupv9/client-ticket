@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 export default class Search extends Component {
+
+
+
+  
   render() {
     return (
       <div>
@@ -8,7 +12,7 @@ export default class Search extends Component {
           <div className="container">
             <div
               className="search-tab bg_img"
-              data-background="assets/images/ticket/ticket-bg01.jpg"
+              data-background={ process.env.PUBLIC_URL + "assets/images/ticket/ticket-bg01.jpg"}
             >
               <div className="row align-items-center mb--20">
                 <div className="col-lg-6 mb-20">
@@ -17,7 +21,7 @@ export default class Search extends Component {
                     <h3 className="title">what are you looking for</h3>
                   </div>
                 </div>
-                <div className="col-lg-6 mb-20">
+                {/* <div className="col-lg-6 mb-20">
                   <ul className="tab-menu ticket-tab-menu">
                     <li className="active">
                       <div className="tab-thumb">
@@ -28,26 +32,9 @@ export default class Search extends Component {
                       </div>
                       <span>movie</span>
                     </li>
-                    <li>
-                      <div className="tab-thumb">
-                        <img
-                          src="assets/images/ticket/ticket-tab02.png"
-                          alt="ticket"
-                        />
-                      </div>
-                      <span>events</span>
-                    </li>
-                    <li>
-                      <div className="tab-thumb">
-                        <img
-                          src="assets/images/ticket/ticket-tab03.png"
-                          alt="ticket"
-                        />
-                      </div>
-                      <span>sports</span>
-                    </li>
+                    
                   </ul>
-                </div>
+                </div> */}
               </div>
               <div className="tab-area">
                 <div className="tab-item active">
@@ -60,7 +47,7 @@ export default class Search extends Component {
                     </div>
                     <div className="form-group">
                       <div className="thumb">
-                        <img src="assets/images/ticket/city.png" alt="ticket" />
+                        <img src={ process.env.PUBLIC_URL + "assets/images/ticket/city.png"} alt="ticket" />
                       </div>
                       <span className="type">city</span>
                       <select className="select-bar">
@@ -75,7 +62,7 @@ export default class Search extends Component {
                     </div>
                     <div className="form-group">
                       <div className="thumb">
-                        <img src="assets/images/ticket/date.png" alt="ticket" />
+                        <img src={ process.env.PUBLIC_URL + "assets/images/ticket/date.png"} alt="ticket" />
                       </div>
                       <span className="type">date</span>
                       <select className="select-bar">
@@ -88,7 +75,7 @@ export default class Search extends Component {
                     <div className="form-group">
                       <div className="thumb">
                         <img
-                          src="assets/images/ticket/cinema.png"
+                          src={ process.env.PUBLIC_URL + "assets/images/ticket/cinema.png"}
                           alt="ticket"
                         />
                       </div>
@@ -105,116 +92,8 @@ export default class Search extends Component {
                     </div>
                   </form>
                 </div>
-                <div className="tab-item">
-                  <form className="ticket-search-form">
-                    <div className="form-group large">
-                      <input type="text" placeholder="Search fo Events" />
-                      <button type="submit">
-                        <i className="fas fa-search" />
-                      </button>
-                    </div>
-                    <div className="form-group">
-                      <div className="thumb">
-                        <img src="assets/images/ticket/city.png" alt="ticket" />
-                      </div>
-                      <span className="type">city</span>
-                      <select className="select-bar">
-                        <option value="london">London</option>
-                        <option value="dhaka">dhaka</option>
-                        <option value="rosario">rosario</option>
-                        <option value="madrid">madrid</option>
-                        <option value="koltaka">kolkata</option>
-                        <option value="rome">rome</option>
-                        <option value="khoksa">khoksa</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <div className="thumb">
-                        <img src="assets/images/ticket/date.png" alt="ticket" />
-                      </div>
-                      <span className="type">date</span>
-                      <select className="select-bar">
-                        <option value="26-12-19">23/10/2019</option>
-                        <option value="26-12-19">24/10/2019</option>
-                        <option value="26-12-19">25/10/2019</option>
-                        <option value="26-12-19">26/10/2019</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <div className="thumb">
-                        <img
-                          src="assets/images/ticket/cinema.png"
-                          alt="ticket"
-                        />
-                      </div>
-                      <span className="type">event</span>
-                      <select className="select-bar">
-                        <option value="angular">angular</option>
-                        <option value="startup">startup</option>
-                        <option value="rosario">rosario</option>
-                        <option value="madrid">madrid</option>
-                        <option value="koltaka">kolkata</option>
-                        <option value="Last-First">Last-First</option>
-                        <option value="wish">wish</option>
-                      </select>
-                    </div>
-                  </form>
-                </div>
-                <div className="tab-item">
-                  <form className="ticket-search-form">
-                    <div className="form-group large">
-                      <input type="text" placeholder="Search fo Sports" />
-                      <button type="submit">
-                        <i className="fas fa-search" />
-                      </button>
-                    </div>
-                    <div className="form-group">
-                      <div className="thumb">
-                        <img src="assets/images/ticket/city.png" alt="ticket" />
-                      </div>
-                      <span className="type">city</span>
-                      <select className="select-bar">
-                        <option value="london">London</option>
-                        <option value="dhaka">dhaka</option>
-                        <option value="rosario">rosario</option>
-                        <option value="madrid">madrid</option>
-                        <option value="koltaka">kolkata</option>
-                        <option value="rome">rome</option>
-                        <option value="khoksa">khoksa</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <div className="thumb">
-                        <img src="assets/images/ticket/date.png" alt="ticket" />
-                      </div>
-                      <span className="type">date</span>
-                      <select className="select-bar">
-                        <option value="26-12-19">23/10/2019</option>
-                        <option value="26-12-19">24/10/2019</option>
-                        <option value="26-12-19">25/10/2019</option>
-                        <option value="26-12-19">26/10/2019</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <div className="thumb">
-                        <img
-                          src="assets/images/ticket/cinema.png"
-                          alt="ticket"
-                        />
-                      </div>
-                      <span className="type">sports</span>
-                      <select className="select-bar">
-                        <option value="football">football</option>
-                        <option value="cricket">cricket</option>
-                        <option value="cabadi">cabadi</option>
-                        <option value="madrid">madrid</option>
-                        <option value="gadon">gadon</option>
-                        <option value="rome">rome</option>
-                        <option value="khoksa">khoksa</option>
-                      </select>
-                    </div>
-                  </form>
-                </div>
+              
+               
               </div>
             </div>
           </div>

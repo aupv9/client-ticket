@@ -6,62 +6,53 @@ export default class Login extends Component {
       <div>
         <section
           className="account-section bg_img"
-          data-background = "http://pixner.net/boleto/demo/assets/images/account/account-bg.jpg"
+          data-background={
+            process.env.PUBLIC_URL + "/assets/images/account/account-bg.jpg"
+          }
         >
           <div className="container">
             <div className="padding-top padding-bottom">
               <div className="account-area">
                 <div className="section-header-3">
-                  <span className="cate">welcome</span>
-                  <h2 className="title">to Boleto </h2>
+                  <span className="cate">hello</span>
+                  <h2 className="title">welcome back</h2>
                 </div>
                 <form className="account-form">
                   <div className="form-group">
-                    <label htmlFor="email1">
+                    <label htmlFor="email2">
                       Email<span>*</span>
                     </label>
                     <input
                       type="text"
                       placeholder="Enter Your Email"
-                      id="email1"
+                      id="email2"
                       required
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="pass1">
+                    <label htmlFor="pass3">
                       Password<span>*</span>
                     </label>
                     <input
                       type="password"
                       placeholder="Password"
-                      id="pass1"
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="pass2">
-                      Confirm Password<span>*</span>
-                    </label>
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      id="pass2"
+                      id="pass3"
                       required
                     />
                   </div>
                   <div className="form-group checkgroup">
-                    <input type="checkbox" id="bal" required defaultChecked />
-                    <label htmlFor="bal">
-                      I agree to the <a href="#0">Terms, Privacy Policy</a> and{" "}
-                      <a href="#0">Fees</a>
-                    </label>
+                    <input type="checkbox" id="bal2" required defaultChecked />
+                    <label htmlFor="bal2">remember password</label>
+                    <a href="#0" className="forget-pass">
+                      Forget Password
+                    </a>
                   </div>
                   <div className="form-group text-center">
-                    <input type="submit" defaultValue="Sign Up" />
+                    <input type="submit" defaultValue="log in" />
                   </div>
                 </form>
                 <div className="option">
-                  Already have an account? <a href="sign-in.html">Login</a>
+                  Don't have an account? <a href="sign-up.html">sign up now</a>
                 </div>
                 <div className="or">
                   <span>Or</span>
@@ -80,6 +71,13 @@ export default class Login extends Component {
                   <li>
                     <a href="#0">
                       <i className="fab fa-google" />
+                      {/* <GoogleLogin
+                        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                        buttonText="Log in with Google"
+                        onSuccess={handleLogin}
+                        onFailure={handleLogin}
+                        cookiePolicy={"single_host_origin"}
+                      /> */}
                     </a>
                   </li>
                 </ul>
@@ -91,3 +89,17 @@ export default class Login extends Component {
     );
   }
 }
+
+const handleLogin = async (googleData) => {
+  const res = await fetch("/api/v1/auth/google", {
+    method: "POST",
+    body: JSON.stringify({
+      token: googleData.tokenId,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await res.json();
+  // store returned user somehow
+};
