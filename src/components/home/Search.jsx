@@ -1,10 +1,27 @@
 import React, { Component } from "react";
+import LocationService from "../../services/LocationService";
 
 export default class Search extends Component {
+  constructor(props) {
+    super(props);
+    // this.onChangeSearchName = this.onChangeSearchName.bind(this);
+    // this.retrieveMovies = this.retrieveMovies.bind(this);
+    // this.searchMovie = this.searchMovie.bind(this);
+
+    this.state = {
+      locations: [],
+      // searchTitle: "",
+    };
+  }
+
+  componentDidMount() {
+    LocationService.getAll().then((res) => {
+      this.setState({ locations: res.data });
+      console.log(res.data);
+    });
+  }
 
 
-
-  
   render() {
     return (
       <div>
@@ -12,7 +29,9 @@ export default class Search extends Component {
           <div className="container">
             <div
               className="search-tab bg_img"
-              data-background={ process.env.PUBLIC_URL + "assets/images/ticket/ticket-bg01.jpg"}
+              data-background={
+                process.env.PUBLIC_URL + "assets/images/ticket/ticket-bg01.jpg"
+              }
             >
               <div className="row align-items-center mb--20">
                 <div className="col-lg-6 mb-20">
@@ -47,22 +66,37 @@ export default class Search extends Component {
                     </div>
                     <div className="form-group">
                       <div className="thumb">
-                        <img src={ process.env.PUBLIC_URL + "assets/images/ticket/city.png"} alt="ticket" />
+                        <img
+                          src={
+                            process.env.PUBLIC_URL +
+                            "assets/images/ticket/city.png"
+                          }
+                          alt="ticket"
+                        />
                       </div>
                       <span className="type">city</span>
                       <select className="select-bar">
-                        <option value="london">London</option>
+                        {this.state.locations.map((location, key) => {
+                          return <option value={key}>{location.name}</option>;
+                        })}
+                        {/* <option value="london">London</option>
                         <option value="dhaka">dhaka</option>
                         <option value="rosario">rosario</option>
                         <option value="madrid">madrid</option>
                         <option value="koltaka">kolkata</option>
                         <option value="rome">rome</option>
-                        <option value="khoksa">khoksa</option>
+                        <option value="khoksa">khoksa</option> */}
                       </select>
                     </div>
                     <div className="form-group">
                       <div className="thumb">
-                        <img src={ process.env.PUBLIC_URL + "assets/images/ticket/date.png"} alt="ticket" />
+                        <img
+                          src={
+                            process.env.PUBLIC_URL +
+                            "assets/images/ticket/date.png"
+                          }
+                          alt="ticket"
+                        />
                       </div>
                       <span className="type">date</span>
                       <select className="select-bar">
@@ -75,7 +109,10 @@ export default class Search extends Component {
                     <div className="form-group">
                       <div className="thumb">
                         <img
-                          src={ process.env.PUBLIC_URL + "assets/images/ticket/cinema.png"}
+                          src={
+                            process.env.PUBLIC_URL +
+                            "assets/images/ticket/cinema.png"
+                          }
                           alt="ticket"
                         />
                       </div>
@@ -92,8 +129,6 @@ export default class Search extends Component {
                     </div>
                   </form>
                 </div>
-              
-               
               </div>
             </div>
           </div>

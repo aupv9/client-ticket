@@ -7,7 +7,7 @@ import MovieService from "../../services/MovieService";
 export class MovieDetail extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       id: this.props.match.params.id,
       movie: {},
@@ -21,7 +21,6 @@ export class MovieDetail extends Component {
     //   this.setState({ movie: res.data });
     //   console.log(this.state);
     // });
-
   }
 
   componentDidMount() {
@@ -34,8 +33,8 @@ export class MovieDetail extends Component {
   render() {
     return (
       <div>
-        <BannerMovieDetail movie= {this.state.movie}></BannerMovieDetail>
-        <BookMovieDetail ></BookMovieDetail>
+        <BannerMovieDetail movie={this.state.movie}></BannerMovieDetail>
+        <BookMovieDetail></BookMovieDetail>
         <MovieDetailContent movie={this.state.movie}></MovieDetailContent>
       </div>
     );

@@ -1,10 +1,85 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component, useState } from "react";
+import { Link, Prompt, Redirect, RedirectProps } from "react-router-dom";
+import * as api from "../services/API_BASE_URL";
 
 export default class Register extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isBlocking: false,
+      isRedirect: false,
+
+      email: '',
+      password: '',
+
+    };
+    // this.email = this.email.bind(this);
+    // this.password = this.password.bind(this);
+    this.isInputChange = this.isInputChange.bind(this);
+    this.register = this.register.bind(this);
+    console.log(this);
+  }
+
+  isInputChange(event) {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+
+    this.setState({
+      isBlocking: value.length > 0,
+      [name]: value
+    })
+
+  }
+
+  register(event) {
+
+    event.preventDefault();
+    // event.target.reset();
+    this.setState({
+      isBlocking: false,
+      isRedirect: false
+    })
+
+    console.log(this.state);
+    if (this.state.email) {
+      fetch(api.register, {
+        method: "post",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password
+        }),
+      })
+        .then((Response) => Response.json())
+        .then((Result) => {
+          if (Result.Status == "Success") 
+            // this.props.history.push("/");
+            console.log("nice!");
+          else alert("Sorrrrrry !!!! Un-authenticated User !!!!!");
+        });
+    }
+  }
+
   render() {
+    if (this.state.isRedirect) {
+      return (
+        <Redirect to="/" />
+      )
+    }
     return (
       <div>
+        <Prompt
+          when={this.state.isBlocking}
+          message={location =>
+            `Are you sure you want to go to ${location.pathname}`
+          }
+        />
+
         <section
           className="account-section bg_img"
           data-background={
@@ -24,6 +99,9 @@ export default class Register extends Component {
                       Email<span>*</span>
                     </label>
                     <input
+                      name="email"
+                      onChange={(event) => this.isInputChange(event)}
+                      value={this.state.email}
                       type="text"
                       placeholder="Enter Your Email"
                       id="email1"
@@ -35,6 +113,9 @@ export default class Register extends Component {
                       Password<span>*</span>
                     </label>
                     <input
+                      name="password"
+                      onChange={(event) => this.isInputChange(event)}
+                      value={this.state.password}
                       type="password"
                       placeholder="Password"
                       id="pass1"
@@ -60,11 +141,16 @@ export default class Register extends Component {
                     </label>
                   </div>
                   <div className="form-group text-center">
-                    <input type="submit" defaultValue="Sign Up" />
+                    <input
+                      onClick={this.register}
+                      onSubmit={(e) => this.register(e)}
+                      type="submit"
+                      defaultValue="Sign Up"
+                    />
                   </div>
                 </form>
                 <div className="option">
-                  Already have an account? <Link to="/login">Login</Link>
+                  Already have an account? <a href="/login">Login</a>
                 </div>
                 <div className="or">
                   <span>Or</span>
