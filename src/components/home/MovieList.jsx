@@ -68,7 +68,12 @@ export default class MoviesList extends Component {
 
   mappingData = () => {
     const movieList = this.state.movies.map((movie, i) => {
-      return <MovieItem key={i} movie={movie}></MovieItem>;
+      return (
+
+
+        <MovieItem key={i} movie={movie}></MovieItem>
+
+      )
     });
     return movieList;
   };
@@ -93,11 +98,11 @@ export default class MoviesList extends Component {
               </div>
               <div className="tab-area mb-30-none">
                 <div className="tab-item active">
-                  <ol className="owl-carousel owl-theme tab-slider">
+                  {/* <Carousel infiniteLoop useKeyboardArrows autoPlay */}
+                  <div className="owl-carousel owl-theme tab-slider">
                     {this.mappingData()}
-
-                 
-                  </ol>
+                  </div>
+                  {/* </Carousel> */}
                 </div>
                 <span>
                   {/* <div className="tab-item">

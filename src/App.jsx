@@ -1,5 +1,3 @@
-import "./App.css";
-
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Home from "./components/home/Home";
 // import Login from "./pages/Login";

@@ -1,19 +1,15 @@
-import http from "../http-common";
 import axios from 'axios';
 import * as api from "./API_BASE_URL";
 
 class MovieService {
-  // getAll = async () => {
-  //   let response = await http.get(api.movies);
-  //   return response.data;
-  // };
 
   getAll = () => {
     return axios.get(api.movies);
   };
 
   getMovieById(movieId) {
-    return axios.get(api.movies + "/" + movieId);
+    // return axios.get(api.movies + "/" + movieId);
+    return axios.get("http://localhost:3000/movies/100");
   }
 
   //     getAll() {

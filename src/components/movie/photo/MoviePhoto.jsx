@@ -1,97 +1,47 @@
 import React, { Component } from "react";
 import MoviePhotoItem from "./MoviePhotoItem";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 export default class MoviePhoto extends Component {
+  constructor(props) {
+    super(props);
 
-  mappingData = () => {
-    if (this.props.photo_urls) {
-      var photoList = this.props.photo_urls.map((item, i) => {
-        return <MoviePhotoItem key={i}>{item}</MoviePhotoItem>;
-      });
+    this.state = {
+      reload: false
+    };
+  }
 
-      return photoList;
-    }
+  mappingDataPhoto = () => {
+    // if (this.props.photo_urls) {
+    //   console.log(this.props.photo_urls);
+    //   var photoList = this.props.photo_urls.map((item, i) => {
+    //     return <MoviePhotoItem key={i}>{item}</MoviePhotoItem>;
+    //   });
+
+    //   return photoList;
+    // }
+
   };
 
   render() {
+    let photoList;
+    if (this.props.photo_urls) {
+      photoList =
+        this.props.photo_urls.map((url) => (
+          // <div>
+            <img src="/assets/images/movie/movie-details02.jpg"
+              alt="movie" />
+          // </div>
+        ))
+
+    }
     return (
-      <div>
-        <h3 className="title">photos</h3>
-        <div className="details-photos owl-carousel">
-          {this.mappingData()}
-      
-          <div>
-            {/* <div className="thumb">
-            <a
-              href={
-                process.env.PUBLIC_URL +
-                "/assets/images/movie/movie-details03.jpg"
-              }
-              className="img-pop"
-            >
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/movie/movie-details03.jpg"
-                }
-                alt="movie"
-              />
-            </a>
-          </div>
-          <div className="thumb">
-            <a
-              href={
-                process.env.PUBLIC_URL +
-                "/assets/images/movie/movie-details01.jpg"
-              }
-              className="img-pop"
-            >
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/movie/movie-details01.jpg"
-                }
-                alt="movie"
-              />
-            </a>
-          </div>
-          <div className="thumb">
-            <a
-              href={
-                process.env.PUBLIC_URL +
-                "/assets/images/movie/movie-details02.jpg"
-              }
-              className="img-pop"
-            >
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/movie/movie-details02.jpg"
-                }
-                alt="movie"
-              />
-            </a>
-          </div>
-          <div className="thumb">
-            <a
-              href={
-                process.env.PUBLIC_URL +
-                "/assets/images/movie/movie-details03.jpg"
-              }
-              className="img-pop"
-            >
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/movie/movie-details03.jpg"
-                }
-                alt="movie"
-              />
-            </a>
-          </div> */}
-          </div>
-        </div>
-      </div>
+      <Carousel showArrows={true}  showThumbs={true} className="details-photos owl-carousel">
+
+        {photoList}
+
+      </Carousel>
     );
   }
 }

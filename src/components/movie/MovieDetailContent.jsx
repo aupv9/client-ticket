@@ -2,10 +2,21 @@ import React, { Component } from "react";
 import MovieOffer from "./details/MovieOffer";
 import MovieTags from "./details/MovieTags";
 import MovieCastList from "./cast/MovieCastList";
-import MoviePhoto from "./photo/MoviePhoto";
+
 import MovieSynopsis from "./MovieSynopsis";
+import MoviePhotoItem from "./photo/MoviePhotoItem";
 
 export default class MovieDetailContent extends Component {
+  mappingDataPhoto = () => {
+    if (this.props.photo_urls) {
+      var photoList = this.props.photo_urls.map((item, i) => {
+        return <MoviePhotoItem key={i}>{item}</MoviePhotoItem>;
+      });
+
+      return photoList;
+    }
+  };
+
   render() {
     return (
       <div>
@@ -18,9 +29,32 @@ export default class MovieDetailContent extends Component {
               </div>
               <div className="col-lg-9 mb-50">
                 <div className="movie-details">
-                  <MoviePhoto
-                    photo_urls={this.props.movie.photo_urls}
-                  ></MoviePhoto>
+                  <h3 className="title">photos</h3>
+
+                  <div className="details-photos owl-carousel">
+
+                    {/* {this.mappingDataPhoto()} */}
+
+                    <div className="thumb">
+                      <a href="assets/images/movie/movie-details01.jpg" className="img-pop">
+                        <img src="assets/images/movie/movie-details01.jpg" alt="movie" />
+                      </a>
+                    </div>
+                    <div className="thumb">
+                      <a href="assets/images/movie/movie-details01.jpg" className="img-pop">
+                        <img src="assets/images/movie/movie-details01.jpg" alt="movie" />
+                      </a>
+                    </div>
+                    <div className="thumb">
+                      <a href="assets/images/movie/movie-details01.jpg" className="img-pop">
+                        <img src="assets/images/movie/movie-details01.jpg" alt="movie" />
+                      </a>
+                    </div>
+
+
+                  </div>
+
+
                   <div className="tab summery-review">
                     <ul className="tab-menu">
                       <li className="active">summery</li>
@@ -30,11 +64,11 @@ export default class MovieDetailContent extends Component {
                     </ul>
                     <div className="tab-area">
                       <div className="tab-item active">
-                        <div className="item">
+                       
                           <MovieSynopsis>
                             {this.props.movie.synopsis}
                           </MovieSynopsis>
-                        </div>
+                       
                         <div className="item">
                           <MovieCastList
                             casts={this.props.movie.casts}

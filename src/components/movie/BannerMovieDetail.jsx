@@ -30,8 +30,8 @@ export default class BannerMovieDetail extends Component {
                 />
                 <a 
                 // onClick={this.watchTrailer("https://www.youtube.com/")}
-                  // href={this.props.movie.trailer_url}
-                  href="https://www.youtube.com"
+                  href={this.props.movie.trailer_url}
+                  // href="https://www.youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="video-not-popup"

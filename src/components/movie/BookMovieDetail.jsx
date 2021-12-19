@@ -1,91 +1,99 @@
-import React from "react";
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
-export default function BookMovieDetail() {
-  return (
-    <div>
-      <section className="book-section bg-one">
-        <div className="container">
-          <div className="book-wrapper offset-lg-3">
-            <div className="left-side">
-              <div className="item">
-                <div className="item-header">
-                  <div className="thumb">
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/images/movie/tomato2.png"
-                      }
-                      alt="movie"
-                    />
+export default class BookMovieDetail extends Component {
+  render() {
+
+    return (
+      <div>
+        <section className="book-section bg-one">
+          <div className="container">
+            <div className="book-wrapper offset-lg-3">
+              <div className="left-side">
+                <div className="item">
+                  <div className="item-header">
+                    <div className="thumb">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/movie/tomato2.png"
+                        }
+                        alt="movie"
+                      />
+                    </div>
+                    <div className="counter-area">
+                      <span
+                        className="counter-item odometer"
+                        data-odometer-final={88}
+                      >
+                        0
+                      </span>
+                    </div>
                   </div>
-                  <div className="counter-area">
-                    <span
-                      className="counter-item odometer"
-                      data-odometer-final={88}
-                    >
-                      0
-                    </span>
-                  </div>
+                  <p>tomatometer</p>
                 </div>
-                <p>tomatometer</p>
-              </div>
-              <div className="item">
-                <div className="item-header">
-                  <div className="thumb">
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/images/movie/cake2.png"
-                      }
-                      alt="movie"
-                    />
+                <div className="item">
+                  <div className="item-header">
+                    <div className="thumb">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/movie/cake2.png"
+                        }
+                        alt="movie"
+                      />
+                    </div>
+                    <div className="counter-area">
+                      <span
+                        className="counter-item odometer"
+                        data-odometer-final={88}
+                      >
+                        0
+                      </span>
+                    </div>
                   </div>
-                  <div className="counter-area">
-                    <span
-                      className="counter-item odometer"
-                      data-odometer-final={88}
-                    >
-                      0
-                    </span>
-                  </div>
+                  <p>audience Score</p>
                 </div>
-                <p>audience Score</p>
-              </div>
-              <div className="item">
-                <div className="item-header">
-                  <h5 className="title">4.5</h5>
-                  <div className="rated">
-                    <i className="fas fa-heart" />
-                    <i className="fas fa-heart" />
-                    <i className="fas fa-heart" />
-                    <i className="fas fa-heart" />
-                    <i className="fas fa-heart" />
+                <div className="item">
+                  <div className="item-header">
+                    <h5 className="title">4.5</h5>
+                    <div className="rated">
+                      <i className="fas fa-heart" />
+                      <i className="fas fa-heart" />
+                      <i className="fas fa-heart" />
+                      <i className="fas fa-heart" />
+                      <i className="fas fa-heart" />
+                    </div>
                   </div>
+                  <p>Users Rating</p>
                 </div>
-                <p>Users Rating</p>
-              </div>
-              <div className="item">
-                <div className="item-header">
-                  <div className="rated rate-it">
-                    <i className="fas fa-heart" />
-                    <i className="fas fa-heart" />
-                    <i className="fas fa-heart" />
-                    <i className="fas fa-heart" />
-                    <i className="fas fa-heart" />
+                <div className="item">
+                  <div className="item-header">
+                    <div className="rated rate-it">
+                      <i className="fas fa-heart" />
+                      <i className="fas fa-heart" />
+                      <i className="fas fa-heart" />
+                      <i className="fas fa-heart" />
+                      <i className="fas fa-heart" />
+                    </div>
+                    <h5 className="title">0.0</h5>
                   </div>
-                  <h5 className="title">0.0</h5>
+                  <p>
+                    <a href="#0">Rate It</a>
+                  </p>
                 </div>
-                <p>
-                  <a href="#0">Rate It</a>
-                </p>
               </div>
-            </div>
-            <a href="#0" className="custom-button">
+              <Link to={
+                  "choose-theater/" +
+                  this.props.movieID
+                }
+                 className="custom-button">
               book tickets
-            </a>
+            </Link>
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
-  );
+        </section>
+      </div>
+    );
+  }
 }

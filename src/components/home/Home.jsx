@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MovieGrid from "../movie/MovieGrid";
 import About from "./About";
 
 import Banner from "./Banner";
@@ -9,10 +10,10 @@ import UserProfile from "./user/UserProfile";
 export default class Home extends Component {
   render() {
     return (
-      <div className="container" id="main-content">
+      <div id="main-content">
         <Banner></Banner>
         <Search></Search>
-        <MoviesList></MoviesList>
+        <MovieGrid></MovieGrid>
         {/* <About /> */}
         {/* <UserProfile /> */}
       </div>

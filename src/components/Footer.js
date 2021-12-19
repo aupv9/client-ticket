@@ -5,7 +5,7 @@ import Newslater from "./footer/Newslater";
 export default class Footer extends Component {
   render() {
     return (
-      <div>
+ 
         <footer className="footer-section">
           <Newslater />
           <div className="container">
@@ -75,7 +75,7 @@ export default class Footer extends Component {
             </div>
           </div>
         </footer>
-      </div>
+     
     );
   }
 }
