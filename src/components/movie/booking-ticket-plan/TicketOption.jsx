@@ -1,6 +1,94 @@
 import React, { Component } from "react";
+import ShowtimeService from "../../../services/ShowtimeService";
+
+import TheaterService from "../../../services/TheaterService";
+import SeatPlanRow from "./SeatPlanRow";
 
 export default class TicketOption extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      // movieId: this.props.movieId,
+      movieId: 100,
+      showtimes: this.props.showtimes,
+      data: []
+    };
+  }
+
+
+  groupBy(list, keyGetter) {
+    if (list) {
+      const map = new Map();
+      list.forEach((item) => {
+        const key = keyGetter(item);
+        const collection = map.get(key);
+        if (!collection) {
+          map.set(key, [item]);
+        } else {
+          collection.push(item);
+        }
+      });
+      return map;
+    }
+  }
+
+  componentDidMount() {
+    ShowtimeService.getShowTimesByMovieId(this.state.movieId).then((res) => {
+      this.setState({
+        showtimes: res.data
+      });
+      console.log(this.state);
+      var showtimes = this.state.showtimes;
+      var grouped = this.groupBy(showtimes, showtime => showtime.theaterId);
+      console.log(grouped);
+      var data = Array.from(grouped);
+      this.setState({
+        data: data
+      })
+      console.log(data);
+    })
+
+    // if (showtimes) {
+    // var grouped = this.groupBy(showtimes, showtime => showtime.theaterId);
+    // var data = Object.fromEntries();
+
+    // if (grouped) {
+    //   var theaters = grouped.map((item) => {
+    //     var theater = item;
+    //     theater.data = this.theaterData(theater.id);
+    //     return theater;
+    //   })
+
+    //   console.log(theaters);
+    // }
+    // }
+
+  }
+
+  theaterData = (theaterId) => {
+    TheaterService.getTheaterById(theaterId).then((res) => {
+      // console.log(res.data);
+      // this.setState({
+      //   grouped: {
+      //     name: res.data
+      //   }
+      // });
+      return res.data;
+    });
+  }
+
+  mappingData = () => {
+    if (this.state.data) {
+      var showtimesTable = this.state.data.map((item, i) => {
+        console.log(item);
+        return <SeatPlanRow key={i} showtime={item}></SeatPlanRow>;
+      });
+
+      return showtimesTable;
+    }
+  };
+
   render() {
     return (
       <div className="ticket-plan-section padding-bottom padding-top">
@@ -8,129 +96,10 @@ export default class TicketOption extends Component {
           <div className="row justify-content-center">
             <div className="col-lg-9 mb-5 mb-lg-0">
               <ul className="seat-plan-wrapper bg-five">
-                <li>
-                  <div className="movie-name">
-                    <div className="icons">
-                      <i className="far fa-heart" />
-                      <i className="fas fa-heart" />
-                    </div>
-                    <a href="#0" className="name">
-                      Genesis Cinema
-                    </a>
-                    <div className="location-icon">
-                      <i className="fas fa-map-marker-alt" />
-                    </div>
-                  </div>
-                  <div className="movie-schedule">
-                    <div className="item">09:40</div>
-                    <div className="item">13:45</div>
-                    <div className="item">15:45</div>
-                    <div className="item">19:50</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="movie-name">
-                    <div className="icons">
-                      <i className="far fa-heart" />
-                      <i className="fas fa-heart" />
-                    </div>
-                    <a href="#0" className="name">
-                      the beach
-                    </a>
-                    <div className="location-icon">
-                      <i className="fas fa-map-marker-alt" />
-                    </div>
-                  </div>
-                  <div className="movie-schedule">
-                    <div className="item">09:40</div>
-                    <div className="item">13:45</div>
-                    <div className="item">15:45</div>
-                    <div className="item">19:50</div>
-                  </div>
-                </li>
-                <li className="active">
-                  <div className="movie-name">
-                    <div className="icons">
-                      <i className="far fa-heart" />
-                      <i className="fas fa-heart" />
-                    </div>
-                    <a href="#0" className="name">
-                      city work
-                    </a>
-                    <div className="location-icon">
-                      <i className="fas fa-map-marker-alt" />
-                    </div>
-                  </div>
-                  <div className="movie-schedule">
-                    <div className="item">09:40</div>
-                    <div className="item active">13:45</div>
-                    <div className="item">15:45</div>
-                    <div className="item">19:50</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="movie-name">
-                    <div className="icons">
-                      <i className="far fa-heart" />
-                      <i className="fas fa-heart" />
-                    </div>
-                    <a href="#0" className="name">
-                      box park
-                    </a>
-                    <div className="location-icon">
-                      <i className="fas fa-map-marker-alt" />
-                    </div>
-                  </div>
-                  <div className="movie-schedule">
-                    <div className="item">09:40</div>
-                    <div className="item">13:45</div>
-                    <div className="item">15:45</div>
-                    <div className="item">19:50</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="movie-name">
-                    <div className="icons">
-                      <i className="far fa-heart" />
-                      <i className="fas fa-heart" />
-                    </div>
-                    <a href="#0" className="name">
-                      la mer
-                    </a>
-                    <div className="location-icon">
-                      <i className="fas fa-map-marker-alt" />
-                    </div>
-                  </div>
-                  <div className="movie-schedule">
-                    <div className="item">09:40</div>
-                    <div className="item">13:45</div>
-                    <div className="item">15:45</div>
-                    <div className="item">19:50</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="movie-name">
-                    <div className="icons">
-                      <i className="far fa-heart" />
-                      <i className="fas fa-heart" />
-                    </div>
-                    <a href="#0" className="name">
-                      wanted
-                    </a>
-                    <div className="location-icon">
-                      <i className="fas fa-map-marker-alt" />
-                    </div>
-                  </div>
-                  <div className="movie-schedule">
-                    <div className="item">09:40</div>
-                    <div className="item">13:45</div>
-                    <div className="item">15:45</div>
-                    <div className="item">19:50</div>
-                  </div>
-                </li>
+                {this.mappingData()}
               </ul>
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-10">
+            {/* <div className="col-lg-3 col-md-6 col-sm-10">
               <div className="widget-1 widget-banner">
                 <div className="widget-1-body">
                   <a href="#0">
@@ -141,7 +110,7 @@ export default class TicketOption extends Component {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

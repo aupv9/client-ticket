@@ -8,8 +8,8 @@ class MovieService {
   };
 
   getMovieById(movieId) {
-    // return axios.get(api.movies + "/" + movieId);
-    return axios.get("http://localhost:3000/movies/100");
+    return axios.get(api.movies + "/" + movieId);
+    // return axios.get("http://localhost:3000/movies/100");
   }
 
   //     getAll() {

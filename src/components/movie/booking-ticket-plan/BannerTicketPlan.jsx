@@ -6,7 +6,7 @@ export default class BannerTicketPlan extends Component {
       <section
         className="details-banner hero-area bg_img"
         // data-background="assets/images/banner/banner03.jpg"
-        data-background={process.env.PUBLIC_URL + "assets/images/banner/" + this.props.movie.banner_url}
+        data-background={"/assets/images/banner/" + this.props.movie.banner_url}
       >
         <div className="container">
           <div className="details-banner-wrapper">

@@ -69,10 +69,7 @@ export default class MoviesList extends Component {
   mappingData = () => {
     const movieList = this.state.movies.map((movie, i) => {
       return (
-
-
         <MovieItem key={i} movie={movie}></MovieItem>
-
       )
     });
     return movieList;

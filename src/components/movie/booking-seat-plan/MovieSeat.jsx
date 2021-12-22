@@ -1,6 +1,70 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import SeatService from "../../../services/SeatService";
+import ShowtimeService from "../../../services/ShowtimeService";
+import SeatItem from "./SeatItem";
 
 export default class MovieSeat extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showtimeId: this.props.showtimeId,
+      seats: [],
+      showtime: {},
+      seatsPerRow: 10,
+      bookedSeats: []
+    };
+    console.log(this.props);
+  }
+
+  componentDidMount() {
+    ShowtimeService.getShowTimeById(this.state.showtimeId).then((res) => {
+      this.setState({ showtime: res.data });
+      SeatService.getSeatsByRoomIdandShowtimeId(this.state.showtime.roomId, this.state.showtimeId).then((res) => {
+        this.setState({ seats: res.data });
+        console.log(this.state);
+      });
+    })
+  }
+
+  handleCallback = (number, isBooked) => {
+    var seatStatus = this.state.bookedSeats;
+    if (isBooked) {
+      if (!this.state.bookedSeats.includes(number)) {
+        seatStatus.push(number);
+
+        this.setState({ bookedSeats: seatStatus })
+
+      }
+
+    } else {
+      seatStatus = seatStatus.filter(x => x !== number);
+
+
+      this.setState({ bookedSeats: seatStatus })
+    }
+  }
+
+  mappingData(tier) {
+    if (this.state.seats) {
+      var temp = (tier - 1) * 10;
+      var data = this.state.seats.slice(temp, temp + this.state.seatsPerRow)
+      var rowOfSeat = data.map((item, i) => {
+        return (
+          <SeatItem parentCallback={this.handleCallback} number={item.numbers} key={i} isSelected={item.isSelected} />
+        )
+      })
+      return rowOfSeat;
+    }
+  }
+
+  proceed() {
+    // console.log(this.state.bookedSeats);
+    localStorage.setItem ('seats', this.state.bookedSeats);
+    console.log(localStorage.getItem('seats'));
+  }
+
   render() {
     return (
       <div className="seat-plan-section padding-bottom padding-top">
@@ -8,222 +72,51 @@ export default class MovieSeat extends Component {
           <div className="screen-area">
             <h4 className="screen">screen</h4>
             <div className="screen-thumb">
-              <img src="assets/images/movie/screen-thumb.png" alt="movie" />
+              <img src="/assets/images/movie/screen-thumb.png" alt="movie" />
             </div>
             <h5 className="subtitle">silver plus</h5>
             <div className="screen-wrapper">
               <ul className="seat-area">
+
                 <li className="seat-line">
-                  <span>G</span>
+                  <span>h</span>
                   <ul className="seat--area">
                     <li className="front-seat">
                       <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
+                        {this.mappingData(8)}
                       </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                      </ul>
+
                     </li>
                   </ul>
-                  <span>G</span>
+                  <span>h</span>
+                </li>
+                <li className="seat-line">
+                  <span>g</span>
+                  <ul className="seat--area">
+                    <li className="front-seat">
+                      <ul>
+                        {this.mappingData(7)}
+                      </ul>
+
+                    </li>
+                  </ul>
+                  <span>g</span>
                 </li>
                 <li className="seat-line">
                   <span>f</span>
                   <ul className="seat--area">
                     <li className="front-seat">
                       <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
+                        {this.mappingData(6)}
                       </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat seat-free">
-                          <img
-                            src="assets/images/movie/seat01-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">f7</span>
-                        </li>
-                        <li className="single-seat seat-free">
-                          <img
-                            src="assets/images/movie/seat01-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">f8</span>
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat seat-free">
-                          <img
-                            src="assets/images/movie/seat01-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">f9</span>
-                        </li>
-                        <li className="single-seat seat-free">
-                          <img
-                            src="assets/images/movie/seat01-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">f10</span>
-                        </li>
-                        <li className="single-seat seat-free">
-                          <img
-                            src="assets/images/movie/seat01-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">f11</span>
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat01.png"
-                            alt="seat"
-                          />
-                        </li>
-                      </ul>
+
                     </li>
                   </ul>
                   <span>f</span>
                 </li>
               </ul>
             </div>
+
             <div className="screen-wrapper">
               <ul className="seat-area">
                 <li className="seat-line">
@@ -231,57 +124,9 @@ export default class MovieSeat extends Component {
                   <ul className="seat--area">
                     <li className="front-seat">
                       <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
+                        {this.mappingData(5)}
                       </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                      </ul>
+
                     </li>
                   </ul>
                   <span>e</span>
@@ -291,58 +136,9 @@ export default class MovieSeat extends Component {
                   <ul className="seat--area">
                     <li className="front-seat">
                       <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
+                        {this.mappingData(4)}
                       </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat seat-free-two">
-                          <img
-                            src="assets/images/movie/seat02-booked.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">D7 D8</span>
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                      </ul>
+
                     </li>
                   </ul>
                   <span>d</span>
@@ -352,58 +148,9 @@ export default class MovieSeat extends Component {
                   <ul className="seat--area">
                     <li className="front-seat">
                       <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
+                        {this.mappingData(3)}
                       </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat seat-free-two">
-                          <img
-                            src="assets/images/movie/seat02-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">f11 f12</span>
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                      </ul>
+
                     </li>
                   </ul>
                   <span>c</span>
@@ -413,58 +160,9 @@ export default class MovieSeat extends Component {
                   <ul className="seat--area">
                     <li className="front-seat">
                       <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
+                        {this.mappingData(2)}
                       </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat seat-free-two">
-                          <img
-                            src="assets/images/movie/seat02-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">b7 b8</span>
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                        <li className="single-seat">
-                          <img
-                            src="assets/images/movie/seat02.png"
-                            alt="seat"
-                          />
-                        </li>
-                      </ul>
+
                     </li>
                   </ul>
                   <span>b</span>
@@ -474,64 +172,9 @@ export default class MovieSeat extends Component {
                   <ul className="seat--area">
                     <li className="front-seat">
                       <ul>
-                        <li className="single-seat seat-free-two">
-                          <img
-                            src="assets/images/movie/seat02-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">a1 a2</span>
-                        </li>
-                        <li className="single-seat seat-free-two">
-                          <img
-                            src="assets/images/movie/seat02-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">a3 a4</span>
-                        </li>
+                        {this.mappingData(1)}
                       </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat seat-free-two">
-                          <img
-                            src="assets/images/movie/seat02-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">a5 a6</span>
-                        </li>
-                        <li className="single-seat seat-free-two">
-                          <img
-                            src="assets/images/movie/seat02-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">a7 a8</span>
-                        </li>
-                        <li className="single-seat seat-free-two">
-                          <img
-                            src="assets/images/movie/seat02-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">a9 a10</span>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="front-seat">
-                      <ul>
-                        <li className="single-seat seat-free-two">
-                          <img
-                            src="assets/images/movie/seat02-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">a11</span>
-                        </li>
-                        <li className="single-seat seat-free-two">
-                          <img
-                            src="assets/images/movie/seat02-free.png"
-                            alt="seat"
-                          />
-                          <span className="sit-num">a12</span>
-                        </li>
-                      </ul>
+
                     </li>
                   </ul>
                   <span>a</span>
@@ -553,9 +196,9 @@ export default class MovieSeat extends Component {
                 <h3 className="title">$150</h3>
               </div>
               <div className="book-item">
-                <a href="movie-checkout.html" className="custom-button">
+                <Link onClick={this.proceed()} to={"/choose-foods/" + this.state.showtimeId} className="custom-button">
                   proceed
-                </a>
+                </Link>
               </div>
             </div>
           </div>

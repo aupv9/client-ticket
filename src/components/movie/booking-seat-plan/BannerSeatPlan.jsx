@@ -5,7 +5,7 @@ export default class BannerSeatPlan extends Component {
     return (
       <section
         className="details-banner hero-area bg_img seat-plan-banner"
-        data-background="assets/images/banner/banner04.jpg"
+        data-background="/assets/images/banner/banner04.jpg"
       >
         <div className="container">
           <div className="details-banner-wrapper">

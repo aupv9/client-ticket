@@ -1,165 +1,62 @@
 import React, { Component } from "react";
+import FoolService from "../../../services/FoolService";
+import MovieService from "../../../services/MovieService";
+import ShowtimeService from "../../../services/ShowtimeService";
+import FoodItem from "./FoodItem";
 
 export default class BookingFood extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      id: this.props.match.params.id,
+      foods: [],
+      showTimes: {},
+      movie: {}
+    };
+    console.log(this.props);
+  }
+
+  componentDidMount() {
+    FoolService.getFoods().then((res) => {
+      this.setState({ foods: res.data });
+    })
+
+    ShowtimeService.getShowTimeById(this.state.id).then((res) => {
+      this.setState({ showTimes: res.data });
+
+      MovieService.getMovieById(res.data.movieId).then((res) => {
+        this.setState({ movie: res.data });
+      })
+    })
+  }
+
+  mappingData() {
+    if (this.state.foods) {
+      var foodList = this.state.foods.map((item, i) => {
+        return (
+          <FoodItem key={i} food={item}></FoodItem>
+        )
+      })
+      return foodList;
+    }
+  }
+
+
   render() {
     return (
       <div className="movie-facility padding-bottom padding-top">
         <div className="container">
           <div className="row">
             <div className="col-lg-8">
-              <div className="c-thumb padding-bottom">
-                <img
-                  src="assets/images/sidebar/banner/banner04.jpg"
-                  alt="sidebar/banner"
-                />
-              </div>
               <div className="section-header-3">
                 <span className="cate">You're hungry</span>
                 <h2 className="title">we have food</h2>
                 <p>Prebook Your Meal and Save More!</p>
               </div>
               <div className="grid--area">
-                <ul className="filter">
-                  <li data-filter="*" className="active">
-                    all
-                  </li>
-                  <li data-filter=".combos">combos</li>
-                  <li data-filter=".bevarage">bevarage</li>
-                  <li data-filter=".popcorn">popcorn</li>
-                </ul>
                 <div className="grid-area">
-                  <div className="grid-item combos popcorn">
-                    <div className="grid-inner">
-                      <div className="grid-thumb">
-                        <img
-                          src="assets/images/movie/popcorn/pop1.png"
-                          alt="movie/popcorn"
-                        />
-                        <div className="offer-tag">$57</div>
-                        <div className="offer-remainder">
-                          <h6 className="o-title mt-0">24%</h6>
-                          <span>off</span>
-                        </div>
-                      </div>
-                      <div className="grid-content">
-                        <h5 className="subtitle">
-                          <a href="#0">Muchaco, Crispy Taco, Bean Burrito</a>
-                        </h5>
-                        <form className="cart-button">
-                          <div className="cart-plus-minus">
-                            <input
-                              className="cart-plus-minus-box"
-                              type="text"
-                              name="qtybutton"
-                              defaultValue={2}
-                            />
-                          </div>
-                          <button type="submit" className="custom-button">
-                            add
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="grid-item bevarage">
-                    <div className="grid-inner">
-                      <div className="grid-thumb">
-                        <img
-                          src="assets/images/movie/popcorn/pop2.png"
-                          alt="movie/popcorn"
-                        />
-                        <div className="offer-tag">$57</div>
-                        <div className="offer-remainder">
-                          <h6 className="o-title mt-0">24%</h6>
-                          <span>off</span>
-                        </div>
-                      </div>
-                      <div className="grid-content">
-                        <h5 className="subtitle">
-                          <a href="#0">Crispy Beef Taco, Beef Mucho Nachos</a>
-                        </h5>
-                        <form className="cart-button">
-                          <div className="cart-plus-minus">
-                            <input
-                              className="cart-plus-minus-box"
-                              type="text"
-                              name="qtybutton"
-                              defaultValue={2}
-                            />
-                          </div>
-                          <button type="submit" className="custom-button">
-                            add
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="grid-item combos">
-                    <div className="grid-inner">
-                      <div className="grid-thumb">
-                        <img
-                          src="assets/images/movie/popcorn/pop3.png"
-                          alt="movie/popcorn"
-                        />
-                        <div className="offer-tag">$57</div>
-                        <div className="offer-remainder">
-                          <h6 className="o-title mt-0">24%</h6>
-                          <span>off</span>
-                        </div>
-                      </div>
-                      <div className="grid-content">
-                        <h5 className="subtitle">
-                          <a href="#0">Chicken Quesadilla Crispy Beef Taco</a>
-                        </h5>
-                        <form className="cart-button">
-                          <div className="cart-plus-minus">
-                            <input
-                              className="cart-plus-minus-box"
-                              type="text"
-                              name="qtybutton"
-                              defaultValue={2}
-                            />
-                          </div>
-                          <button type="submit" className="custom-button">
-                            add
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="grid-item bevarage popcorn">
-                    <div className="grid-inner">
-                      <div className="grid-thumb">
-                        <img
-                          src="assets/images/movie/popcorn/pop4.png"
-                          alt="movie/popcorn"
-                        />
-                        <div className="offer-tag">$57</div>
-                        <div className="offer-remainder">
-                          <h6 className="o-title mt-0">24%</h6>
-                          <span>off</span>
-                        </div>
-                      </div>
-                      <div className="grid-content">
-                        <h5 className="subtitle">
-                          <a href="#0">MexiDips &amp; Chips, Beef Muchaco</a>
-                        </h5>
-                        <form className="cart-button">
-                          <div className="cart-plus-minus">
-                            <input
-                              className="cart-plus-minus-box"
-                              type="text"
-                              name="qtybutton"
-                              defaultValue={2}
-                            />
-                          </div>
-                          <button type="submit" className="custom-button">
-                            add
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
+                  {this.mappingData()}
                 </div>
               </div>
             </div>
@@ -168,8 +65,8 @@ export default class BookingFood extends Component {
                 <h4 className="title">booking summery</h4>
                 <ul>
                   <li>
-                    <h6 className="subtitle">Venus</h6>
-                    <span className="info">English-2d</span>
+                    <h6 className="subtitle">{this.movie.name}</h6>
+                    <span className="info">Tiếng Việt - 2D</span>
                   </li>
                   <li>
                     <h6 className="subtitle">
