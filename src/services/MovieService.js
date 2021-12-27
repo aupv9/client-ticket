@@ -3,8 +3,16 @@ import * as api from "./API_BASE_URL";
 
 class MovieService {
 
-  getAll = () => {
-    return axios.get(api.movies);
+  getAll = async () => {
+    return await axios.get(api.movies);
+  };
+
+  getComingSoon = async () => {
+    return await axios.get(api.comingSoon);
+  };
+
+  getNowShowing = async () => {
+    return await axios.get(api.nowShowing);
   };
 
   getMovieById(movieId) {

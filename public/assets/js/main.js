@@ -37,7 +37,7 @@
   });
   $(document).ready(function () {
     // Nice Select
-    $('.select-bar').niceSelect();
+    $('.select-barr').niceSelect();
     // Lightcase 
     $('.video-popup').magnificPopup({
         type: 'iframe',

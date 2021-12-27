@@ -1,6 +1,27 @@
 import React, { Component } from 'react'
 
 export default class FoodItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: 1 };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    console.log(event.target.value);
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(this.state.value);
+    console.log(this.props.food.id);
+    this.props.parentCallback(this.props.food.id, this.state.value);
+
+  }
+
   formatCurrency(n) {
     var temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     return temp.slice(0, temp.length - 2) + ' vnd';
@@ -25,17 +46,18 @@ export default class FoodItem extends Component {
             <h5 className="subtitle">
               <a href="#0">{this.props.food.name}</a>
             </h5>
-            <form className="cart-button">
+            <form onSubmit={this.handleSubmit} className="cart-button">
               <div className="cart-plus-minus">
                 <input
                   className="cart-plus-minus-box"
                   type="text"
                   name="qtybutton"
-                  defaultValue={1}
+                  defaultValue={this.state.value}
+                  onChange={this.handleChange}
                 />
               </div>
-              <button type="submit" className="custom-button">
-                add
+              <button type="submit" value="Submit" className="custom-button">
+                Chọn
               </button>
             </form>
           </div>

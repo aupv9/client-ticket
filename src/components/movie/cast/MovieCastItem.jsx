@@ -5,7 +5,7 @@ export default class MovieCastItem extends Component {
     return (
       <div className="cast-item">
         <div className="cast-thumb">
-          <a href="#0">
+        
             <img
               src={
                 // process.env.PUBLIC_URL +
@@ -14,11 +14,10 @@ export default class MovieCastItem extends Component {
               }
               alt="cast"
             />
-          </a>
+      
         </div>
         <div className="cast-content">
           <h6 className="cast-title">
-            {/* <a href="#0">Bill Hader</a> */}
             <a href="#0">{this.props.cast.name}</a>
           </h6>
           {/* <span className="cate">actor</span> */}

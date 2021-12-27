@@ -14,7 +14,7 @@ export default class SeatPlan extends Component {
             seats: {},
             showtime: {}
         };
-        console.log(this.props);
+        console.log(this.state.id);
     }
 
     componentDidMount() {
@@ -32,8 +32,8 @@ export default class SeatPlan extends Component {
     render() {
         return (
             <div>
-                <BannerSeatPlan></BannerSeatPlan>
-                <TimeFilterSeatPlan></TimeFilterSeatPlan>
+                <BannerSeatPlan showtimeId = {this.state.id}></BannerSeatPlan>
+                {/* <TimeFilterSeatPlan></TimeFilterSeatPlan> */}
                 <MovieSeat showtimeId = {this.state.id}></MovieSeat>
             </div>
         )

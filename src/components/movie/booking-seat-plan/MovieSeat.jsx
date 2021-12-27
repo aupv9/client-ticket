@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SeatService from "../../../services/SeatService";
 import ShowtimeService from "../../../services/ShowtimeService";
+import ChosenSeatList from "./ChosenSeatList";
 import SeatItem from "./SeatItem";
+import TotalPrice from "./TotalPrice";
 
 export default class MovieSeat extends Component {
   constructor(props) {
@@ -16,6 +18,10 @@ export default class MovieSeat extends Component {
       bookedSeats: []
     };
     console.log(this.props);
+    localStorage.removeItem('seats');
+    console.log(localStorage.getItem('movieId'));
+
+    this.proceed = this.proceed.bind(this);
   }
 
   componentDidMount() {
@@ -33,17 +39,13 @@ export default class MovieSeat extends Component {
     if (isBooked) {
       if (!this.state.bookedSeats.includes(number)) {
         seatStatus.push(number);
-
         this.setState({ bookedSeats: seatStatus })
-
       }
-
     } else {
       seatStatus = seatStatus.filter(x => x !== number);
-
-
       this.setState({ bookedSeats: seatStatus })
     }
+
   }
 
   mappingData(tier) {
@@ -60,9 +62,12 @@ export default class MovieSeat extends Component {
   }
 
   proceed() {
-    // console.log(this.state.bookedSeats);
-    localStorage.setItem ('seats', this.state.bookedSeats);
-    console.log(localStorage.getItem('seats'));
+    if (this.state.bookedSeats) {
+      // console.log(this.state.bookedSeats);
+      localStorage.removeItem('seats');
+      localStorage.setItem('seats', JSON.stringify(this.state.bookedSeats));
+      console.log(JSON.parse(localStorage.getItem('seats')));
+    }
   }
 
   render() {
@@ -184,19 +189,13 @@ export default class MovieSeat extends Component {
           </div>
           <div
             className="proceed-book bg_img"
-            data-background="assets/images/movie/movie-bg-proceed.jpg"
+            data-background="/assets/images/movie/movie-bg-proceed.jpg"
           >
             <div className="proceed-to-book">
+              <ChosenSeatList bookedSeats={this.state.bookedSeats}/>
+              <TotalPrice price={this.state.bookedSeats.length * this.state.showtime.price} />
               <div className="book-item">
-                <span>You have Choosed Seat</span>
-                <h3 className="title">d9, d10</h3>
-              </div>
-              <div className="book-item">
-                <span>total price</span>
-                <h3 className="title">$150</h3>
-              </div>
-              <div className="book-item">
-                <Link onClick={this.proceed()} to={"/choose-foods/" + this.state.showtimeId} className="custom-button">
+                <Link onClick={this.proceed} to={"/choose-foods/" + this.state.showtimeId} className="custom-button">
                   proceed
                 </Link>
               </div>

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export default class BannerMovieDetail extends Component {
   watchTrailer = (url) => {
-    console.log(url);
     window.open(url);
   };
 
@@ -13,10 +12,12 @@ export default class BannerMovieDetail extends Component {
       <div>
         <section
           className="details-banner bg_img"
+          style={{backgroundImage: `url("${"/assets/images/banner/" + this.props.movie.banner_url}")`}} 
           data-background={
             process.env.PUBLIC_URL +
-            "/assets/images/banner/" +
-            this.props.movie.banner_url
+            "/assets/images/banner/"
+            // + "banner04.jpg"
+            + this.props.movie.banner_url
           }
         >
           <div className="container">
@@ -24,13 +25,15 @@ export default class BannerMovieDetail extends Component {
               <div className="details-banner-thumb">
                 <img
                   src={
-                    process.env.PUBLIC_URL + "/assets/images/movie/venus.jpg"
+                    process.env.PUBLIC_URL + 
+                    "/assets/images/movie/"
+                    + this.props.movie.thumbnail
                   }
                   alt="movie"
                 />
                 <a 
                 // onClick={this.watchTrailer("https://www.youtube.com/")}
-                  href={this.props.movie.trailer_url}
+                  href={this.props.movie.trailerUrl}
                   // href="https://www.youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -48,8 +51,8 @@ export default class BannerMovieDetail extends Component {
               <div className="details-banner-content offset-lg-3">
                 <h3 className="title">{this.props.movie.name}</h3>
                 <div className="tags">
-                  <a href="#0">{this.props.movie.language}</a>
-                  {/* <a href="#0">Vietnamese</a> */}
+                  {/* <a href="#0">{this.props.movie.language}</a> */}
+                  <a href="#0">Tiếng Việt</a>
                 </div>
                 <a href="#0" className="button">
                   {this.props.movie.genre}
@@ -60,12 +63,12 @@ export default class BannerMovieDetail extends Component {
                       <i className="fas fa-calendar-alt" />
                       {/* <span>06 Dec, 2020</span> */}
                       <span>
-                        {moment().calendar(this.props.movie.released_date)}
+                        {"Khởi chiếu: " + moment().calendar(this.props.movie.releasedDate)}
                       </span>
                     </div>
                     <div className="item">
                       <i className="far fa-clock" />
-                      <span>{this.props.movie.duration_min}</span>
+                      <span>{"Thời lượng: " + this.props.movie.durationMin + " phút"}</span>
                     </div>
                   </div>
                   <ul className="social-share">

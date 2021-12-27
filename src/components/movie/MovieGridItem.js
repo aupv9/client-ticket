@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import moment from "moment";
+import "moment/locale/vi";
 
 export default class MovieGridItem extends Component {
+  constructor(props) {
+    super(props);
+    console.log(this.props.movie);
+  }
+
   to_slug = (str) => {
     // Chuyển hết sang chữ thường
     str = str.toLowerCase();
@@ -30,6 +37,20 @@ export default class MovieGridItem extends Component {
     // return
     return str;
   };
+
+  getDate2 = () => {
+    var time = this.props.movie.releasedDate;
+    // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
+    return moment(time, "YYYY-MM-DD").calendar();
+  };
+
+  getDuration() {
+    let mins = this.props.movie.durationMin;
+    let h = Math.floor(mins / 60);
+    let m = mins % 60;
+    // h = h < 2 ? h + " hr" : h + " hrs";
+    return `${h} giờ ${m} phút`;
+  }
 
   render() {
     return (
@@ -68,18 +89,23 @@ export default class MovieGridItem extends Component {
                 {this.props.movie.name}
               </Link>
             </h5>
+
             <ul className="movie-rating-percent">
-              <li>
-                <div className="thumb">
-                  <img src="assets/images/movie/tomato.png" alt="movie" />
-                </div>
-                <span className="content">88%</span>
+              <li className="movie-tags">
+                <a href="#0">{"Thời lượng : " + this.getDuration()}</a>
               </li>
-              <li>
-                <div className="thumb">
-                  <img src="assets/images/movie/cake.png" alt="movie" />
-                </div>
-                <span className="content">88%</span>
+              <li className="movie-tags">
+                <a href="#0">{"Thể loại : " + this.props.movie.genre}</a>
+              </li>
+              <li className="release">
+                {/* <div className="thumb">
+                  <img src="/assets/images/movie/cake.png" alt="movie" />
+                </div> */}
+
+                <span>Khởi chiếu : &nbsp;</span>
+                <a href="#0"> {this.getDate2()}</a>
+
+                {/* <span className="content">{this.getDate2()}</span> */}
               </li>
             </ul>
           </div>

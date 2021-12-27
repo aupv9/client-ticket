@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+// import './owl.css';
 import MoviePhotoItem from "./MoviePhotoItem";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
 export default class MoviePhoto extends Component {
@@ -13,35 +16,39 @@ export default class MoviePhoto extends Component {
   }
 
   mappingDataPhoto = () => {
-    // if (this.props.photo_urls) {
-    //   console.log(this.props.photo_urls);
-    //   var photoList = this.props.photo_urls.map((item, i) => {
-    //     return <MoviePhotoItem key={i}>{item}</MoviePhotoItem>;
-    //   });
-
-    //   return photoList;
-    // }
-
-  };
-
-  render() {
     let photoList;
     if (this.props.photo_urls) {
       photoList =
-        this.props.photo_urls.map((url) => (
-          // <div>
-            <img src="/assets/images/movie/movie-details02.jpg"
+        this.props.photo_urls.map((url, i) => (
+          <div>
+            <img key={i} src={
+              process.env.PUBLIC_URL +
+              "/assets/images/movie/movie-details02.jpg"}
               alt="movie" />
-          // </div>
+          </div>
         ))
-
+      return photoList;
     }
+  };
+
+  render() {
     return (
-      <Carousel showArrows={true}  showThumbs={true} className="details-photos owl-carousel">
-
-        {photoList}
-
-      </Carousel>
+      <div className='container-fluid' >
+        <OwlCarousel items={3}
+          className="owl-theme"
+          loop
+          nav
+          margin={8} >
+          {/* <div ><img className="img" src={'assets/img/img1.jpg'} /></div>
+          <div><img className="img" src={'assets/img/img2.jpg'} /></div>
+          <div><img className="img" src={'assets/img/img4.jpg'} /></div>
+          <div><img className="img" src={'assets/img/img3.jpg'} /></div>
+          <div><img className="img" src={'assets/img/img5.jpg'} /></div>
+          <div><img className="img" src={'assets/img/img6.jpg'} /></div>
+          <div><img className="img" src={'assets/img/img7.jpg'} /></div> */}
+          {this.photoList}
+        </OwlCarousel>
+      </div>
     );
   }
 }

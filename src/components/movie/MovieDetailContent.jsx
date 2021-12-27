@@ -6,18 +6,25 @@ import MovieCastList from "./cast/MovieCastList";
 import MovieSynopsis from "./MovieSynopsis";
 import MoviePhotoItem from "./photo/MoviePhotoItem";
 
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
+
+
 export default class MovieDetailContent extends Component {
   mappingDataPhoto = () => {
     if (this.props.photo_urls) {
       var photoList = this.props.photo_urls.map((item, i) => {
         return <MoviePhotoItem key={i}>{item}</MoviePhotoItem>;
       });
-
       return photoList;
     }
   };
 
-  render() {
+  shouldComponentUpdate(nextProps) {
+    return (this.props.movie !== nextProps.movie);
+}
+ 
+render() {
     return (
       <div>
         <section className="movie-details-section padding-top padding-bottom">

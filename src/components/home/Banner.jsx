@@ -7,19 +7,24 @@ export default class Banner extends Component {
         <section className="banner-section">
           <div
             className="banner-bg bg_img bg-fixed"
-            data-background={process.env.PUBLIC_URL + "/assets/images/banner/banner01.jpg"}
+            data-background=
+            // { process.env.PUBLIC_URL +
+              "/assets/images/banner/banner01.jpg"
+            // }
           />
           <div className="container">
             <div className="banner-content">
               <h1 className="title  cd-headline clip">
-                <span className="d-block">book your</span> tickets for&nbsp;
+                <span className="d-block">Đặt vé xem phim</span> tại&nbsp;
                 <span className="color-theme cd-words-wrapper p-0 m-0">
-                  <b className="is-visible">Movie</b>
+                  <b className="is-visible">Boleto</b>
                 </span>
               </h1>
               <p>
-                Safe, secure, reliable ticketing. Your ticket to live
-                entertainment!
+              Đặt vé an toàn, bảo mật, đáng tin cậy.
+              </p>
+              <p>
+              Vé xem phim để giải trí cuộc sống!
               </p>
             </div>
           </div>

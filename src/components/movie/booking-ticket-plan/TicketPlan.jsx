@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MovieService from "../../../services/MovieService";
 import ShowtimeService from "../../../services/ShowtimeService";
 import BannerTicketPlan from "./BannerTicketPlan";
+import BookingFilterPlan from "./BookingFilterPlan";
 import TicketOption from "./TicketOption";
 
 export default class TicketPlan extends Component {
@@ -13,13 +14,14 @@ export default class TicketPlan extends Component {
       movie: {},
       showtimes: [{}]
     };
-
-    
+    console.log(
+      this.state.id);
   }
+
   componentDidMount() {
     MovieService.getMovieById(this.state.id).then((res) => {
       this.setState({ movie: res.data });
-      // console.log(this.state);
+      console.log(this.state);
     });
 
     ShowtimeService.getShowTimesByMovieId(this.state.id).then((res) => {
@@ -32,7 +34,8 @@ export default class TicketPlan extends Component {
     return (
       <div>
         <BannerTicketPlan movie={this.state.movie}></BannerTicketPlan>
-        <TicketOption movieId={this.state.movie.id}></TicketOption>
+        {/* <BookingFilterPlan></BookingFilterPlan> */}
+        <TicketOption movieId={this.state.id}></TicketOption>
       </div>
     );
   }

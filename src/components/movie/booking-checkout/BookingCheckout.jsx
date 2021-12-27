@@ -1,111 +1,308 @@
 import React, { Component } from "react";
+import { Link, Redirect } from "react-router-dom";
+import moment from 'moment';
+import 'moment/locale/vi'
 
 export default class BookingCheckout extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      foods: [],
+      showtime: {},
+      movie: {},
+      theater: {},
+      concession: [],
+      seats: [],
+      user: {
+        // name: "",
+        // email: ""
+      },
+      foodPrice: 0,
+      ticketPrice: 0,
+      isLogged: false,
+      isRedirect: false,
+      phone: ""
+    };
+    console.log(this.props);
+    this.book = this.book.bind(this);
+  }
+
+  componentDidMount() {
+    //   this.getPrice();
+    // })
+    for (var i = 0; i < localStorage.length; i++) {
+      console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
+    }
+
+    // console.log(this.state.bookedSeats);
+    this.setState({
+      foods: JSON.parse(localStorage.foods),
+      showtime: JSON.parse(localStorage.showtime),
+      movie: JSON.parse(localStorage.movie),
+      theater: JSON.parse(localStorage.theater),
+      concession: JSON.parse(localStorage.concession),
+      foodPrice: JSON.parse(localStorage.foodPrice),
+      ticketPrice: JSON.parse(localStorage.ticketPrice),
+      seats: JSON.parse(localStorage.seats),
+      // user: JSON.parse(localStorage.user)
+    })
+
+    if (window.sessionStorage.getItem("user")) {
+      this.setState({
+        user: JSON.parse(window.sessionStorage.getItem("user")),
+        isLogged: true
+      })
+    }
+
+  }
+
+  getNumOfTickets() {
+    return this.state.seats.length;
+  }
+
+  formatCurrency(n) {
+    var temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    return temp.slice(0, temp.length - 2) + ' vnd';
+  }
+
+  getPrice() {
+    var price = this.getNumOfTickets() * this.state.showtime.price;
+    this.setState({
+      ticketPrice: price
+    })
+    return price;
+  }
+
+  getTime = () => {
+    var time = new Date(this.state.showtime.timeStart);
+    return time.getHours() + ":" + time.getMinutes();
+  }
+
+  getDate = () => {
+    var time = new Date(this.state.showtime.timeStart);
+    // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
+    return moment(time, "YYYY-MM-DD HH:mm:ss").fromNow();
+  }
+
+  getDate2 = () => {
+    var time = new Date(this.state.showtime.timeStart);
+    // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
+    return moment(time, "YYYY-MM-DD HH:mm:ss").calendar();
+  }
+
+  getDetailDay = () => {
+    var time = new Date(this.state.showtime.timeStart);
+    console.log(time);
+    return moment(time, "YYYY-MM-DD HH:mm:ss").format('dddd') + ' - ' + this.getTime() + ' - ' + this.getDate2();
+  }
+
+  getFoodsPrice() {
+    if (this.state.concession) {
+      var sum = this.state.concession.reduce((price, foodId) => {
+        var food = this.state.foods.find(food => food.id === foodId);
+        return price += food.price;
+      }, 0)
+
+      return sum;
+    }
+  }
+
+  getTotalPrice() {
+    return this.getFoodsPrice() + this.state.ticketPrice;
+  }
+
+  mappingChosenFoodsData() {
+    if (this.state.concession) {
+
+      var list = this.state.concession.map((foodId, i) => {
+        var food = this.state.foods.find(food => food.id === foodId);
+
+        return (
+          <span className="info" key={i}>
+            <span>{food.name}</span>
+            <span>{this.formatCurrency(food.price)}</span>
+          </span>
+        )
+      })
+
+      return list;
+    }
+  }
+
+
+  proceedButton() {
+    if (!this.state.isLogged && this.state.isRedirect) {
+      alert("Need to login!");
+      return (
+        <Redirect to="/login?action=checkout" className="custom-button back-button">
+          proceed
+        </Redirect>
+      )
+    }
+    return (
+      <a href="true" onClick={this.book} className="custom-button back-button">
+        proceed
+      </a>
+    )
+  }
+
+  book = (e) => {
+    // e.preventDefault();
+    console.log(this.state);
+    this.setState({ isRedirect: true })
+  }
+
+  loginWidget = () => {
+    console.log(this.state.user);
+    if (!this.state.isLogged)
+      return (
+        <div className="checkout-widget d-flex flex-wrap align-items-center justify-cotent-between">
+          <div className="title-area">
+            <h5 className="title">Bạn đã có tài khoản</h5>
+            <p>Đăng nhập để tích trữ điểm và giúp đặt vé dễ hơn!</p>
+          </div>
+          <Link to="/login?action=checkout" className="sign-in-area">
+            <i className="fas fa-user" />
+            <span>Login</span>
+          </Link>
+        </div>
+      )
+    // return (
+    //   <div className="checkout-widget d-flex flex-wrap align-items-center justify-cotent-between">
+    //     <div className="title-area">
+    //       <h5 className="title">{this.state.user.name}</h5>
+    //       <p>{this.state.user.email}</p>
+    //     </div>
+    //   </div>
+    // )
+  }
+
+  isInputChange = (e) => {
+    const target = e.target;
+    const name = target.name;
+    const value = target.value;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
   render() {
     return (
       <div className="movie-facility padding-bottom padding-top">
         <div className="container">
           <div className="row">
             <div className="col-lg-8">
-              <div className="checkout-widget d-flex flex-wrap align-items-center justify-cotent-between">
-                <div className="title-area">
-                  <h5 className="title">Already a Boleto Member?</h5>
-                  <p>Sign in to earn points and make booking easier!</p>
-                </div>
-                <a href="#0" className="sign-in-area">
-                  <i className="fas fa-user" />
-                  <span>Sign in</span>
-                </a>
-              </div>
+             {this.loginWidget()}
               <div className="checkout-widget checkout-contact">
-                <h5 className="title">Share your Contact Details </h5>
+                <h5 className="title">Thông tin liên hệ </h5>
                 <form className="checkout-contact-form">
                   <div className="form-group">
-                    <input type="text" placeholder="Full Name" />
-                  </div>
-                  <div className="form-group">
-                    <input type="text" placeholder="Enter your Mail" />
-                  </div>
-                  <div className="form-group">
-                    <input type="text" placeholder="Enter your Phone Number " />
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="submit"
-                      defaultValue="Continue"
-                      className="custom-button"
+                    <input type="text" placeholder="Họ " 
+                    value={this.state.user.firstName}
+                    onChange={e => this.isInputChange(e)}
+                    name="firstName"
                     />
                   </div>
+                  <div className="form-group">
+                    <input type="text" placeholder="Tên " 
+                    value={this.state.user.lastNamae}
+                    onChange={e => this.isInputChange(e)}
+                    name="lastNamae"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input type="text" placeholder="Email "
+                    value={this.state.user.email}
+                    onChange={e => this.isInputChange(e)}
+                    name="email"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input type="tel" placeholder="Số điện thoại " 
+                     value={this.state.phone}
+                     onChange={e => this.isInputChange(e)}
+                     name="phone"
+                    //  pattern="/((09|03|07|08|05)+([0-9]{8})\b)/g"
+                    />
+                  </div>
+                  {/* <div className="form-group">
+                    <input
+                      type="submit"
+                      value="Tiếp tục"
+                      className="custom-button"
+                    />
+                  </div> */}
                 </form>
               </div>
               <div className="checkout-widget checkout-contact">
-                <h5 className="title">Promo Code </h5>
+                <h5 className="title">Mã khuyến mãi </h5>
                 <form className="checkout-contact-form">
                   <div className="form-group">
-                    <input type="text" placeholder="Please enter promo code" />
+                    <input type="text" placeholder="Vui lòng nhập mã khuyến mãi" />
                   </div>
                   <div className="form-group">
                     <input
                       type="submit"
-                      defaultValue="Verify"
+                      value="Xác minh"
                       className="custom-button"
                     />
                   </div>
                 </form>
               </div>
               <div className="checkout-widget checkout-card mb-0">
-                <h5 className="title">Payment Option </h5>
+                <h5 className="title">Thông tin thanh toán </h5>
                 <ul className="payment-option">
                   <li className="active">
                     <a href="#0">
-                      <img src="assets/images/payment/card.png" alt="payment" />
+                      <img src="/assets/images/payment/card.png" alt="payment" />
                       <span>Credit Card</span>
                     </a>
                   </li>
                   <li>
                     <a href="#0">
-                      <img src="assets/images/payment/card.png" alt="payment" />
+                      <img src="/assets/images/payment/card.png" alt="payment" />
                       <span>Debit Card</span>
                     </a>
                   </li>
                   <li>
                     <a href="#0">
                       <img
-                        src="assets/images/payment/paypal.png"
+                        src="/assets/images/payment/paypal.png"
                         alt="payment"
                       />
                       <span>paypal</span>
                     </a>
                   </li>
                 </ul>
-                <h6 className="subtitle">Enter Your Card Details </h6>
-                <form className="payment-card-form">
+                <h6 className="subtitle">Điền thông tin chi tiết thẻ </h6>
+                <form className="payment-card-form" method="POST">
                   <div className="form-group w-100">
-                    <label htmlFor="card1">Card Details</label>
-                    <input type="text" id="card1" />
+                    <label htmlFor="card1">Số thẻ</label>
+                    <input type="password" id="card1" />
                     <div className="right-icon">
                       <i className="flaticon-lock" />
                     </div>
                   </div>
                   <div className="form-group w-100">
-                    <label htmlFor="card2"> Name on the Card</label>
+                    <label htmlFor="card2"> Họ và Tên trên thẻ </label>
                     <input type="text" id="card2" />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="card3">Expiration</label>
+                    <label htmlFor="card3">Ngày hết hạn</label>
                     <input type="text" id="card3" placeholder="MM/YY" />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="card4">CVV</label>
-                    <input type="text" id="card4" placeholder="CVV" />
+                    <label htmlFor="card4">Mã CVV / CVC</label>
+                    <input type="password" id="card4" placeholder="CVV" />
                   </div>
                   <div className="form-group check-group">
-                    <input id="card5" type="checkbox" defaultChecked />
+                    <input id="card5" type="checkbox" />
                     <label htmlFor="card5">
-                      <span className="title">QuickPay</span>
+                      <span className="title">Xác nhận</span>
                       <span className="info">
-                        Save this card information to my Boleto account and make
-                        faster payments.
+                        Chắc rằng thông tin bạn vừa điền là chính xác. Thông tin email và số điện thoại có thể hỗ trợ bạn nếu cần.
                       </span>
                     </label>
                   </div>
@@ -113,57 +310,80 @@ export default class BookingCheckout extends Component {
                     <input
                       type="submit"
                       className="custom-button"
-                      defaultValue="make payment"
+                      value="Thanh toán"
                     />
                   </div>
                 </form>
                 <p className="notice">
-                  By Clicking "Make Payment" you agree to the{" "}
-                  <a href="#0">terms and conditions</a>
+                  Đồng ý "Thanh Toán" cũng là bạn đồng ý với
+                  <a href="#0">các điều khoản và điều kiện</a>
                 </p>
               </div>
             </div>
             <div className="col-lg-4">
               <div className="booking-summery bg-one">
-                <h4 className="title">booking summery</h4>
+                <h4 className="title">Tóm tắt</h4>
                 <ul>
                   <li>
-                    <h6 className="subtitle">Venus</h6>
-                    <span className="info">English-2d</span>
+                    <h6 className="subtitle">{this.state.movie.name} <span>{this.getNumOfTickets() + ' vé'}</span></h6>
+                    <span className="info">Tiếng Việt - 2D</span>
                   </li>
                   <li>
                     <h6 className="subtitle">
-                      <span>City Walk</span>
-                      <span>02</span>
+                      <span>{this.state.theater.name}</span>
+                      <span>{this.state.showtime.roomName}</span>
                     </h6>
                     <div className="info">
-                      <span>10 SEP TUE, 11:00 PM</span> <span>Tickets</span>
+                      <span>{this.state.theater.locationName}</span>
                     </div>
                   </li>
+
                   <li>
                     <h6 className="subtitle mb-0">
-                      <span>Tickets Price</span>
-                      <span>$150</span>
+                      <span>Suất chiếu:</span>
+                      <span>{this.getDetailDay()}</span>
+                    </h6>
+                    <div className="info">
+                      <span></span>
+                      <span>{this.getDate()}</span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <h6 className="subtitle mb-0">
+                      <span>Tổng giá vé</span>
+                      <span>{this.formatCurrency(this.state.ticketPrice)}</span>
                     </h6>
                   </li>
                 </ul>
                 <ul className="side-shape">
+
                   <li>
                     <h6 className="subtitle">
-                      <span>combos</span>
-                      <span>$57</span>
+                      <span>Thức ăn &amp; đồ uống</span>
                     </h6>
+                    {/* <span className="info">
+                      <span>2 Nachos Combo</span>
+                      <span>$57</span>
+                    </span>
                     <span className="info">
                       <span>2 Nachos Combo</span>
+                      <span>$57</span>
                     </span>
+                    <span className="info">
+                      <span>2 Nachos Combo</span>
+                      <span>$57</span>
+                    </span> */}
+                    {this.mappingChosenFoodsData()}
                   </li>
                   <li>
-                    <h6 className="subtitle">
-                      <span>food &amp; bevarage</span>
+                    <h6 className="subtitle mb-0">
+                      <span>Tổng giá</span>
+                      <span>{this.formatCurrency(this.getFoodsPrice())}</span>
                     </h6>
                   </li>
                 </ul>
-                <ul>
+                {/* <ul>
                   <li>
                     <span className="info">
                       <span>price</span>
@@ -174,16 +394,26 @@ export default class BookingCheckout extends Component {
                       <span>$15</span>
                     </span>
                   </li>
-                </ul>
+                </ul> */}
               </div>
               <div className="proceed-area  text-center">
                 <h6 className="subtitle">
-                  <span>Amount Payable</span>
-                  <span>$222</span>
+                  <span>Phí ước tính</span>
+                  <span>{this.formatCurrency(this.getTotalPrice())*1.1}</span>
                 </h6>
-                <a href="#0" className="custom-button back-button">
+                <span className="info">
+                  <span>Đã bao gồm thuế GTGT</span>
+                </span>
+                {/* <Link onClick={this.book()} to="/checkout" className="custom-button back-button">
                   proceed
-                </a>
+                </Link> */}
+                {/* {this.proceedButton()} */}
+              </div>
+              <div className="note">
+              <h5 className="title">Ghi chú: </h5>
+                <p>
+                Vui lòng cung cấp cho chúng tôi khoảng 15 phút để chuẩn bị F&amp;B khi bạn tới rạp
+                </p>
               </div>
             </div>
           </div>

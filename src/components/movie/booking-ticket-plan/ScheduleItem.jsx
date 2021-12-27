@@ -27,7 +27,7 @@ export default class ScheduleItem extends Component {
     getDate2 = () => {
         var time = new Date(this.state.showtime.timeStart);
         // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
-        return moment(time, "YYYY-MM-DD HH:mm:ss").add(10, 'days').calendar();
+        return moment(time, "YYYY-MM-DD HH:mm:ss").calendar();
     }
 
     isFuture(timeStart) {
@@ -36,11 +36,11 @@ export default class ScheduleItem extends Component {
 
     render() {
 
-        if (true)
+        if (this.state.showtime)
             return (
-                <Link to={"choose-seats/" + this.state.showtime.id}>
+                <Link to={"/choose-seats/" + this.state.showtime.id}>
                     <div className="item">{this.getTime()}</div>
-                    <div className="">{this.getDate()}</div>
+                    {/* <div className="">{this.getDate()}</div> */}
                     <div className="">{this.getDate2()}</div>
                 </Link>
             )

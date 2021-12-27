@@ -16,21 +16,21 @@ export default class BookMovieDetail extends Component {
                       <img
                         src={
                           process.env.PUBLIC_URL +
-                          "/assets/images/movie/tomato2.png"
+                          "/assets/images/movie/imdb-logo.png"
                         }
                         alt="movie"
                       />
                     </div>
                     <div className="counter-area">
                       <span
-                        className="counter-item odometer"
-                        data-odometer-final={88}
+                        // className="counter-item odometer"
+                        // data-odometer-final={88}
                       >
-                        0
+                        4.5
                       </span>
                     </div>
                   </div>
-                  <p>tomatometer</p>
+                  <p>Điểm IMDB</p>
                 </div>
                 <div className="item">
                   <div className="item-header">
@@ -38,53 +38,25 @@ export default class BookMovieDetail extends Component {
                       <img
                         src={
                           process.env.PUBLIC_URL +
-                          "/assets/images/movie/cake2.png"
+                          "/assets/images/movie/popularity.png"
                         }
                         alt="movie"
                       />
                     </div>
                     <div className="counter-area">
                       <span
-                        className="counter-item odometer"
-                        data-odometer-final={88}
+                        
                       >
-                        0
+                        #20
                       </span>
                     </div>
                   </div>
-                  <p>audience Score</p>
+                  <p>Xếp hạng IMDB</p>
                 </div>
-                <div className="item">
-                  <div className="item-header">
-                    <h5 className="title">4.5</h5>
-                    <div className="rated">
-                      <i className="fas fa-heart" />
-                      <i className="fas fa-heart" />
-                      <i className="fas fa-heart" />
-                      <i className="fas fa-heart" />
-                      <i className="fas fa-heart" />
-                    </div>
-                  </div>
-                  <p>Users Rating</p>
-                </div>
-                <div className="item">
-                  <div className="item-header">
-                    <div className="rated rate-it">
-                      <i className="fas fa-heart" />
-                      <i className="fas fa-heart" />
-                      <i className="fas fa-heart" />
-                      <i className="fas fa-heart" />
-                      <i className="fas fa-heart" />
-                    </div>
-                    <h5 className="title">0.0</h5>
-                  </div>
-                  <p>
-                    <a href="#0">Rate It</a>
-                  </p>
-                </div>
+
               </div>
               <Link to={
-                  "choose-theater/" +
+                  "/choose-theater/" +
                   this.props.movieID
                 }
                  className="custom-button">

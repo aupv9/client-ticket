@@ -6,8 +6,8 @@ class LocationService {
     return axios.get(api.locations);
   };
 
-  getAllbyId = (locationId) => {
-    return axios.get(`${api.locations}/${locationId}`);
+  getAllbyId = async (locationId) => {
+    return await axios.get(`${api.locations}/${locationId}`);
   };
 }
 

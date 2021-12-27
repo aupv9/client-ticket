@@ -1,61 +1,140 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import axios from "axios";
+import { setUserSession } from '../utils/Common';
+import * as api from "../services/API_BASE_URL"
+import queryString from 'query-string';
 
-export default class Login extends Component {
+class Login extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: '',
+      password: '',
+      setLoading: false,
+      setError: '',
+      redirect: '/checkout'
+    };
+
+    this.handleLogin = this.handleLogin.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.location) {
+
+      const value = queryString.parse(this.props.location.search);
+      const action = value.action;
+
+      this.setState({ redirect: '/' + action })
+    }
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.redirect);
+  }
+
+  handleLogin = (e) => {
+
+    e.preventDefault();
+    // e.target.reset();
+    axios.post(api.authenticate, { email: this.state.email, password: this.state.password }).then(response => {
+      console.log(response.data);
+      this.setState({ setLoading: true })
+      setUserSession(response.data.token, response.data);
+      
+      this.props.history.push(this.state.redirect);
+
+
+    }).catch(error => {
+      this.setState({ setLoading: false })
+      // if (error.response.status === 401) {
+      //   this.setState({ setError: error.response.data.message })
+      // }
+      console.log(error);
+      // else this.setState({ setError: "Something went wrong. Please try again later." })
+    });
+  }
+
+
+  isInputChange = (e) => {
+    const target = e.target;
+    const name = target.name;
+    const value = target.value;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
   render() {
+    console.log("render() method");
+    console.log(this.state.redirect);
     return (
       <div>
         <section
           className="account-section bg_img"
           data-background={
-            process.env.PUBLIC_URL + "/assets/images/account/account-bg.jpg"
+            // process.env.PUBLIC_URL +
+            "/assets/images/account/account-bg.jpg"
           }
         >
           <div className="container">
             <div className="padding-top padding-bottom">
               <div className="account-area">
                 <div className="section-header-3">
-                  <span className="cate">hello</span>
-                  <h2 className="title">welcome back</h2>
+                  <span className="cate">Xin chào</span>
+                  <h2 className="title">bạn trở lại</h2>
                 </div>
-                <form className="account-form">
+                <form
+                  method="POST"
+                 
+                  className="account-form">
                   <div className="form-group">
                     <label htmlFor="email2">
                       Email<span>*</span>
                     </label>
                     <input
                       type="text"
-                      placeholder="Enter Your Email"
+                      placeholder="Điền email"
                       id="email2"
                       required
+                      value={this.state.email}
+                      onChange={e => this.isInputChange(e)}
+                      name="email"
                     />
                   </div>
                   <div className="form-group">
                     <label htmlFor="pass3">
-                      Password<span>*</span>
+                      Mật khẩu<span>*</span>
                     </label>
                     <input
                       type="password"
-                      placeholder="Password"
+                      placeholder="Điền mật khẩu"
                       id="pass3"
                       required
+                      onChange={e => this.isInputChange(e)}
+                      name="password"
                     />
                   </div>
                   <div className="form-group checkgroup">
                     <input type="checkbox" id="bal2" required defaultChecked />
-                    <label htmlFor="bal2">remember password</label>
+                    <label htmlFor="bal2">lưu mật khẩu</label>
                     <a href="#0" className="forget-pass">
-                      Forget Password
+                      Quên mật khẩu?
                     </a>
                   </div>
                   <div className="form-group text-center">
-                    <input type="submit" defaultValue="log in" />
+                    <input 
+                     onClick={(e) => this.handleLogin(e)}
+                    type="submit" value="Đăng nhập" />
                   </div>
                 </form>
                 <div className="option">
-                  Don't have an account? <a href="sign-up.html">sign up now</a>
+                  Chưa có tài khoản? <Link to="/register">Đăng ký ngay!</Link>
                 </div>
                 <div className="or">
-                  <span>Or</span>
+                  <span>Hoặc</span>
                 </div>
                 <ul className="social-icons">
                   <li>
@@ -63,11 +142,7 @@ export default class Login extends Component {
                       <i className="fab fa-facebook-f" />
                     </a>
                   </li>
-                  <li>
-                    <a href="#0" className="active">
-                      <i className="fab fa-twitter" />
-                    </a>
-                  </li>
+
                   <li>
                     <a href="#0">
                       <i className="fab fa-google" />
@@ -86,20 +161,23 @@ export default class Login extends Component {
           </div>
         </section>
       </div>
-    );
+    )
   }
 }
 
-const handleLogin = async (googleData) => {
-  const res = await fetch("/api/v1/auth/google", {
-    method: "POST",
-    body: JSON.stringify({
-      token: googleData.tokenId,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const data = await res.json();
-  // store returned user somehow
-};
+export default withRouter(Login);
+
+
+// const handleLogin = async (googleData) => {
+//   const res = await fetch("/api/v1/auth/google", {
+//     method: "POST",
+//     body: JSON.stringify({
+//       token: googleData.tokenId,
+//     }),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   const data = await res.json();
+//   // store returned user somehow
+// };

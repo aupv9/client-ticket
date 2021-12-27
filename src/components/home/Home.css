@@ -1,0 +1,6 @@
+#innerbox
+{
+   width:250px; /* or whatever width you want. */
+   max-width:250px; /* or whatever width you want. */
+   display: inline-block;
+}

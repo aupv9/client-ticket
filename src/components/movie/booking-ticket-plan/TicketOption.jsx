@@ -9,8 +9,6 @@ export default class TicketOption extends Component {
     super(props);
 
     this.state = {
-      // movieId: this.props.movieId,
-      movieId: 100,
       showtimes: this.props.showtimes,
       data: []
     };
@@ -34,7 +32,7 @@ export default class TicketOption extends Component {
   }
 
   componentDidMount() {
-    ShowtimeService.getShowTimesByMovieId(this.state.movieId).then((res) => {
+    ShowtimeService.getShowTimesByMovieId(this.props.movieId).then((res) => {
       this.setState({
         showtimes: res.data
       });
@@ -82,7 +80,7 @@ export default class TicketOption extends Component {
     if (this.state.data) {
       var showtimesTable = this.state.data.map((item, i) => {
         console.log(item);
-        return <SeatPlanRow key={i} showtime={item}></SeatPlanRow>;
+        return <SeatPlanRow movieId={this.props.movieId} key={i} showtime={item}></SeatPlanRow>;
       });
 
       return showtimesTable;

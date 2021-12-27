@@ -11,13 +11,13 @@ class Newslater extends React.Component {
               data-background="assets/images/newslater/newslater-bg01.jpg"
             >
               <div className="newslater-wrapper">
-                <h5 className="cate">subscribe to Boleto </h5>
-                <h3 className="title">to get exclusive benifits</h3>
+                <h5 className="cate">Đăng ký Boleto </h5>
+                <h3 className="title">để nhận thông báo về sự kiện và chương trình khuyến mãi.</h3>
                 <form className="newslater-form">
-                  <input type="text" placeholder="Your Email Address" />
-                  <button type="submit">subscribe</button>
+                  <input type="text" placeholder="Điền email của bạn" />
+                  <button type="submit">Đăng ký</button>
                 </form>
-                <p>We respect your privacy, so we never share your info</p>
+                <p>Chúng tôi sẽ không chia sẻ thông tin cá nhân của bạn.</p>
               </div>
             </div>
           </div>

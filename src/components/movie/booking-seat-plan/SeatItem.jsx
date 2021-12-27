@@ -71,8 +71,11 @@ export default class SeatItem extends Component {
             this.setState({
                 isBooked: !this.state.isBooked
             })
+            console.log(this.props.number, !this.state.isBooked);
             this.props.parentCallback(this.props.number, !this.state.isBooked);
             e.preventDefault();
+        } else {
+            alert("Ví trí ghế này đã được đặt trước!!!\nVui lòng chọn vị trị khác\n Cảm ơn!")
         }
     }
 

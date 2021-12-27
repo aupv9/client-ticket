@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import MovieCastItem from "./MovieCastItem";
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 export default class MovieCastList extends Component {
   constructor(props) {
@@ -22,7 +25,7 @@ export default class MovieCastList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="item">
         <div className="header">
           <h5 className="sub-title">cast</h5>
           <div className="navigation">
@@ -34,8 +37,8 @@ export default class MovieCastList extends Component {
             </div>
           </div>
         </div>
-        <div className="casting-slider owl-carousel">
-          {this.mappingData()}
+        {/* <div className="casting-slider owl-carousel">
+         
 
           <div className="cast-item">
             <div className="cast-thumb">
@@ -94,7 +97,21 @@ export default class MovieCastList extends Component {
               <p>As quicksilver</p>
             </div>
           </div>
-        </div>
+
+          {this.mappingData()}
+        </div> */}
+        {this.props.casts && (
+          <OwlCarousel
+            className="casting-slider"
+            items={3}
+            loop
+            // nav
+            margin={8}
+          >
+            {this.mappingData()}
+          </OwlCarousel>
+        )
+        }
       </div>
     );
   }
