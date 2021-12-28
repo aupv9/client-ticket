@@ -10,5 +10,6 @@ export const register = baseurl + "register";
 export const showTimesAnonymous = baseurl + "showTimesAnonymous";
 export const seatRoomAnonymous = baseurl + "seatRoomAnonymous";
 export const ordersAnonymous = baseurl + "ordersAnonymous";
-
+export const checkPromoCode = baseurl + "check-promoCode";
+export const offers = baseurl + "offers";
 // export const movieDetail = baseurl + "/" + "movie-detail";

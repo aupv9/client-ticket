@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import moment from 'moment';
 import 'moment/locale/vi'
+import PromoService from "../../../services/PromoService";
+import OfferService from "../../../services/OfferService";
+import PromoPrice from "./PromoPrice";
+import ChosenSeatList from "../booking-seat-plan/ChosenSeatList";
 
 export default class BookingCheckout extends Component {
   constructor(props) {
@@ -18,14 +22,70 @@ export default class BookingCheckout extends Component {
         // name: "",
         // email: ""
       },
+      userId: null,
       foodPrice: 0,
       ticketPrice: 0,
       isLogged: false,
       isRedirect: false,
-      phone: ""
+      phone: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      promoCode: "",
+      offer: {
+        percentage: 0
+      },
+      cardId: "",
+      fullName: "",
+      expired: "",
+      cvv: ""
     };
     console.log(this.props);
-    this.book = this.book.bind(this);
+    // this.book = this.book.bind(this);
+    // this.isInputChange = this.isInputChange(this);
+  }
+
+  
+  delay = ms => new Promise(res => setTimeout(res, ms));
+  
+  makePayment = async(e) => {
+    e.preventDefault();
+    await this.delay(1000);
+    var d = new Date().toJSON().replace('T', ' ');
+    d = d.slice(0, d.length - 5);
+    var totalAmount = this.getTotalPrice() * (1-this.state.offer.percentage) * 1.1;
+    var order = {
+      totalAmount: parseInt(totalAmount),
+      showTimesDetailId: this.state.showtime.id,
+      userId: this.state.userId,
+      createDate: d,
+      concessionId: this.state.concession,
+      seats: this.state.seats,
+      room: this.state.showtime.roomId,
+      isOnline: true
+    }
+
+      localStorage.removeItem('phone');
+    if(this.state.phone) {
+      localStorage.setItem('phone', JSON.stringify(this.state.phone));
+    }
+
+    localStorage.removeItem('offer');
+    if(this.state.offer.percentage !== 0) {
+      localStorage.setItem('offer', JSON.stringify(this.state.offer));
+    }
+
+      localStorage.removeItem('order');
+      if(order) {
+      localStorage.setItem('order', JSON.stringify(order));
+    }
+    await this.delay(1000);
+    console.log(JSON.stringify(order));
+    await this.delay(1000);
+
+    this.setState({
+      isRedirect: true
+    })
   }
 
   componentDidMount() {
@@ -49,10 +109,16 @@ export default class BookingCheckout extends Component {
     })
 
     if (window.sessionStorage.getItem("user")) {
+      var user = JSON.parse(window.sessionStorage.getItem("user"));
       this.setState({
-        user: JSON.parse(window.sessionStorage.getItem("user")),
+        user: user,
+        userId: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
         isLogged: true
       })
+      console.log(user);
     }
 
   }
@@ -147,12 +213,6 @@ export default class BookingCheckout extends Component {
     )
   }
 
-  book = (e) => {
-    // e.preventDefault();
-    console.log(this.state);
-    this.setState({ isRedirect: true })
-  }
-
   loginWidget = () => {
     console.log(this.state.user);
     if (!this.state.isLogged)
@@ -188,42 +248,74 @@ export default class BookingCheckout extends Component {
     });
   }
 
+  verifyPromoCode(e) {
+    e.preventDefault();
+    console.log(this.state.promoCode);
+    PromoService.verifyPromoCode(this.state.promoCode, this.state.movie.id).then((res) => {
+      console.log(res.data);
+      if (res.data) {
+        OfferService.getOfferById(res.data.id).then((res) => {
+
+
+          localStorage.setItem('offer', JSON.stringify(res.data[0]));
+
+          this.setState({
+            offer: res.data[0]
+          })
+        })
+      } else {
+        alert("Mã giảm giá không hợp lệ.\nVui lòng thử lại!\n Cảm ơn");
+        return
+      }
+    })
+  }
+
+
   render() {
+    if (this.state.isRedirect) {
+      return <Redirect push to="/book-result" />;
+    }
+
     return (
       <div className="movie-facility padding-bottom padding-top">
         <div className="container">
           <div className="row">
             <div className="col-lg-8">
-             {this.loginWidget()}
+              {this.loginWidget()}
               <div className="checkout-widget checkout-contact">
                 <h5 className="title">Thông tin liên hệ </h5>
                 <form className="checkout-contact-form">
                   <div className="form-group">
-                    <input type="text" placeholder="Họ " 
-                    value={this.state.user.firstName}
-                    onChange={e => this.isInputChange(e)}
-                    name="firstName"
+                    <input type="text" placeholder="Họ "
+                      value={this.state.firstName}
+                      onChange={e => this.isInputChange(e)}
+                      name="firstName"
+                      id="firstName"
                     />
                   </div>
                   <div className="form-group">
-                    <input type="text" placeholder="Tên " 
-                    value={this.state.user.lastNamae}
-                    onChange={e => this.isInputChange(e)}
-                    name="lastNamae"
+                    <input type="text" placeholder="Tên "
+                      value={this.state.lastName}
+                      onChange={e => this.isInputChange(e)}
+                      name="lastName"
+                      id="lastName"
                     />
                   </div>
                   <div className="form-group">
-                    <input type="text" placeholder="Email "
-                    value={this.state.user.email}
-                    onChange={e => this.isInputChange(e)}
-                    name="email"
+                    <input type="email" placeholder="Email "
+                      value={this.state.email}
+                      onChange={e => this.isInputChange(e)}
+                      name="email"
+                      id="email"
                     />
                   </div>
                   <div className="form-group">
-                    <input type="tel" placeholder="Số điện thoại " 
-                     value={this.state.phone}
-                     onChange={e => this.isInputChange(e)}
-                     name="phone"
+                    <input type="tel" placeholder="Số điện thoại "
+                      value={this.state.phone}
+                      onChange={e => this.isInputChange(e)}
+                      name="phone"
+                      id="phone"
+                      // required
                     //  pattern="/((09|03|07|08|05)+([0-9]{8})\b)/g"
                     />
                   </div>
@@ -240,13 +332,19 @@ export default class BookingCheckout extends Component {
                 <h5 className="title">Mã khuyến mãi </h5>
                 <form className="checkout-contact-form">
                   <div className="form-group">
-                    <input type="text" placeholder="Vui lòng nhập mã khuyến mãi" />
+                    <input type="text" placeholder="Vui lòng nhập mã khuyến mãi"
+                      id="promoCode"
+                      onChange={e => this.isInputChange(e)}
+                      name="promoCode"
+                    />
                   </div>
                   <div className="form-group">
                     <input
                       type="submit"
                       value="Xác minh"
                       className="custom-button"
+                      onClick={e => this.verifyPromoCode(e)}
+
                     />
                   </div>
                 </form>
@@ -277,28 +375,48 @@ export default class BookingCheckout extends Component {
                   </li>
                 </ul>
                 <h6 className="subtitle">Điền thông tin chi tiết thẻ </h6>
-                <form className="payment-card-form" method="POST">
+                <form className="payment-card-form" 
+                method="POST"
+                >
                   <div className="form-group w-100">
                     <label htmlFor="card1">Số thẻ</label>
-                    <input type="password" id="card1" />
+                    <input type="password"
+                    value={this.state.cardId}
+                    onChange={e => this.isInputChange(e)}
+                    name="cardId"
+                    id="card1"
+                    />
                     <div className="right-icon">
                       <i className="flaticon-lock" />
                     </div>
                   </div>
                   <div className="form-group w-100">
                     <label htmlFor="card2"> Họ và Tên trên thẻ </label>
-                    <input type="text" id="card2" />
+                    <input type="text" id="card2" 
+                    value={this.state.fullName}
+                    onChange={e => this.isInputChange(e)}
+                    name="fullName"
+                    />
                   </div>
                   <div className="form-group">
                     <label htmlFor="card3">Ngày hết hạn</label>
-                    <input type="text" id="card3" placeholder="MM/YY" />
+                    <input type="text" id="card3" placeholder="  MM/YY" 
+                     value={this.state.expired}
+                     onChange={e => this.isInputChange(e)}
+                     name="expired"
+                     />
                   </div>
                   <div className="form-group">
                     <label htmlFor="card4">Mã CVV / CVC</label>
-                    <input type="password" id="card4" placeholder="CVV" />
+                    <input type="password" id="card4" placeholder="  CVV" 
+                    value={this.state.cvv}
+                    onChange={e => this.isInputChange(e)}
+                    name="cvv"
+                    />
                   </div>
                   <div className="form-group check-group">
-                    <input id="card5" type="checkbox" />
+                    <input id="card5" type="checkbox" 
+                    required/>
                     <label htmlFor="card5">
                       <span className="title">Xác nhận</span>
                       <span className="info">
@@ -308,6 +426,7 @@ export default class BookingCheckout extends Component {
                   </div>
                   <div className="form-group">
                     <input
+                    onClick={e => this.makePayment(e)}
                       type="submit"
                       className="custom-button"
                       value="Thanh toán"
@@ -326,7 +445,10 @@ export default class BookingCheckout extends Component {
                 <ul>
                   <li>
                     <h6 className="subtitle">{this.state.movie.name} <span>{this.getNumOfTickets() + ' vé'}</span></h6>
-                    <span className="info">Tiếng Việt - 2D</span>
+                    <div className="info">
+                        <span> Tiếng Việt - 2D</span>
+                        <span><ChosenSeatList bookedSeats={this.state.seats} />  </span>
+                      </div>
                   </li>
                   <li>
                     <h6 className="subtitle">
@@ -395,24 +517,14 @@ export default class BookingCheckout extends Component {
                     </span>
                   </li>
                 </ul> */}
-              </div>
-              <div className="proceed-area  text-center">
-                <h6 className="subtitle">
-                  <span>Phí ước tính</span>
-                  <span>{this.formatCurrency(this.getTotalPrice())*1.1}</span>
-                </h6>
-                <span className="info">
-                  <span>Đã bao gồm thuế GTGT</span>
-                </span>
-                {/* <Link onClick={this.book()} to="/checkout" className="custom-button back-button">
-                  proceed
-                </Link> */}
-                {/* {this.proceedButton()} */}
+                <ul>
+                  <PromoPrice price={this.getTotalPrice()} percentage={this.state.offer.percentage} />
+                </ul>
               </div>
               <div className="note">
-              <h5 className="title">Ghi chú: </h5>
+                <h5 className="title">Ghi chú: </h5>
                 <p>
-                Vui lòng cung cấp cho chúng tôi khoảng 15 phút để chuẩn bị F&amp;B khi bạn tới rạp
+                  Vui lòng cung cấp cho chúng tôi khoảng 15 phút để chuẩn bị F&amp;B khi bạn tới rạp
                 </p>
               </div>
             </div>

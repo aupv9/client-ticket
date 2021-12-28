@@ -192,7 +192,17 @@ export default class MovieSeat extends Component {
             data-background="/assets/images/movie/movie-bg-proceed.jpg"
           >
             <div className="proceed-to-book">
-              <ChosenSeatList bookedSeats={this.state.bookedSeats}/>
+
+            <div className="book-item">
+                <span>You have Choosed Seat</span>
+                
+
+                <h3 className="title">
+                  <ChosenSeatList bookedSeats={this.state.bookedSeats}/>
+                  </h3>
+              </div>
+
+             
               <TotalPrice price={this.state.bookedSeats.length * this.state.showtime.price} />
               <div className="book-item">
                 <Link onClick={this.proceed} to={"/choose-foods/" + this.state.showtimeId} className="custom-button">

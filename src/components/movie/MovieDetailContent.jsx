@@ -31,7 +31,7 @@ render() {
           <div className="container">
             <div className="row justify-content-center flex-wrap-reverse mb--50">
               <div className="col-lg-3 col-sm-10 col-md-6 mb-50">
-                <MovieTags />
+                {/* <MovieTags /> */}
                 <MovieOffer />
               </div>
               <div className="col-lg-9 mb-50">

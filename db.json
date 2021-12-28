@@ -652,19 +652,6 @@
     "showTimesAnonymous": [
         {
             "movieId": 100,
-            "roomId": 2,
-            "id": 22,
-            "timeEnd": "",
-            "timeStart": "2021-12-27 19:45:00",
-            "price": 45000,
-            "roomName": "Room 2",
-            "date": "",
-            "theaterId": 1,
-            "status": "active",
-            "reShow": true
-        },
-        {
-            "movieId": 100,
             "roomId": 1,
             "id": 1,
             "timeEnd": "",
@@ -1889,6 +1876,18 @@
                 "2D",
                 "3D"
             ]
+        }
+    ],
+    "check-promoCode": [
+        {
+            "code": "XEMPHIMHAY",
+            "offerId": 123
+        }
+    ],
+    "offers": [
+        {
+            "id": 123,
+            "percentage": 0.3
         }
     ]
 }

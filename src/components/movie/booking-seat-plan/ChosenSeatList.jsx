@@ -59,10 +59,9 @@ export default class ChosenSeatList extends Component {
     }
     render() {
         return (
-            <div className="book-item">
-                <span>You have Choosed Seat</span>
-                <h3 className="title">{this.ChosenSeatList()}</h3>
-              </div>
+        
+                <span>{this.ChosenSeatList()}</span>
+           
         )
     }
 }

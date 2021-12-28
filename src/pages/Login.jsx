@@ -41,7 +41,7 @@ class Login extends Component {
     axios.post(api.authenticate, { email: this.state.email, password: this.state.password }).then(response => {
       console.log(response.data);
       this.setState({ setLoading: true })
-      setUserSession(response.data.token, response.data);
+      setUserSession(response.data.token, response.data.user);
       
       this.props.history.push(this.state.redirect);
 

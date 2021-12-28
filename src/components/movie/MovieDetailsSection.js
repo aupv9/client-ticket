@@ -27,7 +27,7 @@ export default class MovieDetailsSection extends Component {
             <div className="col-lg-3 col-sm-10 col-md-6 mb-50">
               <div className="widget-1 widget-tags">
                 <ul>
-                  <li>
+                  {/* <li>
                     <a href="#0">2D</a>
                   </li>
                   <li>
@@ -35,7 +35,7 @@ export default class MovieDetailsSection extends Component {
                   </li>
                   <li>
                     <a href="#0">4DX</a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

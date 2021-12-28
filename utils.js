@@ -9,7 +9,8 @@ function generateToken(user) {
 
   var u = {
     id: user.id,
-    name: user.name,
+    firstName: user.firstName,
+    lastName: user.lastName,
     email: user.email,
     photo: user.photo,
     isAdmin: user.isAdmin
@@ -26,7 +27,8 @@ function getCleanUser(user) {
 
   return {
     id: user.id,
-    name: user.name,
+    firstName: user.firstName,
+    lastName: user.lastName,
     email: user.email,
     photo: user.photo,
     isAdmin: user.isAdmin

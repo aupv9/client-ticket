@@ -23,7 +23,8 @@ export default class Home extends Component {
     this.state = {
       locations: [],
       locationId: -1,
-      query: ""
+      query: "",
+      mode: ""
       // searchTitle: "",
     };
     this.queryOnChange = this.queryOnChange.bind(this)
@@ -82,6 +83,14 @@ export default class Home extends Component {
 
   search(e) {
     e.preventDefault();
+  }
+
+  getComingSoon() {
+    this.setState({mode: "comingsoon"});
+  }
+
+  getNowShowing() {
+    this.setState({mode: "nowshowing"});
   }
 
   render() {
@@ -143,11 +152,51 @@ export default class Home extends Component {
           </section>
         </div>
 
-        <MovieGrid
-        //  locationId={this.state.locationId}
-         searchTitle={this.state.query}></MovieGrid>
 
-          
+        <section className="movie-section padding-top padding-bottom">
+          <div className="container">
+            <div className="row flex-wrap-reverse justify-content-center">
+              <div className="col-lg-9 mb-50 mb-lg-0">
+                <div className="filter-tab tab">
+                  <div className="section-header-2">
+                    <div className="left">
+                      <h2 className="title">movies</h2>
+                      <p>Đừng bỏ lỡ những bộ phim hấp dẫn.</p>
+                    </div>
+                    {/* <ul className="tab-menu">
+                      <li onClick={this.getNowShowing()} className="active">
+                      now showing
+                    </li>
+                      <li onClick={this.getComingSoon()}>coming soon</li>
+                    </ul> */}
+                  </div>
+
+                  <MovieGrid
+                    mode={this.state.mode}
+                    //  locationId={this.state.locationId}
+                    searchTitle={this.state.query}></MovieGrid>
+                  {/* <div className="pagination-area text-center">
+                  <a href="#0">
+                    <i className="fas fa-angle-double-left" />
+                    <span>Prev</span>
+                  </a>
+                  <a href="#0">1</a>
+                  <a href="#0">2</a>
+                  <a href="#0" className="active">
+                    3
+                  </a>
+                  <a href="#0">4</a>
+                  <a href="#0">5</a>
+                  <a href="#0">
+                    <span>Next</span>
+                    <i className="fas fa-angle-double-right" />
+                  </a>
+                </div> */}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
 
         {/* <About />

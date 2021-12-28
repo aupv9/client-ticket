@@ -7,6 +7,7 @@ import TheaterService from "../../../services/TheaterService";
 import FoodItem from "./FoodItem";
 import moment from 'moment';
 import 'moment/locale/vi'
+import ChosenSeatList from "../booking-seat-plan/ChosenSeatList";
 
 export default class BookingFood extends Component {
   constructor(props) {
@@ -167,74 +168,128 @@ export default class BookingFood extends Component {
       localStorage.setItem('concession', JSON.stringify(this.state.concession));
 
       localStorage.removeItem('foodPrice');
-      localStorage.setItem('foodPrice', JSON.stringify(this.state.foodPrice));
+      localStorage.setItem('foodPrice', JSON.stringify(this.getFoodsPrice()));
 
       localStorage.removeItem('ticketPrice');
       localStorage.setItem('ticketPrice', JSON.stringify(this.state.ticketPrice));
       // console.log(JSON.parse(localStorage.getItem('seats')));
     }
   }
+
+  getSeatNumber(seat) {
+    var name = "";
+    var temp = seat % 10;
+    if (seat) {
+      seat = parseInt(seat);
+      switch ((seat - temp) / 10) {
+        case 0:
+          name = "A";
+          break;
+        case 1:
+          name = "B";
+          break;
+        case 2:
+          name = "C";
+          break;
+        case 3:
+          name = "D";
+          break;
+        case 4:
+          name = "E";
+          break;
+        case 5:
+          name = "F";
+          break;
+        case 6:
+          name = "G";
+          break;
+        case 7:
+          name = "H";
+          break;
+        case 8:
+          name = "I";
+          break;
+        case 9:
+          name = "J";
+          break;
+        default:
+          break;
+      }
+
+      if (temp === 0)
+        return name + 10;
+      return name + temp;
+    }
+  }
+
+  getListOfSeat() {
+    return this.bookedSeats.map((seat) => this.getSeatNumber(parseInt(seat)))
+  }
+
   render() {
     return (
       <div>
-      <div className="movie-facility padding-bottom padding-top">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8">
-              <div className="section-header-3">
-                <span className="cate">Bạn cảm thấy đói</span>
-                <h2 className="title">Chúng tôi có thức ăn và đồ uống</h2>
-                <p>Đặt trước đồ ăn và thức uổng để được giảm giá!</p>
-              </div>
-              <div className="grid--area">
-                <div className="grid-area">
-                  {this.mappingData()}
+        <div className="movie-facility padding-bottom padding-top">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8">
+                <div className="section-header-3">
+                  <span className="cate">Bạn cảm thấy đói</span>
+                  <h2 className="title">Chúng tôi có thức ăn và đồ uống</h2>
+                  <p>Đặt trước đồ ăn và thức uổng để được giảm giá!</p>
+                </div>
+                <div className="grid--area">
+                  <div className="grid-area">
+                    {this.mappingData()}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="booking-summery bg-one">
-                <h4 className="title">Tóm tắt </h4>
-                <ul>
-                  <li>
-                    <h6 className="subtitle">{this.state.movie.name} <span>{this.getNumOfTickets() + ' vé'}</span></h6>
-                    <span className="info">Tiếng Việt - 2D</span>
-                  </li>
-                  <li>
-                    <h6 className="subtitle">
-                      <span>{this.state.theater.name}</span>
-                      <span>{this.state.showtime.roomName}</span>
-                    </h6>
-                    <div className="info">
-                      <span>{this.state.theater.locationName}</span>
-                    </div>
-                  </li>
+              <div className="col-lg-4">
+                <div className="booking-summery bg-one">
+                  <h4 className="title">Tóm tắt </h4>
+                  <ul>
+                    <li>
+                      <h6 className="subtitle">{this.state.movie.name} <span>{this.getNumOfTickets() + ' vé'}</span></h6>
+                      <div className="info">
+                        <span> Tiếng Việt - 2D</span>
+                        <span><ChosenSeatList bookedSeats={this.state.bookedSeats} />  </span>
+                      </div>
+                    </li>
+                    <li>
+                      <h6 className="subtitle">
+                        <span>{this.state.theater.name}</span>
+                        <span>{this.state.showtime.roomName}</span>
+                      </h6>
+                      <div className="info">
+                        <span>{this.state.theater.locationName}</span>
+                      </div>
+                    </li>
 
-                  <li>
-                    <h6 className="subtitle mb-0">
-                      <span>Suất chiếu:</span>
-                      <span>{this.getDetailDay()}</span>
-                    </h6>
-                    <div className="info">
-                      <span></span>
-                      <span>{this.getDate()}</span>
-                    </div>
-                  </li>
+                    <li>
+                      <h6 className="subtitle mb-0">
+                        <span>Suất chiếu:</span>
+                        <span>{this.getDetailDay()}</span>
+                      </h6>
+                      <div className="info">
+                        <span></span>
+                        <span>{this.getDate()}</span>
+                      </div>
+                    </li>
 
-                  <li>
-                    <h6 className="subtitle mb-0">
-                      <span>Tổng giá vé</span>
-                      <span>{this.formatCurrency(this.state.ticketPrice)}</span>
-                    </h6>
-                  </li>
-                </ul>
-                <ul className="side-shape">
+                    <li>
+                      <h6 className="subtitle mb-0">
+                        <span>Tổng giá vé</span>
+                        <span>{this.formatCurrency(this.state.ticketPrice)}</span>
+                      </h6>
+                    </li>
+                  </ul>
+                  <ul className="side-shape">
 
-                  <li>
-                    <h6 className="subtitle">
-                      <span>Thức ăn &amp; Đồ uống</span>
-                    </h6>
-                    {/* <span className="info">
+                    <li>
+                      <h6 className="subtitle">
+                        <span>Thức ăn &amp; Đồ uống</span>
+                      </h6>
+                      {/* <span className="info">
                       <span>2 Nachos Combo</span>
                       <span>$57</span>
                     </span>
@@ -246,17 +301,17 @@ export default class BookingFood extends Component {
                       <span>2 Nachos Combo</span>
                       <span>$57</span>
                     </span> */}
-                    {this.mappingChosenFoodsData()}
+                      {this.mappingChosenFoodsData()}
 
-                  </li>
-                  <li>
-                    <h6 className="subtitle mb-0">
-                      <span>Tổng giá</span>
-                      <span>{this.formatCurrency(this.getFoodsPrice())}</span>
-                    </h6>
-                  </li>
-                </ul>
-                {/* <ul>
+                    </li>
+                    <li>
+                      <h6 className="subtitle mb-0">
+                        <span>Tổng giá</span>
+                        <span>{this.formatCurrency(this.getFoodsPrice())}</span>
+                      </h6>
+                    </li>
+                  </ul>
+                  {/* <ul>
                   <li>
                     <span className="info">
                       <span>price</span>
@@ -268,26 +323,26 @@ export default class BookingFood extends Component {
                     </span>
                   </li>
                 </ul> */}
-              </div>
-              <div className="proceed-area  text-center">
-                <h6 className="subtitle">
-                  <span>Chi phí ước tính</span>
-                  <span>{this.formatCurrency(this.getTotalPrice())}</span>
-                </h6>
-                <Link onClick={this.checkout()} to="/checkout" className="custom-button back-button">
-                  Tiếp tục
-                </Link>
-              </div>
-              <div className="note">
-                <h5 className="title">Ghi chú: </h5>
-                <p>
-                Vui lòng cung cấp cho chúng tôi khoảng 15 phút để chuẩn bị F&amp;B khi bạn tới rạp
-                </p>
+                </div>
+                <div className="proceed-area  text-center">
+                  <h6 className="subtitle">
+                    <span>Chi phí ước tính</span>
+                    <span>{this.formatCurrency(this.getTotalPrice())}</span>
+                  </h6>
+                  <Link onClick={this.checkout()} to="/checkout" className="custom-button back-button">
+                    Tiếp tục
+                  </Link>
+                </div>
+                <div className="note">
+                  <h5 className="title">Ghi chú: </h5>
+                  <p>
+                    Vui lòng cung cấp cho chúng tôi khoảng 15 phút để chuẩn bị F&amp;B khi bạn tới rạp
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }
