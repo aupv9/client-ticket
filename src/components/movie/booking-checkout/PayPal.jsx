@@ -1,77 +1,103 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
+// import paypal from 'paypal-checkout';
 
-const PayPalButton = paypal.Buttons.driver("react", { React, ReactDOM });
+// const PayPalButton = paypal.Button.driver('react', { React, ReactDOM });
 
 export default class PayPal extends Component {
     createOrder(data, actions) {
         return actions.order.create({
-          purchase_units: [
-            {
-              amount: {
-                value: "0.01",
-              },
-            },
-          ],
+            purchase_units: [
+                {
+                    amount: {
+                        value: "0.01",
+                    },
+                },
+            ],
         });
-      }
-      onApprove(data, actions) {
+    }
+    onApprove(data, actions) {
         return actions.order.capture();
-      }
+    }
 
     constructor(props) {
         super(props);
-    
+
         this.state = {
-          foods: [],
-          showtime: {},
-          movie: {},
-          theater: {},
-          concession: [],
-          seats: [],
-          user: {
-            // name: "",
-            // email: ""
-          },
-          userId: null,
-          foodPrice: 0,
-          ticketPrice: 0,
-          isLogged: false,
-          isRedirect: false,
-          phone: "",
-          firstName: "",
-          lastName: "",
-          email: "",
-          promoCode: "",
-          offer: {
-            percentage: 0
-          },
-          cardId: "",
-          fullName: "",
-          expired: "",
-          cvv: ""
+            foods: [],
+            showtime: {},
+            movie: {},
+            theater: {},
+            concession: [],
+            seats: [],
+            user: {
+                // name: "",
+                // email: ""
+            },
+            userId: null,
+            foodPrice: 0,
+            ticketPrice: 0,
+            isLogged: false,
+            isRedirect: false,
+            phone: "",
+            firstName: "",
+            lastName: "",
+            email: "",
+            promoCode: "",
+            offer: {
+                percentage: 0
+            },
+            cardId: "",
+            fullName: "",
+            expired: "",
+            cvv: ""
         };
         console.log(this.props);
         // this.book = this.book.bind(this);
         // this.isInputChange = this.isInputChange(this);
-      }
+    }
 
     isInputChange = (e) => {
         const target = e.target;
         const name = target.name;
         const value = target.value;
-    
-        this.setState({
-          [name]: value
-        });
-      }
 
-    
+        this.setState({
+            [name]: value
+        });
+    }
+
+    onAuthorize(data, actions) {
+        // Optional: display a confirmation page here
+
+        return actions.payment.execute().then(function () {
+            // Show a success page to the buyer
+        });
+    }
+
+    payment() {
+        const env = this.props.env;
+        const client = this.props.client;
+
+        // return paypal.rest.payment.create(env, client, {
+        //     transactions: [
+        //         {
+        //             amount: { total: '1.00', currency: 'USD' }
+        //         }
+        //     ]
+        // });
+    }
+
     render() {
+        const client = {
+            sandbox: 'AWi18rxt26-hrueMoPZ0tpGEOJnNT4QkiMQst9pYgaQNAfS1FLFxkxQuiaqRBj1vV5PmgHX_jA_c1ncL',
+            production: 'AVZhosFzrnZ5Mf3tiOxAD0M6NHv8pcB2IFNHAfp_h69mmbd-LElFYkJUSII3Y0FPbm7S7lxBuqWImLbl'
+        };
+
         return (
             <div>
-            <div>
-            {/* <div className="checkout-widget checkout-card mb-0">
+                <div>
+                    {/* <div className="checkout-widget checkout-card mb-0">
             <h5 className="title">Thông tin thanh toán </h5>
             <ul className="payment-option">
               <li className="active">
@@ -160,13 +186,13 @@ export default class PayPal extends Component {
               <a href="#0">các điều khoản và điều kiện</a>
             </p>
           </div> */}
-          </div>
+                </div>
 
-          <PayPalButton
-        createOrder={(data, actions) => this.createOrder(data, actions)}
-        onApprove={(data, actions) => this.onApprove(data, actions)}
-      />
-          </div>
+                {/* <PayPalButton
+                    createOrder={(data, actions) => this.createOrder(data, actions)}
+                    onApprove={(data, actions) => this.onApprove(data, actions)}
+                /> */}
+            </div>
         )
     }
 }
