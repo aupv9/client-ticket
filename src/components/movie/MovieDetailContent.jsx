@@ -6,7 +6,7 @@ import MovieCastList from "./cast/MovieCastList";
 import MovieSynopsis from "./MovieSynopsis";
 import MoviePhotoItem from "./photo/MoviePhotoItem";
 
-import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist//assets/owl.carousel.css';
 import 'owl.carousel';
 
 
@@ -43,18 +43,18 @@ render() {
                     {/* {this.mappingDataPhoto()} */}
 
                     <div className="thumb">
-                      <a href="assets/images/movie/movie-details01.jpg" className="img-pop">
-                        <img src="assets/images/movie/movie-details01.jpg" alt="movie" />
+                      <a href="/assets/images/movie/movie-details01.jpg" className="img-pop">
+                        <img src="/assets/images/movie/movie-details01.jpg" alt="movie" />
                       </a>
                     </div>
                     <div className="thumb">
-                      <a href="assets/images/movie/movie-details01.jpg" className="img-pop">
-                        <img src="assets/images/movie/movie-details01.jpg" alt="movie" />
+                      <a href="/assets/images/movie/movie-details01.jpg" className="img-pop">
+                        <img src="/assets/images/movie/movie-details01.jpg" alt="movie" />
                       </a>
                     </div>
                     <div className="thumb">
-                      <a href="assets/images/movie/movie-details01.jpg" className="img-pop">
-                        <img src="assets/images/movie/movie-details01.jpg" alt="movie" />
+                      <a href="/assets/images/movie/movie-details01.jpg" className="img-pop">
+                        <img src="/assets/images/movie/movie-details01.jpg" alt="movie" />
                       </a>
                     </div>
 
@@ -90,7 +90,7 @@ render() {
                               <img
                                 src={
                                   process.env.PUBLIC_URL +
-                                  "/assets/images/cast/cast02.jpg"
+                                  "//assets/images/cast/cast02.jpg"
                                 }
                                 alt="cast"
                               />
@@ -141,7 +141,7 @@ render() {
                               <img
                                 src={
                                   process.env.PUBLIC_URL +
-                                  "/assets/images/cast/cast04.jpg"
+                                  "//assets/images/cast/cast04.jpg"
                                 }
                                 alt="cast"
                               />
@@ -192,7 +192,7 @@ render() {
                               <img
                                 src={
                                   process.env.PUBLIC_URL +
-                                  "/assets/images/cast/cast01.jpg"
+                                  "//assets/images/cast/cast01.jpg"
                                 }
                                 alt="cast"
                               />
@@ -243,7 +243,7 @@ render() {
                               <img
                                 src={
                                   process.env.PUBLIC_URL +
-                                  "/assets/images/cast/cast03.jpg"
+                                  "//assets/images/cast/cast03.jpg"
                                 }
                                 alt="cast"
                               />

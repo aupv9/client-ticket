@@ -5,9 +5,6 @@ import MovieGridItem from "./MovieGridItem";
 export default class MovieGrid extends Component {
   constructor(props) {
     super(props);
-    // this.onChangeSearchName = this.onChangeSearchName.bind(this);
-    // this.retrieveMovies = this.retrieveMovies.bind(this);
-    // this.searchMovie = this.searchMovie.bind(this);
 
     this.state = {
       allMovies: [],
@@ -18,36 +15,28 @@ export default class MovieGrid extends Component {
     this.getNowShowing = this.getNowShowing.bind(this);
   }
 
-  // viewMovieDetail(id) {
-  //   this.props.history.push(`/movie-detail/${id}`);
-  // }
-
   componentDidMount() {
-    // console.log(this.props.mode);
-    // if (this.props.mode === "comingsoon") {
-    //   this.getComingSoon();
-    // } else if (this.props.mode === "nowshowing") {
-    //   this.getComingSoon();
-    // } else 
-    // eslint-disable-next-line no-lone-blocks
-    {
-      MovieService.getAll()
-        .then((res) => {
-          this.setState({ allMovies: res.data });
-        })
-        .then(() => {
-          if (this.props.searchTitle !== "" && this.state.allMovies) {
-            var movieData = this.state.allMovies.filter((movie) =>
-              movie.name.includes(this.removeAccents(this.props.searchTitle))
-            );
-            this.setState({ movies: movieData });
-          } else this.setState({ movies: this.state.allMovies });
-          console.log(this.state.movies);
-        });
-    }
+    MovieService.getNowShowing()
+      .then((res) => {
+        this.setState({ allMovies: res.data.content });
+      })
+      .then(() => {
+        if (this.props.searchTitle !== "" && this.state.allMovies) {
+          var movieData = this.state.allMovies.filter((movie) =>
+            movie.name
+              .toLowerCase()
+              .includes(
+                this.removeAccents(this.props.searchTitle.toLowerCase())
+              )
+          );
+          this.setState({ movies: movieData });
+        } else this.setState({ movies: this.state.allMovies });
+        console.log(this.state.movies);
+      });
   }
+
   getComingSoon() {
-    console.log("soon")
+    console.log("soon");
     // MovieService.getComingSoon()
     //   .then((res) => {
     //     this.setState({ allMovies: res.data });
@@ -64,20 +53,8 @@ export default class MovieGrid extends Component {
   }
 
   getNowShowing() {
-    console.log("now")
-    // MovieService.getNowShowing()
-    //   .then((res) => {
-    //     this.setState({ allMovies: res.data });
-    //   })
-    //   .then(() => {
-    //     if (this.props.searchTitle !== "" && this.state.allMovies) {
-    //       var movieData = this.state.allMovies.filter((movie) =>
-    //         movie.name.includes(this.removeAccents(this.props.searchTitle))
-    //       );
-    //       this.setState({ movies: movieData });
-    //     } else this.setState({ movies: this.state.allMovies });
-    //     console.log(this.state.movies);
-    //   });
+    console.log("now");
+   
   }
 
   componentWillReceiveProps(newProps) {
@@ -100,13 +77,6 @@ export default class MovieGrid extends Component {
       .replace(/đ/g, "d")
       .replace(/Đ/g, "D");
   }
-
-  // comingShowtime(movieId) {
-  //   ShowtimeService.getShowTimesByMovieId(movieId).then(res => {
-  //     console.log(res.data)
-  //     return res.data;
-  //   })
-  // }
 
   mappingData = () => {
     const movieList = this.state.movies.map((movie, i) => {

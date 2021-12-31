@@ -68,8 +68,8 @@ export default class MovieGridItem extends Component {
               <img
                 // src="/assets/images/movie/movie01.jpg"
                 src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/movie/" +
+                  // process.env.PUBLIC_URL +
+                  // "/assets/images/movie/" +
                   this.props.movie.thumbnail
                 }
                 alt="movie"

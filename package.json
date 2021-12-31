@@ -6,6 +6,7 @@
     "@craco/craco": "^6.3.0",
     "@formatjs/intl-pluralrules": "^4.1.5",
     "@formatjs/intl-relativetimeformat": "^9.3.2",
+    "@paypal/react-paypal-js": "^7.5.0",
     "@popperjs/core": "^2.10.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",

@@ -3,21 +3,35 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 export default class BannerMovieDetail extends Component {
+  constructor(props) {
+    super();
+  }
   watchTrailer = (url) => {
     window.open(url);
   };
 
   render() {
+    console.log("banner: ");
+    console.log(this.props.movie);
+
     return (
       <div>
         <section
           className="details-banner bg_img"
-          style={{backgroundImage: `url("${"/assets/images/banner/" + this.props.movie.banner_url}")`}} 
+          style={{backgroundImage: `url("${
+
+            // this.props.movie.image
+          
+            process.env.PUBLIC_URL +
+            "/assets/images/"
+            + "banner03.jpg"
+
+          }")`}} 
           data-background={
             process.env.PUBLIC_URL +
-            "/assets/images/banner/"
-            // + "banner04.jpg"
-            + this.props.movie.banner_url
+            "/assets/images/"
+            + "banner03.jpg"
+            // + this.props.movie.image
           }
         >
           <div className="container">
@@ -26,8 +40,9 @@ export default class BannerMovieDetail extends Component {
                 <img
                   src={
                     process.env.PUBLIC_URL + 
-                    "/assets/images/movie/"
+                    // "/assets/images/movie/movie03.jpg"
                     + this.props.movie.thumbnail
+                    // "/assets/images/movie03.jpg"
                   }
                   alt="movie"
                 />

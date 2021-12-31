@@ -14,13 +14,48 @@ export default class MovieCastList extends Component {
   }
 
   mappingData = () => {
-    if (this.props.casts) {
-      var castList = this.props.casts.map((cast, i) => {
+    var casts = [
+      {
+        name: "Jin Aketagawa",
+        profile: "/assets/images/cast/cast01.jpg",
+        role: "director"
+      },
+      {
+        name: "abc",
+        profile: "/assets/images/cast/cast02.jpg",
+        role: "main mc"
+      },
+      {
+        name: "abc",
+        profile: "/assets/images/cast/cast03.jpg",
+        role: "main mc"
+      },
+      {
+        name: "abc",
+        profile: "/assets/images/cast/cast04.jpg",
+        role: "supporting"
+      },
+      {
+        name: "abc",
+        profile: "/assets/images/cast/cast05.jpg",
+        role: "supporting"
+      },
+      {
+        name: "abc",
+        profile: "/assets/images/cast/cast06.jpg",
+        role: "supporting"
+      }
+    ]
+    // if (this.props.casts) 
+    // {
+      var castList = 
+      // this.props.
+      casts.map((cast, i) => {
         return <MovieCastItem key={i} cast={cast}></MovieCastItem>;
       });
 
       return castList;
-    }
+    // }
   };
 
   render() {

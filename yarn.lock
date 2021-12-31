@@ -1623,7 +1623,22 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@paypal/sdk-constants@^1.0.64":
+"@paypal/paypal-js@^4.2.1":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-4.2.2.tgz#e33d86b698d519389411da05a2b658002726cc18"
+  integrity sha512-Hl/h5DmVPRnMuK99+PuaQS0Ml3F3lgSHYetUiXS/uzaR+YULCZPH1x93UWtYRWFbpFnhmMEBeQUpJBOuXcLrIQ==
+  dependencies:
+    promise-polyfill "^8.2.1"
+
+"@paypal/react-paypal-js@^7.5.0":
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-7.5.0.tgz#f48b6281dac17e47a302b9b2d3195e37d1fce2d8"
+  integrity sha512-QWA0FArj4DG8WcyWZuQ/m7r4tI3Z3AF8Q/1cN8ANjUljjq7crvYu1a7WlRoBiwRQqaERXNjAZ3Ch+f22KRFGMA==
+  dependencies:
+    "@paypal/paypal-js" "^4.2.1"
+    "@paypal/sdk-constants" "^1.0.110"
+
+"@paypal/sdk-constants@^1.0.110", "@paypal/sdk-constants@^1.0.64":
   version "1.0.113"
   resolved "https://registry.yarnpkg.com/@paypal/sdk-constants/-/sdk-constants-1.0.113.tgz#0aff5aeb25654f2e7c8ae091ad568d07ae0ae89c"
   integrity sha512-Lk4xIy+EqdmAHx2JGiOubd7unzTKge8ktKtV3HA3zi+g2jUWbXMtDE31pXVnE2fU+woFtZifkNHoT7GVHEJlZA==
@@ -10410,6 +10425,11 @@ promise-inflight@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
+
+promise-polyfill@^8.2.1:
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.2.1.tgz#1fa955b325bee4f6b8a4311e18148d4e5b46d254"
+  integrity sha512-3p9zj0cEHbp7NVUxEYUWjQlffXqnXaZIMPkAO7HhFh8u5636xLRDHOUo2vpWSK0T2mqm6fKLXYn1KP6PAZ2gKg==
 
 promise@^8.1.0:
   version "8.1.0"

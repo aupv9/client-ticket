@@ -26,7 +26,7 @@ export class MovieDetail extends Component {
     return (
       <div>
         <BannerMovieDetail movie={this.state.movie}></BannerMovieDetail>
-        <BookMovieDetail movieID={this.state.movie.id}></BookMovieDetail>
+        <BookMovieDetail movieID={this.state.id}></BookMovieDetail>
         {/* <MovieDetailContent movie={this.state.movie}></MovieDetailContent> */}
         <MovieDetailsSection movie={this.state.movie}></MovieDetailsSection>
       </div>

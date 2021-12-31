@@ -6,6 +6,8 @@ import PromoService from "../../../services/PromoService";
 import OfferService from "../../../services/OfferService";
 import PromoPrice from "./PromoPrice";
 import ChosenSeatList from "../booking-seat-plan/ChosenSeatList";
+import OrderService from "../../../services/OrderService";
+import PayPal from "./PayPal";
 
 export default class BookingCheckout extends Component {
   constructor(props) {
@@ -45,17 +47,17 @@ export default class BookingCheckout extends Component {
     // this.isInputChange = this.isInputChange(this);
   }
 
-  
+
   delay = ms => new Promise(res => setTimeout(res, ms));
-  
-  makePayment = async(e) => {
-    e.preventDefault();
+
+  completePayment = async () => {
     await this.delay(1000);
     var d = new Date().toJSON().replace('T', ' ');
     d = d.slice(0, d.length - 5);
-    var totalAmount = this.getTotalPrice() * (1-this.state.offer.percentage) * 1.1;
+    var totalAmount = this.getTotalPrice() * (1 - this.state.offer.percentage) * 1.1;
     var order = {
       totalAmount: parseInt(totalAmount),
+      tax: this.getTotalPrice() * (1 - this.state.offer.percentage) * 0.1,
       showTimesDetailId: this.state.showtime.id,
       userId: this.state.userId,
       createDate: d,
@@ -65,18 +67,22 @@ export default class BookingCheckout extends Component {
       isOnline: true
     }
 
-      localStorage.removeItem('phone');
-    if(this.state.phone) {
+    OrderService.orderOnline(order).then(res => {
+      console.log(res);
+    })
+
+    localStorage.removeItem('phone');
+    if (this.state.phone) {
       localStorage.setItem('phone', JSON.stringify(this.state.phone));
     }
 
     localStorage.removeItem('offer');
-    if(this.state.offer.percentage !== 0) {
+    if (this.state.offer.percentage !== 0) {
       localStorage.setItem('offer', JSON.stringify(this.state.offer));
     }
 
-      localStorage.removeItem('order');
-      if(order) {
+    localStorage.removeItem('order');
+    if (order) {
       localStorage.setItem('order', JSON.stringify(order));
     }
     await this.delay(1000);
@@ -86,6 +92,11 @@ export default class BookingCheckout extends Component {
     this.setState({
       isRedirect: true
     })
+  }
+
+  makePayment = (e) => {
+    e.preventDefault();
+    this.completePayment();
   }
 
   componentDidMount() {
@@ -315,7 +326,7 @@ export default class BookingCheckout extends Component {
                       onChange={e => this.isInputChange(e)}
                       name="phone"
                       id="phone"
-                      // required
+                    // required
                     //  pattern="/((09|03|07|08|05)+([0-9]{8})\b)/g"
                     />
                   </div>
@@ -365,26 +376,28 @@ export default class BookingCheckout extends Component {
                     </a>
                   </li>
                   <li>
-                    <a href="#0">
-                      <img
-                        src="/assets/images/payment/paypal.png"
-                        alt="payment"
-                      />
-                      <span>paypal</span>
-                    </a>
+                    {/* <a href="#0"> */}
+                      <PayPal completePayment={this.completePayment()}>
+                        {/* <img
+                          src="/assets/images/payment/paypal.png"
+                          alt="payment"
+                        />
+                        <span>paypal</span> */}
+                      </PayPal>
+                    {/* </a> */}
                   </li>
                 </ul>
                 <h6 className="subtitle">Điền thông tin chi tiết thẻ </h6>
-                <form className="payment-card-form" 
-                method="POST"
+                <form className="payment-card-form"
+                  method="POST"
                 >
                   <div className="form-group w-100">
                     <label htmlFor="card1">Số thẻ</label>
                     <input type="password"
-                    value={this.state.cardId}
-                    onChange={e => this.isInputChange(e)}
-                    name="cardId"
-                    id="card1"
+                      value={this.state.cardId}
+                      onChange={e => this.isInputChange(e)}
+                      name="cardId"
+                      id="card1"
                     />
                     <div className="right-icon">
                       <i className="flaticon-lock" />
@@ -392,31 +405,31 @@ export default class BookingCheckout extends Component {
                   </div>
                   <div className="form-group w-100">
                     <label htmlFor="card2"> Họ và Tên trên thẻ </label>
-                    <input type="text" id="card2" 
-                    value={this.state.fullName}
-                    onChange={e => this.isInputChange(e)}
-                    name="fullName"
+                    <input type="text" id="card2"
+                      value={this.state.fullName}
+                      onChange={e => this.isInputChange(e)}
+                      name="fullName"
                     />
                   </div>
                   <div className="form-group">
                     <label htmlFor="card3">Ngày hết hạn</label>
-                    <input type="text" id="card3" placeholder="  MM/YY" 
-                     value={this.state.expired}
-                     onChange={e => this.isInputChange(e)}
-                     name="expired"
-                     />
+                    <input type="text" id="card3" placeholder="  MM/YY"
+                      value={this.state.expired}
+                      onChange={e => this.isInputChange(e)}
+                      name="expired"
+                    />
                   </div>
                   <div className="form-group">
                     <label htmlFor="card4">Mã CVV / CVC</label>
-                    <input type="password" id="card4" placeholder="  CVV" 
-                    value={this.state.cvv}
-                    onChange={e => this.isInputChange(e)}
-                    name="cvv"
+                    <input type="password" id="card4" placeholder="  CVV"
+                      value={this.state.cvv}
+                      onChange={e => this.isInputChange(e)}
+                      name="cvv"
                     />
                   </div>
                   <div className="form-group check-group">
-                    <input id="card5" type="checkbox" 
-                    required/>
+                    <input id="card5" type="checkbox"
+                      required />
                     <label htmlFor="card5">
                       <span className="title">Xác nhận</span>
                       <span className="info">
@@ -426,7 +439,7 @@ export default class BookingCheckout extends Component {
                   </div>
                   <div className="form-group">
                     <input
-                    onClick={e => this.makePayment(e)}
+                      onClick={e => this.makePayment(e)}
                       type="submit"
                       className="custom-button"
                       value="Thanh toán"
@@ -446,9 +459,9 @@ export default class BookingCheckout extends Component {
                   <li>
                     <h6 className="subtitle">{this.state.movie.name} <span>{this.getNumOfTickets() + ' vé'}</span></h6>
                     <div className="info">
-                        <span> Tiếng Việt - 2D</span>
-                        <span><ChosenSeatList bookedSeats={this.state.seats} />  </span>
-                      </div>
+                      <span> Tiếng Việt - 2D</span>
+                      <span><ChosenSeatList bookedSeats={this.state.seats} />  </span>
+                    </div>
                   </li>
                   <li>
                     <h6 className="subtitle">

@@ -74,7 +74,9 @@ export default class MovieDetailsSection extends Component {
                   </ul>
                   <div className="tab-area">
                     <div className="tab-item active">
-                      <MovieSynopsis>{this.props.movie.synopsis}</MovieSynopsis>
+                      <MovieSynopsis>
+                        {/* {this.props.movie.synopsis} */}
+                        </MovieSynopsis>
 
                       <div className="item">
                         <h5 className="sub-title">Producers</h5>
@@ -92,7 +94,8 @@ export default class MovieDetailsSection extends Component {
                       </div>
 
                       <MovieCastList
-                        casts={this.props.movie.casts}
+                        // casts={this.props.movie.casts}
+                      
                       ></MovieCastList>
                     </div>
                   </div>
