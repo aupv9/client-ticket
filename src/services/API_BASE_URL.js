@@ -1,5 +1,11 @@
-export const baseurl = "http://localhost:3004/";
-export const authenticate = "http://localhost:3000/authenticate";
+// for testing
+// export const baseurl = "http://localhost:3004/";
+// export const authenticate = "http://localhost:3000/authenticate";
+
+// for api
+export const baseurl = "http://localhost:8080/api/v1/";
+export const authenticate = baseurl + "authenticate";
+
 export const movies = baseurl + "movies";
 export const nowShowing = baseurl + "movies-nowPlaying";
 export const comingSoon = baseurl + "movies-comingSoon";
@@ -12,4 +18,5 @@ export const seatRoomAnonymous = baseurl + "seatRoomAnonymous";
 export const ordersAnonymous = baseurl + "ordersAnonymous";
 export const checkPromoCode = baseurl + "check-promoCode";
 export const offers = baseurl + "offers";
+export const payments = baseurl + "payments";
 // export const movieDetail = baseurl + "/" + "movie-detail";

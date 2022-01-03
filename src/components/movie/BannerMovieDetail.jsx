@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
@@ -6,27 +7,36 @@ export default class BannerMovieDetail extends Component {
   constructor(props) {
     super();
   }
-  watchTrailer = (url) => {
-    window.open(url);
-  };
+
+  openInNewTab = (url) => {
+    if (!url) url = "https://www.youtube.com/";
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
+  }
+
 
   render() {
     console.log("banner: ");
     console.log(this.props.movie);
 
+    const movieName = {
+      fontSize: "xx-large"
+    }
+
     return (
       <div>
         <section
           className="details-banner bg_img"
-          style={{backgroundImage: `url("${
+          style={{
+            backgroundImage: `url("${
 
-            // this.props.movie.image
-          
-            process.env.PUBLIC_URL +
-            "/assets/images/"
-            + "banner03.jpg"
+              // this.props.movie.image
 
-          }")`}} 
+              process.env.PUBLIC_URL +
+              "/assets/images/"
+              + "banner03.jpg"
+              }")`
+          }}
           data-background={
             process.env.PUBLIC_URL +
             "/assets/images/"
@@ -39,19 +49,21 @@ export default class BannerMovieDetail extends Component {
               <div className="details-banner-thumb">
                 <img
                   src={
-                    process.env.PUBLIC_URL + 
+                    // process.env.PUBLIC_URL + 
                     // "/assets/images/movie/movie03.jpg"
-                    + this.props.movie.thumbnail
+                    this.props.movie.thumbnail
                     // "/assets/images/movie03.jpg"
+                    // "https://image.tmdb.org/t/p/original/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
                   }
                   alt="movie"
                 />
-                <a 
-                // onClick={this.watchTrailer("https://www.youtube.com/")}
-                  href={this.props.movie.trailerUrl}
-                  // href="https://www.youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+
+
+                <a onClick={e => this.openInNewTab(this.props.movie.trailerUrl)}
+                  // href={this.props.movie.trailerUrl || "https://www.youtube.com"}
+                  href="#"
+                  // target="_blank"
+                  // rel="noopener noreferrer"
                   className="video-not-popup"
                 >
                   <img
@@ -64,7 +76,7 @@ export default class BannerMovieDetail extends Component {
                 </a>
               </div>
               <div className="details-banner-content offset-lg-3">
-                <h3 className="title">{this.props.movie.name}</h3>
+                <h3 style={movieName} className="title">{this.props.movie.name}</h3>
                 <div className="tags">
                   {/* <a href="#0">{this.props.movie.language}</a> */}
                   <a href="#0">Tiếng Việt</a>

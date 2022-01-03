@@ -18,14 +18,15 @@ export default class TicketPlan extends Component {
       this.state.id);
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     MovieService.getMovieById(this.state.id).then((res) => {
       this.setState({ movie: res.data });
       console.log(this.state);
     });
 
     ShowtimeService.getShowTimesByMovieId(this.state.id).then((res) => {
-      this.setState({ showtimes: res.data });
+      this.setState({ showtimes: res.data.content });
+      // this.setState({ showtimes: res.data });
       console.log(this.state);
     })
   }

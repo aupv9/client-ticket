@@ -27,7 +27,6 @@ export default class RouterURL extends Component {
           <Route path="/book-result" component={BookingComplete} />
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register} />
-          <Route path="/test" component={PayPal}/>
           <Route expact path="/" component={Home} />
           <Route component={Home} />
         </Switch>

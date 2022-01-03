@@ -11,8 +11,8 @@ export default class SeatPlan extends Component {
 
         this.state = {
             id: this.props.match.params.id,
-            seats: {},
-            showtime: {}
+            // seats: {},
+            // showtime: {}
         };
         console.log(this.state.id);
     }

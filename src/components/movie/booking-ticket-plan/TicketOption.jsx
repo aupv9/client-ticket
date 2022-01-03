@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ShowtimeService from "../../../services/ShowtimeService";
 
-import TheaterService from "../../../services/TheaterService";
+// import TheaterService from "../../../services/TheaterService";
 import SeatPlanRow from "./SeatPlanRow";
 
 export default class TicketOption extends Component {
@@ -34,7 +34,8 @@ export default class TicketOption extends Component {
   componentDidMount() {
     ShowtimeService.getShowTimesByMovieId(this.props.movieId).then((res) => {
       this.setState({
-        showtimes: res.data
+        showtimes: res.data.content
+        // showtimes: res.data
       });
       console.log(this.state);
       var showtimes = this.state.showtimes;
@@ -64,17 +65,17 @@ export default class TicketOption extends Component {
 
   }
 
-  theaterData = (theaterId) => {
-    TheaterService.getTheaterById(theaterId).then((res) => {
-      // console.log(res.data);
-      // this.setState({
-      //   grouped: {
-      //     name: res.data
-      //   }
-      // });
-      return res.data;
-    });
-  }
+  // theaterData = (theaterId) => {
+  //   TheaterService.getTheaterById(theaterId).then((res) => {
+  // console.log(res.data);
+  // this.setState({
+  //   grouped: {
+  //     name: res.data
+  //   }
+  // });
+  //     return res.data;
+  //   });
+  // }
 
   mappingData = () => {
     if (this.state.data) {

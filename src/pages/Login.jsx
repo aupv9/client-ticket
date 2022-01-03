@@ -42,17 +42,18 @@ class Login extends Component {
       console.log(response.data);
       this.setState({ setLoading: true })
       setUserSession(response.data.token, response.data.user);
-      
+
       this.props.history.push(this.state.redirect);
 
 
     }).catch(error => {
       this.setState({ setLoading: false })
-      // if (error.response.status === 401) {
-      //   this.setState({ setError: error.response.data.message })
-      // }
-      console.log(error);
-      // else this.setState({ setError: "Something went wrong. Please try again later." })
+      if (error.response.status === 401) {
+        this.setState({ setError: error.response.data.message })
+      }
+      // console.log(error);
+      else 
+      this.setState({ setError: "Something went wrong. Please try again later." })
     });
   }
 
@@ -68,8 +69,8 @@ class Login extends Component {
   }
 
   render() {
-    console.log("render() method");
-    console.log(this.state.redirect);
+    // console.log("render() method");
+    // console.log(this.state.redirect);
     return (
       <div>
         <section
@@ -88,7 +89,7 @@ class Login extends Component {
                 </div>
                 <form
                   method="POST"
-                 
+
                   className="account-form">
                   <div className="form-group">
                     <label htmlFor="email2">
@@ -117,6 +118,7 @@ class Login extends Component {
                       name="password"
                     />
                   </div>
+                  <div>{this.state.setError}</div>
                   <div className="form-group checkgroup">
                     <input type="checkbox" id="bal2" required defaultChecked />
                     <label htmlFor="bal2">lưu mật khẩu</label>
@@ -125,9 +127,9 @@ class Login extends Component {
                     </a>
                   </div>
                   <div className="form-group text-center">
-                    <input 
-                     onClick={(e) => this.handleLogin(e)}
-                    type="submit" value="Đăng nhập" />
+                    <input
+                      onClick={(e) => this.handleLogin(e)}
+                      type="submit" value="Đăng nhập" />
                   </div>
                 </form>
                 <div className="option">

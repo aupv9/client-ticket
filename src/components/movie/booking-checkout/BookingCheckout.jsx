@@ -7,6 +7,7 @@ import OfferService from "../../../services/OfferService";
 import PromoPrice from "./PromoPrice";
 import ChosenSeatList from "../booking-seat-plan/ChosenSeatList";
 import OrderService from "../../../services/OrderService";
+import PaymentService from "../../../services/PaymentService";
 import PayPal from "./PayPal";
 
 export default class BookingCheckout extends Component {
@@ -40,7 +41,9 @@ export default class BookingCheckout extends Component {
       cardId: "",
       fullName: "",
       expired: "",
-      cvv: ""
+      cvv: "",
+      order: {},
+      orderId: null
     };
     console.log(this.props);
     // this.book = this.book.bind(this);
@@ -52,24 +55,24 @@ export default class BookingCheckout extends Component {
 
   completePayment = async () => {
     await this.delay(1000);
-    var d = new Date().toJSON().replace('T', ' ');
-    d = d.slice(0, d.length - 5);
-    var totalAmount = this.getTotalPrice() * (1 - this.state.offer.percentage) * 1.1;
-    var order = {
-      totalAmount: parseInt(totalAmount),
-      tax: this.getTotalPrice() * (1 - this.state.offer.percentage) * 0.1,
-      showTimesDetailId: this.state.showtime.id,
-      userId: this.state.userId,
-      createDate: d,
-      concessionId: this.state.concession,
-      seats: this.state.seats,
-      room: this.state.showtime.roomId,
-      isOnline: true
-    }
+    // var d = new Date().toJSON().replace('T', ' ');
+    // d = d.slice(0, d.length - 5);
+    // var totalAmount = this.getTotalPrice() * (1 - this.state.offer.percentage) * 1.1;
+    // var order = {
+    //   totalAmount: parseInt(totalAmount),
+    //   tax: this.getTotalPrice() * (1 - this.state.offer.percentage) * 0.1,
+    //   showTimesDetailId: this.state.showtime.id,
+    //   userId: this.state.userId,
+    //   createDate: d,
+    //   concessionId: this.state.concession,
+    //   seats: this.state.seats,
+    //   room: this.state.showtime.roomId,
+    //   isOnline: true
+    // }
 
-    OrderService.orderOnline(order).then(res => {
-      console.log(res);
-    })
+    // OrderService.orderOnline(order).then(res => {
+    //   console.log(res);
+    // })
 
     localStorage.removeItem('phone');
     if (this.state.phone) {
@@ -82,16 +85,48 @@ export default class BookingCheckout extends Component {
     }
 
     localStorage.removeItem('order');
-    if (order) {
-      localStorage.setItem('order', JSON.stringify(order));
+    if (this.state.order) {
+      localStorage.setItem('order', JSON.stringify(this.state.order));
     }
-    await this.delay(1000);
-    console.log(JSON.stringify(order));
+
     await this.delay(1000);
 
     this.setState({
       isRedirect: true
     })
+  }
+
+  callbackFunctionPayPal = (paypalOrderId) => {
+    // console.log("hoan thanh");
+    // this.setState({isRedirect: true})
+
+    // tạo object payment
+    var payment = {
+      numberMember: null,
+      amount: this.state.order.totalAmount,
+      status: "",
+      paymentMethodId: 1,
+      createdDate: this.state.order.createDate,
+      updatedDate: "",
+      note: "",
+      transactionId: paypalOrderId.toString(),
+      useFor: "Ticket",
+      code: this.state.promoCode,
+      partId: this.state.orderId,
+      creation: 0,
+      updatedBy: 0,
+      userId: 0
+    }
+
+    console.log(JSON.stringify(payment));
+
+
+    
+    PaymentService.addPayment(payment).then(res => {
+      console.log(res);
+    });
+
+    this.completePayment();
   }
 
   makePayment = (e) => {
@@ -127,9 +162,46 @@ export default class BookingCheckout extends Component {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
+        phone: "01223695542",
         isLogged: true
       })
-      console.log(user);
+
+      //tạo object order
+      var d = new Date().toJSON().replace('T', ' ');
+      d = d.slice(0, d.length - 5);
+      var totalAmount = this.getTotalPrice() * (1 - this.state.offer.percentage) * 1.1;
+      var order = {
+        totalAmount: parseInt(totalAmount),
+        tax: this.getTotalPrice() * (1 - this.state.offer.percentage) * 0.1,
+        showTimesDetailId: this.state.showtime.id,
+        userId: user.id,
+        createDate: d,
+        note: "",
+        typeUser: false,
+        status: "",
+        creation: null,
+        concessionId: JSON.parse(localStorage.concession),
+        seats: JSON.parse(localStorage.seats),
+        room: this.state.showtime.roomId,
+        isOnline: true
+      }
+
+      console.log(order);
+      // gọi api order
+      OrderService.orderOnline(order).then((res) => {
+        this.setState({
+          orderId: res.data.id,
+          order: res.data
+          // order: order
+        })
+
+        localStorage.setItem('order', JSON.stringify(res.data));
+
+        console.log("show order: ");
+        console.log(res.data);
+      })
+
+      // console.log(user);
     }
 
   }
@@ -186,7 +258,9 @@ export default class BookingCheckout extends Component {
   }
 
   getTotalPrice() {
-    return this.getFoodsPrice() + this.state.ticketPrice;
+    return parseInt(JSON.parse(localStorage.foodPrice))
+      // this.getFoodsPrice()
+      + parseInt(JSON.parse(localStorage.ticketPrice));
   }
 
   mappingChosenFoodsData() {
@@ -208,24 +282,24 @@ export default class BookingCheckout extends Component {
   }
 
 
-  proceedButton() {
-    if (!this.state.isLogged && this.state.isRedirect) {
-      alert("Need to login!");
-      return (
-        <Redirect to="/login?action=checkout" className="custom-button back-button">
-          proceed
-        </Redirect>
-      )
-    }
-    return (
-      <a href="true" onClick={this.book} className="custom-button back-button">
-        proceed
-      </a>
-    )
-  }
+  // proceedButton() {
+  //   if (!this.state.isLogged && this.state.isRedirect) {
+  //     alert("Need to login!");
+  //     return (
+  //       <Redirect to="/login?action=checkout" className="custom-button back-button">
+  //         proceed
+  //       </Redirect>
+  //     )
+  //   }
+  //   return (
+  //     <a href="true" onClick={this.book} className="custom-button back-button">
+  //       proceed
+  //     </a>
+  //   )
+  // }
 
   loginWidget = () => {
-    console.log(this.state.user);
+    // console.log(this.state.user);
     if (!this.state.isLogged)
       return (
         <div className="checkout-widget d-flex flex-wrap align-items-center justify-cotent-between">
@@ -266,12 +340,28 @@ export default class BookingCheckout extends Component {
       console.log(res.data);
       if (res.data) {
         OfferService.getOfferById(res.data.id).then((res) => {
-
-
           localStorage.setItem('offer', JSON.stringify(res.data[0]));
-
           this.setState({
             offer: res.data[0]
+          })
+
+          // update total amount and tax
+          // create order object
+          var totalAmount = this.getTotalPrice() * (1 - res.data[0].percentage) * 1.1;
+          var newData = {
+            totalAmount: totalAmount,
+            tax: totalAmount * 0.1,
+          }
+          var order = {...this.state.order, ...newData};
+
+          OrderService.updateOrder(order).then((res) => {
+            this.setState({
+              orderId: res.data.id,
+              order: res.data
+              // order: order
+            })
+
+            localStorage.setItem('order', JSON.stringify(res.data));
           })
         })
       } else {
@@ -280,7 +370,6 @@ export default class BookingCheckout extends Component {
       }
     })
   }
-
 
   render() {
     if (this.state.isRedirect) {
@@ -364,6 +453,21 @@ export default class BookingCheckout extends Component {
                 <h5 className="title">Thông tin thanh toán </h5>
                 <ul className="payment-option">
                   <li className="active">
+                    {/* <a href="#0"> */}
+                    <PayPal order={this.state.order}
+                      parentCallback={this.callbackFunctionPayPal}
+                    >
+                      {/* <img
+                          src="/assets/images/payment/paypal.png"
+                          alt="payment"
+                        /> */}
+                      {/* <span>paypal</span> */}
+                    </PayPal>
+                    {/* </a> */}
+                  </li>
+                </ul>
+                {/* <ul className="payment-option">
+                  <li className="active">
                     <a href="#0">
                       <img src="/assets/images/payment/card.png" alt="payment" />
                       <span>Credit Card</span>
@@ -375,18 +479,7 @@ export default class BookingCheckout extends Component {
                       <span>Debit Card</span>
                     </a>
                   </li>
-                  <li>
-                    {/* <a href="#0"> */}
-                      <PayPal completePayment={this.completePayment()}>
-                        {/* <img
-                          src="/assets/images/payment/paypal.png"
-                          alt="payment"
-                        />
-                        <span>paypal</span> */}
-                      </PayPal>
-                    {/* </a> */}
-                  </li>
-                </ul>
+                </ul> */}
                 <h6 className="subtitle">Điền thông tin chi tiết thẻ </h6>
                 <form className="payment-card-form"
                   method="POST"

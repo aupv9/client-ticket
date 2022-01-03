@@ -1,1254 +1,2005 @@
 {
-    "movies-nowPlaying": {
-        "content": [
-            {
-                "id": 100,
-                "name": "Venus",
-                "thumbnail": "/assets/images/movie03.jpg",
-                "image": "/assets/images/banner03.jpg",
-                "genre": "Kinh dị, Khoa học viễn tưởng",
-                "releasedDate": "2021-12-06",
-                "durationMin": 170,
-                "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-                "tags": "2D",
-                "casts": "cast placeholder"
-            },
-            {
-                "id": 101,
-                "name": "Horror Night",
-                "thumbnail": "/assets/images/movie07.jpg",
-                "image": "/assets/images/banner03.jpg",
-                "genre": "Kinh dị, Khoa học viễn tưởng",
-                "releasedDate": "2021-12-06",
-                "durationMin": 170,
-                "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-                "tags": "2D",
-                "casts": "cast placeholder"
-            },
-            {
-                "id": 102,
-                "name": "Alone",
-                "thumbnail": "/assets/images/movie01.jpg",
-                "image": "/assets/images/banner03.jpg",
-                "genre": "Kinh dị, Khoa học viễn tưởng",
-                "releasedDate": "2021-12-06",
-                "durationMin": 170,
-                "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-                "tags": "2D",
-                "casts": "cast placeholder"
-            },
-            {
-                "id": 103,
-                "name": "Mars",
-                "thumbnail": "/assets/images/movie02.jpg",
-                "image": "/assets/images/banner03.jpg",
-                "genre": "Kinh dị, Khoa học viễn tưởng",
-                "releasedDate": "2021-12-06",
-                "durationMin": 170,
-                "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-                "tags": "2D",
-                "casts": "cast placeholder"
-            },
-            {
-                "id": 104,
-                "name": "On Watch",
-                "thumbnail": "/assets/images/movie04.jpg",
-                "image": "/assets/images/banner03.jpg",
-                "genre": "Kinh dị, Khoa học viễn tưởng",
-                "releasedDate": "2021-12-06",
-                "durationMin": 170,
-                "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-                "tags": "2D",
-                "casts": "cast placeholder"
-            },
-            {
-                "id": 105,
-                "name": "Trooper",
-                "thumbnail": "/assets/images/movie06.jpg",
-                "image": "/assets/images/banner03.jpg",
-                "genre": "Kinh dị, Khoa học viễn tưởng",
-                "releasedDate": "2021-12-06",
-                "durationMin": 170,
-                "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-                "tags": "2D",
-                "casts": "cast placeholder"
-            },
-            {
-                "id": 106,
-                "name": "Fury",
-                "thumbnail": "/assets/images/movie05.jpg",
-                "image": "/assets/images/banner03.jpg",
-                "genre": "Kinh dị, Khoa học viễn tưởng",
-                "releasedDate": "2021-12-06",
-                "durationMin": 170,
-                "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-                "tags": "2D",
-                "casts": "cast placeholder"
-            },
-            {
-                "id": 107,
-                "name": "The Lost Name",
-                "thumbnail": "/assets/images/movie08.jpg",
-                "image": "/assets/images/banner03.jpg",
-                "genre": "Kinh dị, Khoa học viễn tưởng",
-                "releasedDate": "2021-12-06",
-                "durationMin": 170,
-                "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-                "tags": "2D",
-                "casts": "cast placeholder"
-            },
-            {
-                "id": 108,
-                "name": "FIDO",
-                "thumbnail": "/assets/images/movie09.jpg",
-                "image": "/assets/images/banner03.jpg",
-                "genre": "Kinh dị, Khoa học viễn tưởng",
-                "releasedDate": "2021-12-06",
-                "durationMin": 170,
-                "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-                "tags": "2D",
-                "casts": "cast placeholder"
-            },
-            {
-                "id": 109,
-                "name": "Criminal on Party",
-                "thumbnail": "/assets/images/movie10.jpg",
-                "image": "/assets/images/banner03.jpg",
-                "genre": "Kinh dị, Khoa học viễn tưởng",
-                "releasedDate": "2021-12-06",
-                "durationMin": 170,
-                "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-                "tags": "2D",
-                "casts": "cast placeholder"
-            },
-            {
-                "id": 110,
-                "name": "Halloween Party",
-                "thumbnail": "/assets/images/movie11.jpg",
-                "image": "/assets/images/banner03.jpg",
-                "genre": "Kinh dị, Khoa học viễn tưởng",
-                "releasedDate": "2021-12-06",
-                "durationMin": 170,
-                "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-                "tags": "2D",
-                "casts": "cast placeholder"
-            },
-            {
-                "id": 111,
-                "name": "The Most Wanted",
-                "thumbnail": "/assets/images/movie12.jpg",
-                "image": "/assets/images/banner03.jpg",
-                "genre": "Kinh dị, Khoa học viễn tưởng",
-                "releasedDate": "2021-12-06",
-                "durationMin": 170,
-                "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-                "tags": "2D",
-                "casts": "cast placeholder"
-            }
-        ],
-        "totalElements": 12
+  "movies-nowPlaying": {
+    "content": [
+      {
+        "id": 1,
+        "durationMin": 100,
+        "name": "Người Nhện: Không Còn Nhà",
+        "image": "https://image.tmdb.org/t/p/original/1Rr5SrvHxMXHu5RjKpaMba8VTzi.jpg",
+        "thumbnail": "https://image.tmdb.org/t/p/original/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+        "releasedDate": "2021-12-01",
+        "trailerUrl": null,
+        "genre": null
+      },
+      {
+        "id": 3,
+        "durationMin": 100,
+        "name": "Avenger",
+        "image": "https://image.tmdb.org/t/p/original/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+        "thumbnail": "https://image.tmdb.org/t/p/original/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+        "releasedDate": "2021-12-18",
+        "trailerUrl": null,
+        "genre": null
+      },
+      {
+        "id": 4,
+        "durationMin": 100,
+        "name": "Encanto: Vùng Đất Thần Kỳ",
+        "image": "https://image.tmdb.org/t/p/original/3G1Q5xF40HkUBJXxt2DQgQzKTp5.jpg",
+        "thumbnail": "https://image.tmdb.org/t/p/original/3G1Q5xF40HkUBJXxt2DQgQzKTp5.jpg",
+        "releasedDate": "2021-12-18",
+        "trailerUrl": null,
+        "genre": null
+      },
+      {
+        "id": 58,
+        "durationMin": 117,
+        "name": "Red Notice",
+        "image": "https://image.tmdb.org/t/p/original/skvI4rYFrKXS73BJxWGH54Omlvv.jpg",
+        "thumbnail": "https://www.themoviedb.org/t/p/w220_and_h330_face/wdE6ewaKZHr62bLqCn7A2DiGShm.jpg",
+        "releasedDate": "2021-12-17",
+        "trailerUrl": null,
+        "genre": "Action,Adventure,Comedy,v"
+      },
+      {
+        "id": 100,
+        "name": "Venus",
+        "thumbnail": "/assets/images/movie03.jpg",
+        "image": "/assets/images/banner03.jpg",
+        "genre": "Kinh dị, Khoa học viễn tưởng",
+        "releasedDate": "2021-12-06",
+        "durationMin": 170,
+        "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+      },
+      {
+        "id": 101,
+        "name": "Horror Night",
+        "thumbnail": "/assets/images/movie07.jpg",
+        "image": "/assets/images/banner03.jpg",
+        "genre": "Kinh dị, Khoa học viễn tưởng",
+        "releasedDate": "2021-12-06",
+        "durationMin": 170,
+        "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+      },
+      {
+        "id": 102,
+        "name": "Alone",
+        "thumbnail": "/assets/images/movie01.jpg",
+        "image": "/assets/images/banner03.jpg",
+        "genre": "Kinh dị, Khoa học viễn tưởng",
+        "releasedDate": "2021-12-06",
+        "durationMin": 170,
+        "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+      },
+      {
+        "id": 103,
+        "name": "Mars",
+        "thumbnail": "/assets/images/movie02.jpg",
+        "image": "/assets/images/banner03.jpg",
+        "genre": "Kinh dị, Khoa học viễn tưởng",
+        "releasedDate": "2021-12-06",
+        "durationMin": 170,
+        "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+      },
+      {
+        "id": 104,
+        "name": "On Watch",
+        "thumbnail": "/assets/images/movie04.jpg",
+        "image": "/assets/images/banner03.jpg",
+        "genre": "Kinh dị, Khoa học viễn tưởng",
+        "releasedDate": "2021-12-06",
+        "durationMin": 170,
+        "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+      },
+      {
+        "id": 105,
+        "name": "Trooper",
+        "thumbnail": "/assets/images/movie06.jpg",
+        "image": "/assets/images/banner03.jpg",
+        "genre": "Kinh dị, Khoa học viễn tưởng",
+        "releasedDate": "2021-12-06",
+        "durationMin": 170,
+        "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+      },
+      {
+        "id": 106,
+        "name": "Fury",
+        "thumbnail": "/assets/images/movie05.jpg",
+        "image": "/assets/images/banner03.jpg",
+        "genre": "Kinh dị, Khoa học viễn tưởng",
+        "releasedDate": "2021-12-06",
+        "durationMin": 170,
+        "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+      },
+      {
+        "id": 107,
+        "name": "The Lost Name",
+        "thumbnail": "/assets/images/movie08.jpg",
+        "image": "/assets/images/banner03.jpg",
+        "genre": "Kinh dị, Khoa học viễn tưởng",
+        "releasedDate": "2021-12-06",
+        "durationMin": 170,
+        "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+      },
+      {
+        "id": 108,
+        "name": "FIDO",
+        "thumbnail": "/assets/images/movie09.jpg",
+        "image": "/assets/images/banner03.jpg",
+        "genre": "Kinh dị, Khoa học viễn tưởng",
+        "releasedDate": "2021-12-06",
+        "durationMin": 170,
+        "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+      },
+      {
+        "id": 109,
+        "name": "Criminal on Party",
+        "thumbnail": "/assets/images/movie10.jpg",
+        "image": "/assets/images/banner03.jpg",
+        "genre": "Kinh dị, Khoa học viễn tưởng",
+        "releasedDate": "2021-12-06",
+        "durationMin": 170,
+        "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+      },
+      {
+        "id": 110,
+        "name": "Halloween Party",
+        "thumbnail": "/assets/images/movie11.jpg",
+        "image": "/assets/images/banner03.jpg",
+        "genre": "Kinh dị, Khoa học viễn tưởng",
+        "releasedDate": "2021-12-06",
+        "durationMin": 170,
+        "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+      },
+      {
+        "id": 111,
+        "name": "The Most Wanted",
+        "thumbnail": "/assets/images/movie12.jpg",
+        "image": "/assets/images/banner03.jpg",
+        "genre": "Kinh dị, Khoa học viễn tưởng",
+        "releasedDate": "2021-12-06",
+        "durationMin": 170,
+        "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+      }
+    ],
+    "totalElements": 16
+  },
+  "movies": [
+    {
+      "id": 1,
+      "durationMin": 100,
+      "name": "Người Nhện: Không Còn Nhà",
+      "image": "https://image.tmdb.org/t/p/original/1Rr5SrvHxMXHu5RjKpaMba8VTzi.jpg",
+      "thumbnail": "https://image.tmdb.org/t/p/original/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+      "releasedDate": "2021-12-01",
+      "trailerUrl": null,
+      "genre": null
     },
-    "movies": [
-        {
-            "id": 100,
-            "name": "Venus",
-            "thumbnail": "/assets/images/movie03.jpg",
-            "image": "/assets/images/banner03.jpg",
-            "genre": "Kinh dị, Khoa học viễn tưởng",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "tags": "2D",
-            "casts": "cast placeholder"
-        },
-        {
-            "id": 101,
-            "name": "Horror Night",
-            "thumbnail": "/assets/images/movie07.jpg",
-            "image": "/assets/images/banner03.jpg",
-            "genre": "Kinh dị, Khoa học viễn tưởng",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "tags": "2D",
-            "casts": "cast placeholder"
-        },
-        {
-            "id": 102,
-            "name": "Alone",
-            "thumbnail": "/assets/images/movie01.jpg",
-            "image": "/assets/images/banner03.jpg",
-            "genre": "Kinh dị, Khoa học viễn tưởng",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "tags": "2D",
-            "casts": "cast placeholder"
-        },
-        {
-            "id": 103,
-            "name": "Mars",
-            "thumbnail": "/assets/images/movie02.jpg",
-            "image": "/assets/images/banner03.jpg",
-            "genre": "Kinh dị, Khoa học viễn tưởng",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "tags": "2D",
-            "casts": "cast placeholder"
-        },
-        {
-            "id": 104,
-            "name": "On Watch",
-            "thumbnail": "/assets/images/movie04.jpg",
-            "image": "/assets/images/banner03.jpg",
-            "genre": "Kinh dị, Khoa học viễn tưởng",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "tags": "2D",
-            "casts": "cast placeholder"
-        },
-        {
-            "id": 105,
-            "name": "Trooper",
-            "thumbnail": "/assets/images/movie06.jpg",
-            "image": "/assets/images/banner03.jpg",
-            "genre": "Kinh dị, Khoa học viễn tưởng",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "tags": "2D",
-            "casts": "cast placeholder"
-        },
-        {
-            "id": 106,
-            "name": "Fury",
-            "thumbnail": "/assets/images/movie05.jpg",
-            "image": "/assets/images/banner03.jpg",
-            "genre": "Kinh dị, Khoa học viễn tưởng",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "tags": "2D",
-            "casts": "cast placeholder"
-        },
-        {
-            "id": 107,
-            "name": "The Lost Name",
-            "thumbnail": "/assets/images/movie08.jpg",
-            "image": "/assets/images/banner03.jpg",
-            "genre": "Kinh dị, Khoa học viễn tưởng",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "tags": "2D",
-            "casts": "cast placeholder"
-        },
-        {
-            "id": 108,
-            "name": "FIDO",
-            "thumbnail": "/assets/images/movie09.jpg",
-            "image": "/assets/images/banner03.jpg",
-            "genre": "Kinh dị, Khoa học viễn tưởng",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "tags": "2D",
-            "casts": "cast placeholder"
-        },
-        {
-            "id": 109,
-            "name": "Criminal on Party",
-            "thumbnail": "/assets/images/movie10.jpg",
-            "image": "/assets/images/banner03.jpg",
-            "genre": "Kinh dị, Khoa học viễn tưởng",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "tags": "2D",
-            "casts": "cast placeholder"
-        },
-        {
-            "id": 110,
-            "name": "Halloween Party",
-            "thumbnail": "/assets/images/movie11.jpg",
-            "image": "/assets/images/banner03.jpg",
-            "genre": "Kinh dị, Khoa học viễn tưởng",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "tags": "2D",
-            "casts": "cast placeholder"
-        },
-        {
-            "id": 111,
-            "name": "The Most Wanted",
-            "thumbnail": "/assets/images/movie12.jpg",
-            "image": "/assets/images/banner03.jpg",
-            "genre": "Kinh dị, Khoa học viễn tưởng",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "tags": "2D",
-            "casts": "cast placeholder"
-        }
+    {
+      "id": 3,
+      "durationMin": 100,
+      "name": "Avenger",
+      "image": "https://image.tmdb.org/t/p/original/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+      "thumbnail": "https://image.tmdb.org/t/p/original/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+      "releasedDate": "2021-12-18",
+      "trailerUrl": null,
+      "genre": null
+    },
+    {
+      "id": 4,
+      "durationMin": 100,
+      "name": "Encanto: Vùng Đất Thần Kỳ",
+      "image": "https://image.tmdb.org/t/p/original/3G1Q5xF40HkUBJXxt2DQgQzKTp5.jpg",
+      "thumbnail": "https://image.tmdb.org/t/p/original/3G1Q5xF40HkUBJXxt2DQgQzKTp5.jpg",
+      "releasedDate": "2021-12-18",
+      "trailerUrl": null,
+      "genre": null
+    },
+    {
+      "id": 58,
+      "durationMin": 117,
+      "name": "Red Notice",
+      "image": "https://image.tmdb.org/t/p/original/skvI4rYFrKXS73BJxWGH54Omlvv.jpg",
+      "thumbnail": "https://www.themoviedb.org/t/p/w220_and_h330_face/wdE6ewaKZHr62bLqCn7A2DiGShm.jpg",
+      "releasedDate": "2021-12-17",
+      "trailerUrl": null,
+      "genre": "Action,Adventure,Comedy,v"
+    },
+    {
+      "id": 100,
+      "name": "Venus",
+      "thumbnail": "/assets/images/movie03.jpg",
+      "image": "/assets/images/banner03.jpg",
+      "genre": "Kinh dị, Khoa học viễn tưởng",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+    },
+    {
+      "id": 101,
+      "name": "Horror Night",
+      "thumbnail": "/assets/images/movie07.jpg",
+      "image": "/assets/images/banner03.jpg",
+      "genre": "Kinh dị, Khoa học viễn tưởng",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+    },
+    {
+      "id": 102,
+      "name": "Alone",
+      "thumbnail": "/assets/images/movie01.jpg",
+      "image": "/assets/images/banner03.jpg",
+      "genre": "Kinh dị, Khoa học viễn tưởng",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+    },
+    {
+      "id": 103,
+      "name": "Mars",
+      "thumbnail": "/assets/images/movie02.jpg",
+      "image": "/assets/images/banner03.jpg",
+      "genre": "Kinh dị, Khoa học viễn tưởng",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+    },
+    {
+      "id": 104,
+      "name": "On Watch",
+      "thumbnail": "/assets/images/movie04.jpg",
+      "image": "/assets/images/banner03.jpg",
+      "genre": "Kinh dị, Khoa học viễn tưởng",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+    },
+    {
+      "id": 105,
+      "name": "Trooper",
+      "thumbnail": "/assets/images/movie06.jpg",
+      "image": "/assets/images/banner03.jpg",
+      "genre": "Kinh dị, Khoa học viễn tưởng",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+    },
+    {
+      "id": 106,
+      "name": "Fury",
+      "thumbnail": "/assets/images/movie05.jpg",
+      "image": "/assets/images/banner03.jpg",
+      "genre": "Kinh dị, Khoa học viễn tưởng",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+    },
+    {
+      "id": 107,
+      "name": "The Lost Name",
+      "thumbnail": "/assets/images/movie08.jpg",
+      "image": "/assets/images/banner03.jpg",
+      "genre": "Kinh dị, Khoa học viễn tưởng",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+    },
+    {
+      "id": 108,
+      "name": "FIDO",
+      "thumbnail": "/assets/images/movie09.jpg",
+      "image": "/assets/images/banner03.jpg",
+      "genre": "Kinh dị, Khoa học viễn tưởng",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+    },
+    {
+      "id": 109,
+      "name": "Criminal on Party",
+      "thumbnail": "/assets/images/movie10.jpg",
+      "image": "/assets/images/banner03.jpg",
+      "genre": "Kinh dị, Khoa học viễn tưởng",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+    },
+    {
+      "id": 110,
+      "name": "Halloween Party",
+      "thumbnail": "/assets/images/movie11.jpg",
+      "image": "/assets/images/banner03.jpg",
+      "genre": "Kinh dị, Khoa học viễn tưởng",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+    },
+    {
+      "id": 111,
+      "name": "The Most Wanted",
+      "thumbnail": "/assets/images/movie12.jpg",
+      "image": "/assets/images/banner03.jpg",
+      "genre": "Kinh dị, Khoa học viễn tưởng",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc"
+    }
+  ],
+  "showTimesAnonymous": [
+    {
+      "movieId": 100,
+      "roomId": 1,
+      "id": 1,
+      "timeEnd": "",
+      "timeStart": "2021-12-29 17:10:00",
+      "price": 45000,
+      "roomName": "Phòng số 1",
+      "date": "",
+      "theaterId": 1,
+      "status": "active",
+      "reShow": false
+    },
+    {
+      "movieId": 100,
+      "roomId": 1,
+      "id": 10,
+      "timeEnd": "",
+      "timeStart": "2021-12-29 21:30:00",
+      "price": 45000,
+      "roomName": "Phòng số 1",
+      "date": "",
+      "theaterId": 1,
+      "status": "active",
+      "reShow": false
+    },
+    {
+      "movieId": 100,
+      "roomId": 1,
+      "id": 11,
+      "timeEnd": "",
+      "timeStart": "2022-01-01 09:45:00",
+      "price": 45000,
+      "roomName": "Phòng số 1",
+      "date": "",
+      "theaterId": 1,
+      "status": "active",
+      "reShow": false
+    },
+    {
+      "movieId": 100,
+      "roomId": 3,
+      "id": 3,
+      "timeEnd": "",
+      "timeStart": "2022-01-05 11:30:00",
+      "price": 45000,
+      "roomName": "Room 3",
+      "date": "",
+      "theaterId": 2,
+      "status": "active",
+      "reShow": false
+    }
+  ],
+  "theaters": [
+    {
+      "id": 1,
+      "code": "theater1",
+      "name": "Rạp số 1",
+      "latitude": "",
+      "longitude": "",
+      "locationId": 1,
+      "locationName": "Tp. Hồ Chí Minh",
+      "thumbnail": "",
+      "image": "",
+      "address": "",
+      "active": true
+    },
+    {
+      "id": 2,
+      "code": "theater2",
+      "name": "Rạp số 2",
+      "latitude": "",
+      "longitude": "",
+      "locationId": 1,
+      "locationName": "Tp. Hồ Chí Minh",
+      "thumbnail": "",
+      "image": "",
+      "address": "",
+      "active": true
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "Muchaco, Crispy Taco, Bean Burrito",
+      "description": "",
+      "thumbnail": "pop1.png",
+      "price": 40000
+    },
+    {
+      "id": 2,
+      "name": "Crispy Beef Taco, Beef Mucho Nachos",
+      "description": "",
+      "thumbnail": "pop2.png",
+      "price": 35000
+    },
+    {
+      "id": 3,
+      "name": "Chicken Quesadilla Crispy Beef Taco",
+      "description": "",
+      "thumbnail": "pop3.png",
+      "price": 45000
+    },
+    {
+      "id": 4,
+      "name": "MexiDips & Chips, Beef Muchaco",
+      "description": "",
+      "thumbnail": "pop4.png",
+      "price": 50000
+    }
+  ],
+  "seatRoomAnonymous": {
+    "content": [
+      {
+        "id": 1,
+        "seatType": "",
+        "roomId": 1,
+        "numbers": 1,
+        "tier": "A",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 2,
+        "seatType": "",
+        "roomId": 1,
+        "numbers": 2,
+        "tier": "A",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 3,
+        "seatType": "",
+        "roomId": 1,
+        "numbers": 3,
+        "tier": "A",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 4,
+        "seatType": "",
+        "roomId": 1,
+        "numbers": 4,
+        "tier": "A",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 5,
+        "seatType": "",
+        "roomId": 1,
+        "numbers": 5,
+        "tier": "A",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 6,
+        "numbers": 6,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "A",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 7,
+        "numbers": 7,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "A",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 8,
+        "numbers": 8,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "A",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 9,
+        "numbers": 9,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "A",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 10,
+        "numbers": 10,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "A",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 11,
+        "numbers": 11,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "B",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 12,
+        "numbers": 12,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "B",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 13,
+        "numbers": 13,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "B",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 14,
+        "numbers": 14,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "B",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 15,
+        "numbers": 15,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "B",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 16,
+        "numbers": 16,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "B",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 17,
+        "numbers": 17,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "B",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 18,
+        "numbers": 18,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "B",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 19,
+        "numbers": 19,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "B",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 20,
+        "numbers": 20,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "B",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 21,
+        "numbers": 21,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "C",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 22,
+        "numbers": 22,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "C",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 23,
+        "numbers": 23,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "C",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 24,
+        "numbers": 24,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "C",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 25,
+        "numbers": 25,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "C",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 26,
+        "numbers": 26,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "C",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 27,
+        "numbers": 27,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "C",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 28,
+        "numbers": 28,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "C",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 29,
+        "numbers": 29,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "C",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 30,
+        "numbers": 30,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "C",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 31,
+        "numbers": 31,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "D",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 32,
+        "numbers": 32,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "D",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 33,
+        "numbers": 33,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "D",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 34,
+        "numbers": 34,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "D",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 35,
+        "numbers": 35,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "D",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 36,
+        "numbers": 36,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "D",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 37,
+        "numbers": 37,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "D",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 38,
+        "numbers": 38,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "D",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 39,
+        "numbers": 39,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "D",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 40,
+        "numbers": 40,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "D",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 41,
+        "numbers": 41,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "E",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 42,
+        "numbers": 42,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "E",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 43,
+        "numbers": 43,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "E",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 44,
+        "numbers": 44,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "E",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 45,
+        "numbers": 45,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "E",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 46,
+        "numbers": 46,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "E",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 47,
+        "numbers": 47,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "E",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 48,
+        "numbers": 48,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "E",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 49,
+        "numbers": 49,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "E",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 50,
+        "numbers": 50,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "E",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 51,
+        "numbers": 51,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "F",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 52,
+        "numbers": 52,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "F",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 53,
+        "numbers": 53,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "F",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 54,
+        "numbers": 54,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "F",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 55,
+        "numbers": 55,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "F",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 56,
+        "numbers": 56,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "F",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 57,
+        "numbers": 57,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "F",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 58,
+        "numbers": 58,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "F",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 59,
+        "numbers": 59,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "F",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 60,
+        "numbers": 60,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "F",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 61,
+        "numbers": 61,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "G",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 62,
+        "numbers": 62,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "G",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 63,
+        "numbers": 63,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "G",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 64,
+        "numbers": 64,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "G",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 65,
+        "numbers": 65,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "G",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 66,
+        "numbers": 66,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "G",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 67,
+        "numbers": 67,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "G",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 68,
+        "numbers": 68,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "G",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 69,
+        "numbers": 69,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "G",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 70,
+        "numbers": 70,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "G",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 71,
+        "numbers": 71,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "H",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 72,
+        "numbers": 72,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "H",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 73,
+        "numbers": 73,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "H",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 74,
+        "numbers": 74,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "H",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 75,
+        "numbers": 75,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "H",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 76,
+        "numbers": 76,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "H",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 77,
+        "numbers": 77,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "H",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 78,
+        "numbers": 78,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "H",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 79,
+        "numbers": 79,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "H",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 80,
+        "numbers": 80,
+        "seatType": "",
+        "roomId": 1,
+        "tier": "H",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 81,
+        "numbers": 1,
+        "seatType": "",
+        "roomId": 2,
+        "tier": "I",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 82,
+        "numbers": 2,
+        "seatType": "",
+        "roomId": 2,
+        "tier": "I",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 83,
+        "numbers": 3,
+        "seatType": "",
+        "roomId": 2,
+        "tier": "I",
+        "isSelected": false,
+        "status": ""
+      },
+      {
+        "id": 84,
+        "numbers": 4,
+        "seatType": "",
+        "roomId": 2,
+        "tier": "I",
+        "isSelected": true,
+        "status": ""
+      },
+      {
+        "id": 85,
+        "numbers": 85,
+        "seatType": "",
+        "roomId": 2,
+        "tier": "I",
+        "isSelected": false,
+        "status": ""
+      }
     ],
-    "showTimesAnonymous": [
-        {
-            "movieId": 100,
-            "roomId": 1,
-            "id": 1,
-            "timeEnd": "",
-            "timeStart": "2021-12-29 17:10:00",
-            "price": 45000,
-            "roomName": "Phòng số 1",
-            "date": "",
-            "theaterId": 1,
-            "status": "active",
-            "reShow": false
-        },
-        {
-            "movieId": 100,
-            "roomId": 1,
-            "id": 10,
-            "timeEnd": "",
-            "timeStart": "2021-12-29 21:30:00",
-            "price": 45000,
-            "roomName": "Phòng số 1",
-            "date": "",
-            "theaterId": 1,
-            "status": "active",
-            "reShow": false
-        },
-        {
-            "movieId": 100,
-            "roomId": 1,
-            "id": 11,
-            "timeEnd": "",
-            "timeStart": "2022-01-01 09:45:00",
-            "price": 45000,
-            "roomName": "Phòng số 1",
-            "date": "",
-            "theaterId": 1,
-            "status": "active",
-            "reShow": false
-        },
-        {
-            "movieId": 100,
-            "roomId": 3,
-            "id": 3,
-            "timeEnd": "",
-            "timeStart": "2022-01-05 11:30:00",
-            "price": 45000,
-            "roomName": "Room 3",
-            "date": "",
-            "theaterId": 2,
-            "status": "active",
-            "reShow": false
-        }
-    ],
-    "theaters": [
-        {
-            "id": 1,
-            "code": "theater1",
-            "name": "Rạp số 1",
-            "latitude": "",
-            "longitude": "",
-            "locationId": 1,
-            "locationName": "Tp. Hồ Chí Minh",
-            "thumbnail": "",
-            "image": "",
-            "address": "",
-            "active": true
-        },
-        {
-            "id": 2,
-            "code": "theater2",
-            "name": "Rạp số 2",
-            "latitude": "",
-            "longitude": "",
-            "locationId": 1,
-            "locationName": "Tp. Hồ Chí Minh",
-            "thumbnail": "",
-            "image": "",
-            "address": "",
-            "active": true
-        }
-    ],
-    "services": [
-        {
-            "id": 1,
-            "name": "Muchaco, Crispy Taco, Bean Burrito",
-            "description": "",
-            "thumbnail": "pop1.png",
-            "price": 40000
-        },
-        {
-            "id": 2,
-            "name": "Crispy Beef Taco, Beef Mucho Nachos",
-            "description": "",
-            "thumbnail": "pop2.png",
-            "price": 35000
-        },
-        {
-            "id": 3,
-            "name": "Chicken Quesadilla Crispy Beef Taco",
-            "description": "",
-            "thumbnail": "pop3.png",
-            "price": 45000
-        },
-        {
-            "id": 4,
-            "name": "MexiDips & Chips, Beef Muchaco",
-            "description": "",
-            "thumbnail": "pop4.png",
-            "price": 50000
-        }
-    ],
-    "seatRoomAnonymous": [
-        {
-            "id": 1,
-            "seatType": "",
-            "roomId": 1,
-            "numbers": 1,
-            "tier": "A",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 2,
-            "seatType": "",
-            "roomId": 1,
-            "numbers": 2,
-            "tier": "A",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 3,
-            "seatType": "",
-            "roomId": 1,
-            "numbers": 3,
-            "tier": "A",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 4,
-            "seatType": "",
-            "roomId": 1,
-            "numbers": 4,
-            "tier": "A",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 5,
-            "seatType": "",
-            "roomId": 1,
-            "numbers": 5,
-            "tier": "A",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 6,
-            "numbers": 6,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "A",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 7,
-            "numbers": 7,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "A",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 8,
-            "numbers": 8,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "A",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 9,
-            "numbers": 9,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "A",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 10,
-            "numbers": 10,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "A",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 11,
-            "numbers": 11,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "B",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 12,
-            "numbers": 12,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "B",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 13,
-            "numbers": 13,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "B",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 14,
-            "numbers": 14,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "B",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 15,
-            "numbers": 15,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "B",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 16,
-            "numbers": 16,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "B",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 17,
-            "numbers": 17,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "B",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 18,
-            "numbers": 18,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "B",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 19,
-            "numbers": 19,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "B",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 20,
-            "numbers": 20,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "B",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 21,
-            "numbers": 21,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "C",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 22,
-            "numbers": 22,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "C",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 23,
-            "numbers": 23,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "C",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 24,
-            "numbers": 24,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "C",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 25,
-            "numbers": 25,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "C",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 26,
-            "numbers": 26,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "C",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 27,
-            "numbers": 27,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "C",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 28,
-            "numbers": 28,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "C",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 29,
-            "numbers": 29,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "C",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 30,
-            "numbers": 30,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "C",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 31,
-            "numbers": 31,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "D",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 32,
-            "numbers": 32,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "D",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 33,
-            "numbers": 33,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "D",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 34,
-            "numbers": 34,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "D",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 35,
-            "numbers": 35,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "D",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 36,
-            "numbers": 36,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "D",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 37,
-            "numbers": 37,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "D",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 38,
-            "numbers": 38,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "D",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 39,
-            "numbers": 39,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "D",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 40,
-            "numbers": 40,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "D",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 41,
-            "numbers": 41,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "E",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 42,
-            "numbers": 42,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "E",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 43,
-            "numbers": 43,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "E",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 44,
-            "numbers": 44,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "E",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 45,
-            "numbers": 45,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "E",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 46,
-            "numbers": 46,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "E",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 47,
-            "numbers": 47,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "E",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 48,
-            "numbers": 48,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "E",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 49,
-            "numbers": 49,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "E",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 50,
-            "numbers": 50,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "E",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 51,
-            "numbers": 51,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "F",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 52,
-            "numbers": 52,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "F",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 53,
-            "numbers": 53,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "F",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 54,
-            "numbers": 54,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "F",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 55,
-            "numbers": 55,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "F",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 56,
-            "numbers": 56,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "F",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 57,
-            "numbers": 57,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "F",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 58,
-            "numbers": 58,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "F",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 59,
-            "numbers": 59,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "F",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 60,
-            "numbers": 60,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "F",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 61,
-            "numbers": 61,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "G",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 62,
-            "numbers": 62,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "G",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 63,
-            "numbers": 63,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "G",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 64,
-            "numbers": 64,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "G",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 65,
-            "numbers": 65,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "G",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 66,
-            "numbers": 66,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "G",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 67,
-            "numbers": 67,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "G",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 68,
-            "numbers": 68,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "G",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 69,
-            "numbers": 69,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "G",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 70,
-            "numbers": 70,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "G",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 71,
-            "numbers": 71,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "H",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 72,
-            "numbers": 72,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "H",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 73,
-            "numbers": 73,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "H",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 74,
-            "numbers": 74,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "H",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 75,
-            "numbers": 75,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "H",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 76,
-            "numbers": 76,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "H",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 77,
-            "numbers": 77,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "H",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 78,
-            "numbers": 78,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "H",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 79,
-            "numbers": 79,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "H",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 80,
-            "numbers": 80,
-            "seatType": "",
-            "roomId": 1,
-            "tier": "H",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 81,
-            "numbers": 1,
-            "seatType": "",
-            "roomId": 2,
-            "tier": "I",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 82,
-            "numbers": 2,
-            "seatType": "",
-            "roomId": 2,
-            "tier": "I",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 83,
-            "numbers": 3,
-            "seatType": "",
-            "roomId": 2,
-            "tier": "I",
-            "isSelected": false,
-            "status": ""
-        },
-        {
-            "id": 84,
-            "numbers": 4,
-            "seatType": "",
-            "roomId": 2,
-            "tier": "I",
-            "isSelected": true,
-            "status": ""
-        },
-        {
-            "id": 85,
-            "numbers": 85,
-            "seatType": "",
-            "roomId": 2,
-            "tier": "I",
-            "isSelected": false,
-            "status": ""
-        }
-    ],
-    "locations": [
-        {
-            "id": 1,
-            "name": "Quận 1",
-            "zipcode": "q1"
-        },
-        {
-            "id": 2,
-            "name": "Quận 2",
-            "zipcode": "q2"
-        },
-        {
-            "id": 3,
-            "name": "Quận Tân Bình",
-            "zipcode": "qtb"
-        },
-        {
-            "id": 4,
-            "name": "Quận Bình Thạnh",
-            "zipcode": "qbt"
-        }
-    ],
-    "movies-comingSoon": [
-        {
-            "id": 105,
-            "name": "Venus",
-            "thumbnail": "/assets/images/movie06.jpg",
-            "banner_url": "banner03.jpg",
-            "language": "ENGLISH, TIẾNG VIỆT",
-            "genre": "HORROR",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "score": "8.66",
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "casts": "cast placeholder",
-            "tags": "2D"
-        },
-        {
-            "id": 106,
-            "name": "Venus",
-            "thumbnail": "/assets/images/movie07.jpg",
-            "banner_url": "banner03.jpg",
-            "language": "ENGLISH, TIẾNG VIỆT",
-            "genre": "HORROR",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "score": "8.66",
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "casts": "cast placeholder",
-            "tags": "2D"
-        },
-        {
-            "id": 107,
-            "name": "Venus",
-            "thumbnail": "/assets/images/movie08.jpg",
-            "banner_url": "banner03.jpg",
-            "language": "ENGLISH, TIẾNG VIỆT",
-            "genre": "HORROR",
-            "releasedDate": "2021-12-06",
-            "durationMin": 170,
-            "score": "8.66",
-            "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
-            "casts": "cast placeholder",
-            "tags": "2D"
-        }
-    ],
-    "check-promoCode": [
-        {
-            "code": "XEMPHIMHAY",
-            "offerId": 123
-        }
-    ],
-    "offers": [
-        {
-            "id": 123,
-            "percentage": 0.3
-        }
-    ]
+    "totalElements": 80
+  },
+  "locations": [
+    {
+      "id": 1,
+      "name": "Quận 1",
+      "zipcode": "q1"
+    },
+    {
+      "id": 2,
+      "name": "Quận 2",
+      "zipcode": "q2"
+    },
+    {
+      "id": 3,
+      "name": "Quận Tân Bình",
+      "zipcode": "qtb"
+    },
+    {
+      "id": 4,
+      "name": "Quận Bình Thạnh",
+      "zipcode": "qbt"
+    }
+  ],
+  "movies-comingSoon": [
+    {
+      "id": 105,
+      "name": "Venus",
+      "thumbnail": "/assets/images/movie06.jpg",
+      "banner_url": "banner03.jpg",
+      "language": "ENGLISH, TIẾNG VIỆT",
+      "genre": "HORROR",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "score": "8.66",
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
+      "casts": "cast placeholder",
+      "tags": "2D"
+    },
+    {
+      "id": 106,
+      "name": "Venus",
+      "thumbnail": "/assets/images/movie07.jpg",
+      "banner_url": "banner03.jpg",
+      "language": "ENGLISH, TIẾNG VIỆT",
+      "genre": "HORROR",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "score": "8.66",
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
+      "casts": "cast placeholder",
+      "tags": "2D"
+    },
+    {
+      "id": 107,
+      "name": "Venus",
+      "thumbnail": "/assets/images/movie08.jpg",
+      "banner_url": "banner03.jpg",
+      "language": "ENGLISH, TIẾNG VIỆT",
+      "genre": "HORROR",
+      "releasedDate": "2021-12-06",
+      "durationMin": 170,
+      "score": "8.66",
+      "trailerUrl": "https://www.youtube.com/watch?v=OB3g37GTALc",
+      "casts": "cast placeholder",
+      "tags": "2D"
+    }
+  ],
+  "check-promoCode": [
+    {
+      "code": "XEMPHIMHAY",
+      "offerId": 123
+    }
+  ],
+  "offers": [
+    {
+      "id": 123,
+      "percentage": 0.3
+    }
+  ],
+  "ordersAnonymous": [
+    {
+      "totalAmount": 0,
+      "tax": 0,
+      "userId": "789789",
+      "createDate": "2022-01-02 18:00:26",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        15,
+        17,
+        16
+      ],
+      "isOnline": true,
+      "id": 13
+    },
+    {
+      "totalAmount": 0,
+      "tax": 0,
+      "userId": "789789",
+      "createDate": "2022-01-02 18:21:21",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        15,
+        17,
+        16
+      ],
+      "isOnline": true,
+      "id": 14
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-02 18:26:10",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        15,
+        17,
+        16
+      ],
+      "isOnline": true,
+      "id": 15
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-02 18:43:43",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        15,
+        17,
+        16
+      ],
+      "isOnline": true,
+      "id": 16
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-02 18:45:51",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        15,
+        17,
+        16
+      ],
+      "isOnline": true,
+      "id": 17
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-02 18:47:15",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        15,
+        17,
+        16
+      ],
+      "isOnline": true,
+      "id": 18
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-02 18:47:22",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        15,
+        17,
+        16
+      ],
+      "isOnline": true,
+      "id": 19
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "showTimesDetailId": 1,
+      "userId": "789789",
+      "createDate": "2022-01-02 18:49:03",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        15,
+        17,
+        16
+      ],
+      "room": 1,
+      "isOnline": true,
+      "id": 20
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-02 18:53:14",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        15,
+        17,
+        16
+      ],
+      "isOnline": true,
+      "id": 21
+    },
+    {
+      "id": 22,
+      "totalAmount": 161700,
+      "tax": 16170
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:12:05",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 23
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:13:45",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 24
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:15:46",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 25
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:15:53",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 26
+    },
+    {
+      "id": 27,
+      "totalAmount": 161700,
+      "tax": 16170
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:24:01",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 28
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:26:08",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 29
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:28:34",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 30
+    },
+    {
+      "id": 31,
+      "totalAmount": 161700,
+      "tax": 16170
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:31:34",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 32
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:32:21",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 33
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:37:59",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 34
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:38:58",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 35
+    },
+    {
+      "id": 36,
+      "totalAmount": 161700,
+      "tax": 16170
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:43:58",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 37
+    },
+    {
+      "id": 38,
+      "totalAmount": 161700,
+      "tax": 16170
+    },
+    {
+      "id": 39,
+      "totalAmount": 161700,
+      "tax": 16170
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 12:54:31",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 40
+    },
+    {
+      "id": 41,
+      "totalAmount": 161700,
+      "tax": 16170
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 13:03:35",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 42
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 13:05:39",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 43
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 13:05:43",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 44
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 13:11:26",
+      "concessionId": [
+        2,
+        1
+      ],
+      "seats": [
+        5,
+        6,
+        7
+      ],
+      "isOnline": true,
+      "id": 45
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 18:40:26",
+      "note": "",
+      "typeUser": false,
+      "status": "",
+      "creation": null,
+      "concessionId": [
+        1,
+        2
+      ],
+      "seats": [
+        15,
+        16,
+        17
+      ],
+      "isOnline": true,
+      "id": 46
+    },
+    {
+      "id": 47,
+      "totalAmount": 161700,
+      "tax": 16170
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 18:45:34",
+      "note": "",
+      "typeUser": false,
+      "status": "",
+      "creation": null,
+      "concessionId": [
+        1,
+        2
+      ],
+      "seats": [
+        15,
+        16,
+        17
+      ],
+      "isOnline": true,
+      "id": 48
+    },
+    {
+      "id": 49,
+      "totalAmount": 161700,
+      "tax": 16170
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 18:53:27",
+      "note": "",
+      "typeUser": false,
+      "status": "",
+      "creation": null,
+      "concessionId": [
+        1,
+        2
+      ],
+      "seats": [
+        15,
+        16,
+        17
+      ],
+      "isOnline": true,
+      "id": 50
+    },
+    {
+      "totalAmount": 161700,
+      "tax": 16170,
+      "userId": "789789",
+      "createDate": "2022-01-03 18:53:30",
+      "note": "",
+      "typeUser": false,
+      "status": "",
+      "creation": null,
+      "concessionId": [
+        1,
+        2
+      ],
+      "seats": [
+        15,
+        16,
+        17
+      ],
+      "isOnline": true,
+      "id": 51
+    },
+    {
+      "totalAmount": 161700,
+      "tax": 16170,
+      "userId": "789789",
+      "createDate": "2022-01-03 18:54:10",
+      "note": "",
+      "typeUser": false,
+      "status": "",
+      "creation": null,
+      "concessionId": [
+        1,
+        2
+      ],
+      "seats": [
+        15,
+        16,
+        17
+      ],
+      "isOnline": true,
+      "id": 52
+    },
+    {
+      "totalAmount": 231000,
+      "tax": 21000,
+      "userId": "789789",
+      "createDate": "2022-01-03 18:57:21",
+      "note": "",
+      "typeUser": false,
+      "status": "",
+      "creation": null,
+      "concessionId": [
+        1,
+        2
+      ],
+      "seats": [
+        15,
+        16,
+        17
+      ],
+      "isOnline": true,
+      "id": 53
+    },
+    {
+      "totalAmount": 161700,
+      "tax": 16170,
+      "userId": "789789",
+      "createDate": "2022-01-03 18:57:44",
+      "note": "",
+      "typeUser": false,
+      "status": "",
+      "creation": null,
+      "concessionId": [
+        1,
+        2
+      ],
+      "seats": [
+        15,
+        16,
+        17
+      ],
+      "isOnline": true,
+      "id": 54
+    },
+    {
+      "totalAmount": 161700,
+      "tax": 16170,
+      "userId": "789789",
+      "createDate": "2022-01-03 18:59:20",
+      "note": "",
+      "typeUser": false,
+      "status": "",
+      "creation": null,
+      "concessionId": [
+        1,
+        2
+      ],
+      "seats": [
+        15,
+        16,
+        17
+      ],
+      "isOnline": true,
+      "id": 55
+    },
+    {
+      "totalAmount": 161700,
+      "tax": 16170,
+      "userId": "789789",
+      "createDate": "2022-01-03 19:02:55",
+      "note": "",
+      "typeUser": false,
+      "status": "",
+      "creation": null,
+      "concessionId": [
+        1,
+        2
+      ],
+      "seats": [
+        15,
+        16,
+        17
+      ],
+      "isOnline": true,
+      "id": 56
+    }
+  ],
+  "payments": [
+    {
+      "numberMember": null,
+      "amount": 161700,
+      "status": "",
+      "paymentMethodId": 1,
+      "createdDate": "2022-01-03 18:57:44",
+      "updatedDate": "",
+      "note": "",
+      "transactionId": "5N558134H5855341Y",
+      "useFor": "Ticket",
+      "code": "XEMPHIMHAY",
+      "partId": 54,
+      "creation": 0,
+      "updatedBy": 0,
+      "userId": 0,
+      "id": 1
+    },
+    {
+      "numberMember": null,
+      "amount": 161700,
+      "status": "",
+      "paymentMethodId": 1,
+      "createdDate": "2022-01-03 19:02:55",
+      "updatedDate": "",
+      "note": "",
+      "transactionId": "5VJ57115S3239635E",
+      "useFor": "Ticket",
+      "code": "XEMPHIMHAY",
+      "partId": 56,
+      "creation": 0,
+      "updatedBy": 0,
+      "userId": 0,
+      "id": 2
+    }
+  ]
 }

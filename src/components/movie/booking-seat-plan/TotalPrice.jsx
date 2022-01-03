@@ -9,7 +9,7 @@ export default class TotalPrice extends Component {
     render() {
         return (
             <div className="book-item">
-                <span>total price</span>
+                <span>Phí</span>
                 <h3 className="title">{this.formatCurrency(this.props.price)}</h3>
               </div>
         )

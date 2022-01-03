@@ -11,12 +11,12 @@ export default class SeatPlanRow extends Component {
             theater: {}
         };
 
-        console.log(this.state.showtime[0]);
+        console.log(this.props.showtime[0]);
     }
 
     componentDidMount() {
-        if (this.state.showtime) {
-            TheaterService.getTheaterById(this.state.showtime[0]).then((res) => {
+        if (this.props.showtime) {
+            TheaterService.getTheaterById(this.props.showtime[0]).then((res) => {
                 this.setState({ theater: res.data });
                 console.log(this.state);
             })
@@ -24,8 +24,8 @@ export default class SeatPlanRow extends Component {
     }
 
     mappingScheduleData = () => {
-        if (this.state.showtime && this.state.showtime[1]) {
-            var schedules = this.state.showtime[1].map((item, i) => {
+        if (this.props.showtime && this.props.showtime[1]) {
+            var schedules = this.props.showtime[1].map((item, i) => {
               console.log(item);
               return <ScheduleItem key={i} showtime={item}></ScheduleItem>;
             });

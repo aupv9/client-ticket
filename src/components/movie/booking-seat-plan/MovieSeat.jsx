@@ -28,7 +28,7 @@ export default class MovieSeat extends Component {
     ShowtimeService.getShowTimeById(this.state.showtimeId).then((res) => {
       this.setState({ showtime: res.data });
       SeatService.getSeatsByRoomIdandShowtimeId(this.state.showtime.roomId, this.state.showtimeId).then((res) => {
-        this.setState({ seats: res.data });
+        this.setState({ seats: res.data.content });
         console.log(this.state);
       });
     })
@@ -75,7 +75,7 @@ export default class MovieSeat extends Component {
       <div className="seat-plan-section padding-bottom padding-top">
         <div className="container">
           <div className="screen-area">
-            <h4 className="screen">screen</h4>
+            <h4 className="screen">Màn hình</h4>
             <div className="screen-thumb">
               <img src="/assets/images/movie/screen-thumb.png" alt="movie" />
             </div>
@@ -194,7 +194,7 @@ export default class MovieSeat extends Component {
             <div className="proceed-to-book">
 
             <div className="book-item">
-                <span>You have Choosed Seat</span>
+                <span>Ghế đã chọn</span>
                 
 
                 <h3 className="title">
@@ -206,7 +206,7 @@ export default class MovieSeat extends Component {
               <TotalPrice price={this.state.bookedSeats.length * this.state.showtime.price} />
               <div className="book-item">
                 <Link onClick={this.proceed} to={"/choose-foods/" + this.state.showtimeId} className="custom-button">
-                  proceed
+                  Tiếp tục
                 </Link>
               </div>
             </div>

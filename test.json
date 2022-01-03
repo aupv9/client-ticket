@@ -1,0 +1,45 @@
+{
+    "content": [
+        {
+            "id": 1,
+            "durationMin": 100,
+            "name": "Người Nhện: Không Còn Nhà",
+            "image": "https://image.tmdb.org/t/p/original/1Rr5SrvHxMXHu5RjKpaMba8VTzi.jpg",
+            "thumbnail": "https://image.tmdb.org/t/p/original/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+            "releasedDate": "2021-12-01",
+            "trailerUrl": null,
+            "genre": null
+        },
+        {
+            "id": 3,
+            "durationMin": 100,
+            "name": "Avenger",
+            "image": "https://image.tmdb.org/t/p/original/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+            "thumbnail": "https://image.tmdb.org/t/p/original/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+            "releasedDate": "2021-12-18",
+            "trailerUrl": null,
+            "genre": null
+        },
+        {
+            "id": 4,
+            "durationMin": 100,
+            "name": "Encanto: Vùng Đất Thần Kỳ",
+            "image": "https://image.tmdb.org/t/p/original/3G1Q5xF40HkUBJXxt2DQgQzKTp5.jpg",
+            "thumbnail": "https://image.tmdb.org/t/p/original/3G1Q5xF40HkUBJXxt2DQgQzKTp5.jpg",
+            "releasedDate": "2021-12-18",
+            "trailerUrl": null,
+            "genre": null
+        },
+        {
+            "id": 58,
+            "durationMin": 117,
+            "name": "Red Notice",
+            "image": "https://image.tmdb.org/t/p/original/skvI4rYFrKXS73BJxWGH54Omlvv.jpg",
+            "thumbnail": "https://www.themoviedb.org/t/p/w220_and_h330_face/wdE6ewaKZHr62bLqCn7A2DiGShm.jpg",
+            "releasedDate": "2021-12-17",
+            "trailerUrl": null,
+            "genre": "Action,Adventure,Comedy,v"
+        }
+    ],
+    "totalElements": 4
+}
