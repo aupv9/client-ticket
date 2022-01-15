@@ -3,15 +3,19 @@ import React, { Component } from "react";
 export default class BannerTicketPlan extends Component {
   render() {
     return (
-      <section className="details-banner hero-area bg_img"
-      // style={{backgroundImage: `url("${"/assets/images/banner/banner04.jpg"}")`}} 
-      style={{backgroundImage: `url("${"/assets/images/banner/" + this.props.movie.banner_url}")`}} 
-      data-background={
-        process.env.PUBLIC_URL +
-        "/assets/images/banner/"
-        // + "banner04.jpg"
-        + this.props.movie.banner_url
-      }
+      <section
+        className="details-banner hero-area bg_img"
+        // style={{backgroundImage: `url("${"/assets/images/banner/banner04.jpg"}")`}}
+        style={{
+          backgroundImage: `url("${
+            "/assets/images/banner/" + "banner04.jpg"
+            // this.props.movie.image
+          }")`,
+        }}
+        data-background={
+          process.env.PUBLIC_URL + "/assets/images/banner/" + "banner04.jpg"
+          // this.props.movie.image
+        }
       >
         <div className="container">
           <div className="details-banner-wrapper">

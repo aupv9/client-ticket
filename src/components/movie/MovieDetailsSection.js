@@ -6,8 +6,34 @@ import MovieCastList from "./cast/MovieCastList";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import ReviewSection from "./details/ReviewSection";
+import ReviewService from "../../services/ReviewService";
 
 export default class MovieDetailsSection extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isDefaulRender: true,
+      reviews: [],
+      numOfReviews: 0,
+    };
+  }
+
+  componentDidMount() {
+    ReviewService.getReviews().then((res) => {
+      this.setState({
+        reviews: res.data,
+        numOfReviews: res.data.length,
+      });
+    });
+  }
+
+  switchRender(e) {
+    e.preventDefault();
+    this.setState({ isDefaulRender: !this.state.isDefaulRender });
+  }
+
   mappingDataPhoto = () => {
     if (this.props.movie.photo_urls) {
       var photoList = this.props.movie.photo_urls.map((item, i) => {
@@ -68,43 +94,68 @@ export default class MovieDetailsSection extends Component {
                   {/* </div> */}
                 </OwlCarousel>
 
-                <div className="tab summery-review">
-                  <ul className="tab-menu">
-                    <li className="active">summery</li>
-                  </ul>
-                  <div className="tab-area">
-                    <div className="tab-item active">
-                      <MovieSynopsis>
-                        {/* {this.props.movie.synopsis} */}
-                        </MovieSynopsis>
-
-                      <div className="item">
-                        <h5 className="sub-title">Producers</h5>
-
-                        <a href="#0">
-                          {
-                            "Toho, Sound Team Don Juan, Amuse, JR East Marketing & Communications, Kadokawa, voque ting"
-                          }
-                        </a>
-                      </div>
-                      <div className="item">
-                        <h5 className="sub-title">Studio</h5>
-
-                        <a href="#0">CoMix Wave Films</a>
-                      </div>
-
-                      <MovieCastList
-                        // casts={this.props.movie.casts}
-                      
-                      ></MovieCastList>
-                    </div>
-                  </div>
-                </div>
+                {this.defaultRender()}
               </div>
             </div>
           </div>
         </div>
       </section>
+    );
+  }
+
+  defaultRender() {
+    if (this.state.isDefaulRender)
+      return (
+        <div className="tab summery-review">
+          <ul className="tab-menu">
+            <li className="active">Tóm tắt</li>
+            <li onClick={(e) => this.switchRender(e)}>
+              Người dùng đánh giá <span>{this.state.numOfReviews}</span>
+            </li>
+          </ul>
+
+          <div className="tab-area">
+            <div className="tab-item active">
+              <MovieSynopsis>{/* {this.props.movie.synopsis} */}</MovieSynopsis>
+
+              <div className="item">
+                <h5 className="sub-title">Producers</h5>
+
+                <a href="#0">
+                  {
+                    "Toho, Sound Team Don Juan, Amuse, JR East Marketing & Communications, Kadokawa, voque ting"
+                  }
+                </a>
+              </div>
+              <div className="item">
+                <h5 className="sub-title">Studio</h5>
+
+                <a href="#0">CoMix Wave Films</a>
+              </div>
+
+              <MovieCastList
+              // casts={this.props.movie.casts}
+              ></MovieCastList>
+            </div>
+          </div>
+        </div>
+      );
+    else return this.reviewRender();
+  }
+
+  reviewRender() {
+    return (
+      <div className="tab summery-review">
+        <ul className="tab-menu">
+          <li type="button" onClick={(e) => this.switchRender(e)}>
+            summery
+          </li>
+          <li className="active">
+            user review <span>{this.state.numOfReviews}</span>
+          </li>
+        </ul>
+        <ReviewSection movieId={this.props.movie.id} reviews={this.state.reviews}/>
+      </div>
     );
   }
 }

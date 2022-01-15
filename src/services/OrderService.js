@@ -10,6 +10,9 @@ class OrderService {
   updateOrder = (order) => {
     return axios.put(`${api.ordersAnonymous}/${order.id}`, order);
   }
+  getOrdersByUserId = (userId) => {
+    return axios.get(`${api.ordersUser}?user_id=${userId}`)
+  }
 }
 
 export default new OrderService();

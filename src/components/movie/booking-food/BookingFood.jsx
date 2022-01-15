@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import FoolService from "../../../services/FoolService";
+import FoodService from "../../../services/FoodService";
 import MovieService from "../../../services/MovieService";
-import ShowtimeService from "../../../services/ShowtimeService";
 import TheaterService from "../../../services/TheaterService";
 import FoodItem from "./FoodItem";
 import moment from 'moment';
 import 'moment/locale/vi'
 import ChosenSeatList from "../booking-seat-plan/ChosenSeatList";
+import ShowtimeService from "../../../services/ShowtimeService";
 
 export default class BookingFood extends Component {
   constructor(props) {
@@ -30,8 +30,8 @@ export default class BookingFood extends Component {
   componentDidMount() {
     this.setState({ bookedSeats: JSON.parse(localStorage.getItem('seats')) })
 
-    FoolService.getFoods().then((res) => {
-      this.setState({ foods: res.data });
+    FoodService.getFoods().then((res) => {
+      this.setState({ foods: res.data.content });
     })
 
     ShowtimeService.getShowTimeById(this.state.id).then((res) => {

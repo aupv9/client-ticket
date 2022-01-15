@@ -8,6 +8,7 @@ import BookingFood from "../components/movie/booking-food/BookingFood";
 import SeatPlan from "../components/movie/booking-seat-plan/SeatPlan";
 import TicketPlan from "../components/movie/booking-ticket-plan/TicketPlan";
 import MovieDetail from "../components/movie/MovieDetail";
+import UserDetail from "../components/User/UserDetail";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 // import TicketPlan from "../components/movie/booking-ticket-plan/TicketPlan";
@@ -19,7 +20,7 @@ export default class RouterURL extends Component {
     return (
       <div className="container">
         <Switch>
-          <Route path="/movie-detail/:id/:slug" component={MovieDetail} />
+          <Route path="/movie-detail/:id" component={MovieDetail} />
           <Route path="/choose-theater/:id" component={TicketPlan} />
           <Route path="/choose-seats/:id" component={SeatPlan} />
           <Route path="/choose-foods/:id" component={BookingFood} />
@@ -27,6 +28,7 @@ export default class RouterURL extends Component {
           <Route path="/book-result" component={BookingComplete} />
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register} />
+          <Route path="/user" component={UserDetail}/>
           <Route expact path="/" component={Home} />
           <Route component={Home} />
         </Switch>

@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
-import { setUserSession } from '../utils/Common';
-import * as api from "../services/API_BASE_URL"
-import queryString from 'query-string';
+import { setUserSession } from "../utils/Common";
+import * as api from "../services/API_BASE_URL";
+import queryString from "query-string";
 
 class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       setLoading: false,
-      setError: '',
-      redirect: '/checkout'
+      setError: "",
+      redirect: "/user",
     };
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -22,11 +22,9 @@ class Login extends Component {
 
   componentDidMount() {
     if (this.props.location) {
-
       const value = queryString.parse(this.props.location.search);
       const action = value.action;
-
-      this.setState({ redirect: '/' + action })
+      if (action) this.setState({ redirect: "/" + action });
     }
   }
 
@@ -35,28 +33,35 @@ class Login extends Component {
   }
 
   handleLogin = (e) => {
-
     e.preventDefault();
     // e.target.reset();
-    axios.post(api.authenticate, { email: this.state.email, password: this.state.password }).then(response => {
-      console.log(response.data);
-      this.setState({ setLoading: true })
-      setUserSession(response.data.token, response.data.user);
+    axios
+      .post(api.authenticate, {
+        email: this.state.email,
+        password: this.state.password,
+      })
+      .then((response) => {
+        console.log(response.data);
+        this.setState({ setLoading: true });
+        setUserSession(response.data.token, response.data.user);
 
-      this.props.history.push(this.state.redirect);
-
-
-    }).catch(error => {
-      this.setState({ setLoading: false })
-      if (error.response.status === 401) {
-        this.setState({ setError: error.response.data.message })
-      }
-      // console.log(error);
-      else 
-      this.setState({ setError: "Something went wrong. Please try again later." })
-    });
-  }
-
+        this.props.history.push(this.state.redirect);
+      })
+      .catch((error) => {
+        this.setState({ setLoading: false });
+        if (
+          error.response.status !== undefined &&
+          error.response.status === 401
+        ) {
+          this.setState({ setError: error.response.data.message });
+        }
+        // console.log(error);
+        else
+          this.setState({
+            setError: "Something went wrong. Please try again later.",
+          });
+      });
+  };
 
   isInputChange = (e) => {
     const target = e.target;
@@ -64,9 +69,9 @@ class Login extends Component {
     const value = target.value;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
-  }
+  };
 
   render() {
     // console.log("render() method");
@@ -87,10 +92,7 @@ class Login extends Component {
                   <span className="cate">Xin chào</span>
                   <h2 className="title">bạn trở lại</h2>
                 </div>
-                <form
-                  method="POST"
-
-                  className="account-form">
+                <form method="POST" className="account-form">
                   <div className="form-group">
                     <label htmlFor="email2">
                       Email<span>*</span>
@@ -101,7 +103,7 @@ class Login extends Component {
                       id="email2"
                       required
                       value={this.state.email}
-                      onChange={e => this.isInputChange(e)}
+                      onChange={(e) => this.isInputChange(e)}
                       name="email"
                     />
                   </div>
@@ -114,7 +116,7 @@ class Login extends Component {
                       placeholder="Điền mật khẩu"
                       id="pass3"
                       required
-                      onChange={e => this.isInputChange(e)}
+                      onChange={(e) => this.isInputChange(e)}
                       name="password"
                     />
                   </div>
@@ -129,7 +131,9 @@ class Login extends Component {
                   <div className="form-group text-center">
                     <input
                       onClick={(e) => this.handleLogin(e)}
-                      type="submit" value="Đăng nhập" />
+                      type="submit"
+                      value="Đăng nhập"
+                    />
                   </div>
                 </form>
                 <div className="option">
@@ -163,12 +167,11 @@ class Login extends Component {
           </div>
         </section>
       </div>
-    )
+    );
   }
 }
 
 export default withRouter(Login);
-
 
 // const handleLogin = async (googleData) => {
 //   const res = await fetch("/api/v1/auth/google", {

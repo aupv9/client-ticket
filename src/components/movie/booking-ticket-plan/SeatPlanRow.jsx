@@ -16,6 +16,7 @@ export default class SeatPlanRow extends Component {
 
     componentDidMount() {
         if (this.props.showtime) {
+            console.log(this.props.showtime);
             TheaterService.getTheaterById(this.props.showtime[0]).then((res) => {
                 this.setState({ theater: res.data });
                 console.log(this.state);
@@ -44,14 +45,14 @@ export default class SeatPlanRow extends Component {
                     </div>
 
                     <a href="#0" className="name">
-                        {this.state.theater.name}
+                        {this.props.showtime[1][0].theater.name}
                       
                     </a>
                     <div className="location-icon">
                         <i className="fas fa-map-marker-alt" />
                     </div>
                     <div>
-                        {this.state.theater.locationName}
+                        {this.props.showtime[1][0].theater.locationName}
                     </div>
                 </div>
 

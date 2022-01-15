@@ -7,6 +7,7 @@ export default class Banner extends Component {
         <section className="banner-section">
           <div
             className="banner-bg bg_img bg-fixed"
+            style={{ backgroundImage: `url("${"/assets/images/banner/banner01.jpg"}")` }}
             data-background=
             // { process.env.PUBLIC_URL +
               "/assets/images/banner/banner01.jpg"

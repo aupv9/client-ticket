@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./ChosenSeatList.css"
 
 export default class ChosenSeatList extends Component {
     getSeatNumber(seat) {
@@ -52,16 +53,14 @@ export default class ChosenSeatList extends Component {
         if(this.props.bookedSeats) {
             this.props.bookedSeats.forEach(seat => {
            
-                list += this.getSeatNumber(seat) + ","
+                list += this.getSeatNumber(seat) + ", "
             })
         }
-        return list.substring(0, list.length - 1);
+        return list.substring(0, list.length - 2);
     }
     render() {
         return (
-        
-                <span>{this.ChosenSeatList()}</span>
-           
+                <h3>{this.ChosenSeatList()}</h3>      
         )
     }
 }

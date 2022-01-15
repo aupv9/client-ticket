@@ -30,6 +30,9 @@ export default class Header extends Component {
               <li>
                 <a href="contact.html">Blogs</a>
               </li>
+              <li>
+                <Link to="/user">Thông tin cá nhân</Link>
+              </li>
               <li className="header-button pr-0">
                 <Link to="/login">join us</Link>
               </li>

@@ -135,7 +135,9 @@ export default class MovieCastList extends Component {
 
           {this.mappingData()}
         </div> */}
-        {this.props.casts && (
+        {
+        // this.props.casts && 
+        (
           <OwlCarousel
             className="casting-slider"
             items={3}
