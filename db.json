@@ -1512,6 +1512,44 @@
       ],
       "isOnline": true,
       "id": 3
+    },
+    {
+      "totalAmount": 154000,
+      "tax": 14000,
+      "userId": "1",
+      "createDate": "2022-01-15 04:50:28",
+      "note": "",
+      "typeUser": false,
+      "status": "",
+      "creation": null,
+      "concessionId": [
+        4
+      ],
+      "seats": [
+        39,
+        29
+      ],
+      "isOnline": true,
+      "id": 4
+    },
+    {
+      "totalAmount": 154000,
+      "tax": 14000,
+      "userId": "1",
+      "createDate": "2022-01-15 04:50:49",
+      "note": "",
+      "typeUser": false,
+      "status": "",
+      "creation": null,
+      "concessionId": [
+        4
+      ],
+      "seats": [
+        39,
+        29
+      ],
+      "isOnline": true,
+      "id": 5
     }
   ],
   "orders-user": [
@@ -1887,6 +1925,23 @@
       "updatedBy": 0,
       "userId": 0,
       "id": 2
+    },
+    {
+      "numberMember": null,
+      "amount": 154000,
+      "status": "",
+      "paymentMethodId": 1,
+      "createdDate": "2022-01-15 04:50:49",
+      "updatedDate": "",
+      "note": "",
+      "transactionId": "0W1093155R288243G",
+      "useFor": "Ticket",
+      "code": "",
+      "partId": 5,
+      "creation": 0,
+      "updatedBy": 0,
+      "userId": 0,
+      "id": 3
     }
   ],
   "users": [
