@@ -152,11 +152,12 @@ export default class BookingCheckout extends Component {
     });
 
     if (window.sessionStorage.getItem("user")) {
-      var user = JSON.parse(window.sessionStorage.getItem("user"));
+      console.log(window.sessionStorage.getItem("user"))
+      let user = JSON.parse(window.sessionStorage.getItem("user"));
       this.setState({
         user: user,
         userId: user.id,
-        firstName: user.firstName,
+        firstName: user.fullName,
         lastName: user.lastName,
         email: user.email,
         phone: "01223695542",

@@ -31,6 +31,7 @@ export default class BookingFood extends Component {
     this.setState({ bookedSeats: JSON.parse(localStorage.getItem('seats')) })
 
     FoodService.getFoods().then((res) => {
+      console.log(res.data);
       this.setState({ foods: res.data.content });
     })
 

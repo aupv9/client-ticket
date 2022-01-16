@@ -11,7 +11,6 @@ export default class MovieSeat extends Component {
     super(props);
 
     this.state = {
-      showtimeId: this.props.showtimeId,
       seats: [],
       showtime: {},
       seatsPerRow: 10,
@@ -25,9 +24,10 @@ export default class MovieSeat extends Component {
   }
 
   componentDidMount() {
-    ShowtimeService.getShowTimeById(this.state.showtimeId).then((res) => {
+    ShowtimeService.getShowTimeById(this.props.showtimeId).then((res) => {
       this.setState({ showtime: res.data });
-      SeatService.getSeatsByRoomIdandShowtimeId(this.state.showtime.roomId, this.state.showtimeId).then((res) => {
+      SeatService.getSeatsByRoomIdandShowtimeIdandTheaterId(this.state.showtime.roomId, this.props.showtimeId, this.state.showtime.theaterId).then((res) => {
+        console.log(res.data);
         this.setState({ seats: res.data.content });
         console.log(this.state);
       });
@@ -35,7 +35,7 @@ export default class MovieSeat extends Component {
   }
 
   handleCallback = (number, isBooked) => {
-    var seatStatus = this.state.bookedSeats;
+    let seatStatus = this.state.bookedSeats;
     if (isBooked) {
       if (!this.state.bookedSeats.includes(number)) {
         seatStatus.push(number);
@@ -50,9 +50,9 @@ export default class MovieSeat extends Component {
 
   mappingData(tier) {
     if (this.state.seats) {
-      var temp = (tier - 1) * 10;
-      var data = this.state.seats.slice(temp, temp + this.state.seatsPerRow)
-      var rowOfSeat = data.map((item, i) => {
+      let temp = (tier - 1) * 10;
+      let data = this.state.seats.slice(temp, temp + this.state.seatsPerRow)
+      let rowOfSeat = data.map((item, i) => {
         return (
           <SeatItem parentCallback={this.handleCallback} number={item.numbers} key={i} isSelected={item.isSelected} />
         )
@@ -197,17 +197,17 @@ export default class MovieSeat extends Component {
 
             <div className="book-item">
                 <span>Ghế đã chọn</span>
-                
+
 
                 <h3 className="title">
                   <ChosenSeatList bookedSeats={this.state.bookedSeats}/>
                   </h3>
               </div>
 
-             
+
               <TotalPrice price={this.state.bookedSeats.length * this.state.showtime.price} />
               <div className="book-item">
-                <Link onClick={this.proceed} to={"/choose-foods/" + this.state.showtimeId} className="custom-button">
+                <Link onClick={this.proceed} to={"/choose-foods/" + this.props.showtimeId} className="custom-button">
                   Tiếp tục
                 </Link>
               </div>

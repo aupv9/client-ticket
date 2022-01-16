@@ -43,7 +43,7 @@ class Login extends Component {
       .then((response) => {
         console.log(response.data);
         this.setState({ setLoading: true });
-        setUserSession(response.data.token, response.data.user);
+        setUserSession(response.data.token, response.data);
 
         this.props.history.push(this.state.redirect);
       })
