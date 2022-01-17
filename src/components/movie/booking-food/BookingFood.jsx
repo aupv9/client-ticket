@@ -28,7 +28,15 @@ export default class BookingFood extends Component {
   }
 
   componentDidMount() {
-    this.setState({ bookedSeats: JSON.parse(localStorage.getItem('seats')) })
+    console.log(localStorage.getItem('ticketPrice'))
+
+    // let ticketPrice = 0;
+    // let seatPrices =  JSON.parse(localStorage.getItem('seatPrices'));
+    // seatPrices.forEach(price => ticketPrice+= price)
+    this.setState({
+      bookedSeats: JSON.parse(localStorage.getItem('seats')),
+      ticketPrice: localStorage.getItem('ticketPrice'),
+    }, () => console.log(this.state.ticketPrice))
 
     FoodService.getFoods().then((res) => {
       console.log(res.data);
@@ -46,14 +54,14 @@ export default class BookingFood extends Component {
         this.setState({ theater: res.data });
       })
 
-      this.getPrice();
+
     })
   }
 
   handleCallback = (foodId, quantity) => {
-    var temp = this.state.concession.filter(e => e !== foodId)
+    let temp = this.state.concession.filter(e => e !== foodId)
 
-    var addedArr = [];
+    let addedArr = [];
     addedArr.length = quantity;
     addedArr.fill(foodId);
     temp = temp.concat(addedArr);
@@ -66,8 +74,8 @@ export default class BookingFood extends Component {
 
   mappingData() {
     if (this.state.foods) {
-      var data = this.state.foods;
-      var foodList = data.map((item, i) => {
+      let data = this.state.foods;
+      let foodList = data.map((item, i) => {
         return (
           <FoodItem parentCallback={this.handleCallback} key={i} food={item}></FoodItem>
         )
@@ -82,37 +90,32 @@ export default class BookingFood extends Component {
   }
 
   formatCurrency(n) {
-    var temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    if (n===0) return " ";
+    console.log(n);
+    let temp = parseInt(n).toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     return temp.slice(0, temp.length - 2) + ' vnd';
-  }
-
-  getPrice() {
-    var price = JSON.parse(localStorage.getItem('seats')).length * this.state.showtime.price;
-    this.setState({
-      ticketPrice: price
-    })
-    return price;
+    // return "";
   }
 
   getTime = () => {
-    var time = new Date(this.state.showtime.timeStart);
+    let time = new Date(this.state.showtime.timeStart);
     return time.getHours() + ":" + time.getMinutes();
   }
 
   getDate = () => {
-    var time = new Date(this.state.showtime.timeStart);
+    let time = new Date(this.state.showtime.timeStart);
     // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
     return moment(time, "YYYY-MM-DD HH:mm:ss").fromNow();
   }
 
   getDate2 = () => {
-    var time = new Date(this.state.showtime.timeStart);
+    let time = new Date(this.state.showtime.timeStart);
     // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
     return moment(time, "YYYY-MM-DD HH:mm:ss").calendar();
   }
 
   getDetailDay = () => {
-    var time = new Date(this.state.showtime.timeStart);
+    let time = new Date(this.state.showtime.timeStart);
     console.log(time);
     return moment(time, "YYYY-MM-DD HH:mm:ss").format('dddd') + ' - ' + this.getTime() + ' - ' + this.getDate2();
   }
@@ -120,8 +123,8 @@ export default class BookingFood extends Component {
   mappingChosenFoodsData() {
     if (this.state.concession) {
 
-      var list = this.state.concession.map((foodId, i) => {
-        var food = this.state.foods.find(food => food.id === foodId);
+      let list = this.state.concession.map((foodId, i) => {
+        let food = this.state.foods.find(food => food.id === foodId);
 
         return (
           <span className="info" key={i}>
@@ -137,8 +140,8 @@ export default class BookingFood extends Component {
 
   getFoodsPrice() {
     if (this.state.concession) {
-      var sum = this.state.concession.reduce((price, foodId) => {
-        var food = this.state.foods.find(food => food.id === foodId);
+      let sum = this.state.concession.reduce((price, foodId) => {
+        let food = this.state.foods.find(food => food.id === foodId);
         return price += food.price;
       }, 0)
 
@@ -147,10 +150,10 @@ export default class BookingFood extends Component {
   }
 
   getTotalPrice() {
-    return this.getFoodsPrice() + this.state.ticketPrice;
+    return parseInt(this.getFoodsPrice()) + parseInt(this.state.ticketPrice);
   }
 
-  checkout() {
+  checkout(e) {
     if (this.state.bookedSeats) {
       // console.log(this.state.bookedSeats);
       localStorage.removeItem('foods');
@@ -171,126 +174,77 @@ export default class BookingFood extends Component {
       localStorage.removeItem('foodPrice');
       localStorage.setItem('foodPrice', JSON.stringify(this.getFoodsPrice()));
 
-      localStorage.removeItem('ticketPrice');
-      localStorage.setItem('ticketPrice', JSON.stringify(this.state.ticketPrice));
       // console.log(JSON.parse(localStorage.getItem('seats')));
     }
   }
 
-  getSeatNumber(seat) {
-    var name = "";
-    var temp = seat % 10;
-    if (seat) {
-      seat = parseInt(seat);
-      switch ((seat - temp) / 10) {
-        case 0:
-          name = "A";
-          break;
-        case 1:
-          name = "B";
-          break;
-        case 2:
-          name = "C";
-          break;
-        case 3:
-          name = "D";
-          break;
-        case 4:
-          name = "E";
-          break;
-        case 5:
-          name = "F";
-          break;
-        case 6:
-          name = "G";
-          break;
-        case 7:
-          name = "H";
-          break;
-        case 8:
-          name = "I";
-          break;
-        case 9:
-          name = "J";
-          break;
-        default:
-          break;
-      }
-
-      if (temp === 0)
-        return name + 10;
-      return name + temp;
-    }
-  }
-
-  getListOfSeat() {
-    return this.bookedSeats.map((seat) => this.getSeatNumber(parseInt(seat)))
-  }
-
   render() {
+    console.log(this.state);
     return (
-      <div>
-        <div className="movie-facility padding-bottom padding-top">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-8">
-                <div className="section-header-3">
-                  <span className="cate">Bạn cảm thấy đói</span>
-                  <h2 className="title">Chúng tôi có thức ăn và đồ uống</h2>
-                  <p>Đặt trước đồ ăn và thức uổng để được giảm giá!</p>
-                </div>
-                <div className="grid--area">
-                  <div className="grid-area">
-                    {this.mappingData()}
+     this.state.foods &&
+         <div>
+          <div className="movie-facility padding-bottom padding-top">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-8">
+                  <div className="section-header-3">
+                    <span className="cate">Bạn cảm thấy đói</span>
+                    <h2 className="title">Chúng tôi có thức ăn và đồ uống</h2>
+                    <p>Đặt trước đồ ăn và thức uổng để được giảm giá!</p>
+                  </div>
+                  <div style={{ zIndex: 1 }} className="grid--area">
+                    <div className="grid-area">
+                      {this.mappingData()}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="booking-summery bg-one">
-                  <h4 className="title">Tóm tắt </h4>
-                  <ul>
-                    <li>
-                      <h6 className="subtitle">{this.state.movie.name} <span>{this.getNumOfTickets() + ' vé'}</span></h6>
-                      <div className="info">
-                        <span> Tiếng Việt - 2D</span>
-                        <span><ChosenSeatList bookedSeats={this.state.bookedSeats} />  </span>
-                      </div>
-                    </li>
-                    <li>
-                      <h6 className="subtitle">
-                        <span>{this.state.theater.name}</span>
-                        <span>{this.state.showtime.roomName}</span>
-                      </h6>
-                      <div className="info">
-                        <span>{this.state.theater.locationName}</span>
-                      </div>
-                    </li>
+                {/*tom tat*/}
+                <div className="col-lg-4">
+                  <div className="booking-summery bg-one">
+                    <h4 className="title">Tóm tắt </h4>
+                    <ul>
+                      <li>
+                        <h6 className="subtitle">{this.state.movie.name} <span>{this.getNumOfTickets() + ' vé'}</span></h6>
+                        <div className="info">
+                          <span> Tiếng Việt - 2D</span>
+                          <span><ChosenSeatList bookedSeats={this.state.bookedSeats} />  </span>
+                        </div>
+                      </li>
+                      <li>
+                        <h6 className="subtitle">
+                          <span>{this.state.theater.name}</span>
+                          <span>{this.state.showtime.roomName}</span>
+                        </h6>
+                        <div className="info">
+                          <span>{this.state.theater.locationName}</span>
+                        </div>
+                      </li>
 
-                    <li>
-                      <h6 className="subtitle mb-0">
-                        <span>Suất chiếu:</span>
-                        <span>{this.getDetailDay()}</span>
-                      </h6>
-                      <div className="info">
-                        <span></span>
-                        <span>{this.getDate()}</span>
-                      </div>
-                    </li>
+                      <li>
+                        <h6 className="subtitle mb-0">
+                          <span>Suất chiếu:</span>
+                          <span>{this.getDetailDay()}</span>
+                        </h6>
+                        <div className="info">
+                          <span></span>
+                          <span>{this.getDate()}</span>
+                        </div>
+                      </li>
 
-                    <li>
-                      <h6 className="subtitle mb-0">
-                        <span>Tổng giá vé</span>
-                        <span>{this.formatCurrency(this.state.ticketPrice)}</span>
-                      </h6>
-                    </li>
-                  </ul>
-                  <ul className="side-shape">
+                      <li>
+                        <h6 className="subtitle mb-0">
+                          <span>Tổng giá vé</span>
+                          <span>{this.formatCurrency(this.state.ticketPrice)}</span>
+                        </h6>
+                      </li>
+                    </ul>
+                    <ul className="side-shape">
 
-                    <li>
-                      <h6 className="subtitle">
-                        <span>Thức ăn &amp; Đồ uống</span>
-                      </h6>
-                      {/* <span className="info">
+                      <li>
+                        <h6 className="subtitle">
+                          <span>Thức ăn &amp; Đồ uống</span>
+                        </h6>
+                        {/* <span className="info">
                       <span>2 Nachos Combo</span>
                       <span>$57</span>
                     </span>
@@ -302,17 +256,17 @@ export default class BookingFood extends Component {
                       <span>2 Nachos Combo</span>
                       <span>$57</span>
                     </span> */}
-                      {this.mappingChosenFoodsData()}
+                        {this.mappingChosenFoodsData()}
 
-                    </li>
-                    <li>
-                      <h6 className="subtitle mb-0">
-                        <span>Tổng giá</span>
-                        <span>{this.formatCurrency(this.getFoodsPrice())}</span>
-                      </h6>
-                    </li>
-                  </ul>
-                  {/* <ul>
+                      </li>
+                      <li>
+                        <h6 className="subtitle mb-0">
+                          <span>Tổng giá</span>
+                          <span>{this.formatCurrency(this.getFoodsPrice())}</span>
+                        </h6>
+                      </li>
+                    </ul>
+                    {/* <ul>
                   <li>
                     <span className="info">
                       <span>price</span>
@@ -324,27 +278,28 @@ export default class BookingFood extends Component {
                     </span>
                   </li>
                 </ul> */}
-                </div>
-                <div className="proceed-area  text-center">
-                  <h6 className="subtitle">
-                    <span>Chi phí ước tính</span>
-                    <span>{this.formatCurrency(this.getTotalPrice())}</span>
-                  </h6>
-                  <Link onClick={this.checkout()} to="/checkout" className="custom-button back-button">
-                    Tiếp tục
-                  </Link>
-                </div>
-                <div className="note">
-                  <h5 className="title">Ghi chú: </h5>
-                  <p>
-                    Vui lòng cung cấp cho chúng tôi khoảng 15 phút để chuẩn bị F&amp;B khi bạn tới rạp
-                  </p>
+                  </div>
+                  <div className="proceed-area  text-center">
+                    <h6 className="subtitle">
+                      <span>Chi phí ước tính</span>
+                      <span>{this.formatCurrency(this.getTotalPrice())}</span>
+                    </h6>
+                    <Link onClick={e => this.checkout(e)} to="/checkout" className="custom-button back-button">
+                      Tiếp tục
+                    </Link>
+                  </div>
+
+                  <div className="note">
+                    <h5 className="title">Ghi chú: </h5>
+                    <p>
+                      Vui lòng cung cấp cho chúng tôi khoảng 15 phút để chuẩn bị F&amp;B khi bạn tới rạp
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+         </div>
     );
   }
 }

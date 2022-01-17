@@ -67,7 +67,7 @@ export default class TicketOption extends Component {
       // filter dupe
       timeStarts = Array.from(new Set(timeStarts));
 
-      // var showtimes = res.data;
+      // let showtimes = res.data;
       // console.log(showtimes);
       this.setState({
         locations: locations,
@@ -78,14 +78,14 @@ export default class TicketOption extends Component {
         timeStarts: timeStarts,
       });
       console.log(this.state);
-      // var showtimes = this.state.showtimes;
+      // let showtimes = this.state.showtimes;
     });
 
   }
 
   mappingDropdownList = (data) => {
     if (data) {
-      var options = data.map((item, i) => {
+      let options = data.map((item, i) => {
         return (
           <Dropdown.Item className="" eventKey={item.id} key={i}>
             {item.name}

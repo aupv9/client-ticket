@@ -15,9 +15,9 @@ export default class ShowtimeTable extends Component {
 
     let showtimes = this.props.showtimes;
 
-    var grouped = this.groupBy(showtimes, (showtime) => showtime.theaterId);
+    let grouped = this.groupBy(showtimes, (showtime) => showtime.theaterId);
     console.log(grouped);
-    var data = Array.from(grouped);
+    let data = Array.from(grouped);
     this.setState({
       data: data,
     });
@@ -42,14 +42,14 @@ export default class ShowtimeTable extends Component {
 
   mappingData = () => {
     if (this.props.showtimes) {
-      var grouped = this.groupBy(
+      let grouped = this.groupBy(
         this.props.showtimes,
         (showtime) => showtime.theaterId
       );
       console.log(grouped);
-      var data = Array.from(grouped);
+      let data = Array.from(grouped);
 
-      var showtimesTable = data.map((item, i) => {
+      let showtimesTable = data.map((item, i) => {
         console.log(item);
         return (
           <SeatPlanRow

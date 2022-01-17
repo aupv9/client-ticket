@@ -54,10 +54,10 @@ export default class BookingCheckout extends Component {
 
   completePayment = async () => {
     await this.delay(1000);
-    // var d = new Date().toJSON().replace('T', ' ');
+    // let d = new Date().toJSON().replace('T', ' ');
     // d = d.slice(0, d.length - 5);
-    // var totalAmount = this.getTotalPrice() * (1 - this.state.offer.percentage) * 1.1;
-    // var order = {
+    // let totalAmount = this.getTotalPrice() * (1 - this.state.offer.percentage) * 1.1;
+    // let order = {
     //   totalAmount: parseInt(totalAmount),
     //   tax: this.getTotalPrice() * (1 - this.state.offer.percentage) * 0.1,
     //   showTimesDetailId: this.state.showtime.id,
@@ -100,7 +100,7 @@ export default class BookingCheckout extends Component {
     // this.setState({isRedirect: true})
 
     // tạo object payment
-    var payment = {
+    let payment = {
       numberMember: null,
       amount: this.state.order.totalAmount,
       status: "",
@@ -134,7 +134,7 @@ export default class BookingCheckout extends Component {
   componentDidMount() {
     //   this.getPrice();
     // })
-    for (var i = 0; i < localStorage.length; i++) {
+    for (let i = 0; i < localStorage.length; i++) {
       console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
     }
 
@@ -148,6 +148,7 @@ export default class BookingCheckout extends Component {
       foodPrice: JSON.parse(localStorage.foodPrice),
       ticketPrice: JSON.parse(localStorage.ticketPrice),
       seats: JSON.parse(localStorage.seats),
+      bookedSeats: JSON.parse(localStorage.bookedSeats),
       // user: JSON.parse(localStorage.user)
     });
 
@@ -165,14 +166,14 @@ export default class BookingCheckout extends Component {
       });
 
       //tạo object order
-      var d = new Date().toJSON().replace("T", " ");
+      let d = new Date().toJSON().replace("T", " ");
       d = d.slice(0, d.length - 5);
-      var totalAmount =
+      let totalAmount =
         this.getTotalPrice() * (1 - this.state.offer.percentage) * 1.1;
-      var order = {
+      let order = {
         totalAmount: parseInt(totalAmount),
         tax: this.getTotalPrice() * (1 - this.state.offer.percentage) * 0.1,
-        showTimesDetailId: this.state.showtime.id,
+        showTimesDetailId: JSON.parse(localStorage.showtime).id,
         userId: user.id,
         createDate: d,
         note: "",
@@ -180,8 +181,8 @@ export default class BookingCheckout extends Component {
         status: "",
         creation: null,
         concessionId: JSON.parse(localStorage.concession),
-        seats: JSON.parse(localStorage.seats),
-        room: this.state.showtime.roomId,
+        seats: JSON.parse(localStorage.bookedSeats),
+        room: JSON.parse(localStorage.showtime).roomId,
         isOnline: true,
       };
 
@@ -209,12 +210,12 @@ export default class BookingCheckout extends Component {
   }
 
   formatCurrency(n) {
-    var temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+    let temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
     return temp.slice(0, temp.length - 2) + " vnd";
   }
 
   getPrice() {
-    var price = this.getNumOfTickets() * this.state.showtime.price;
+    let price = this.getNumOfTickets() * this.state.showtime.price;
     this.setState({
       ticketPrice: price,
     });
@@ -222,24 +223,24 @@ export default class BookingCheckout extends Component {
   }
 
   getTime = () => {
-    var time = new Date(this.state.showtime.timeStart);
+    let time = new Date(this.state.showtime.timeStart);
     return time.getHours() + ":" + time.getMinutes();
   };
 
   getDate = () => {
-    var time = new Date(this.state.showtime.timeStart);
+    let time = new Date(this.state.showtime.timeStart);
     // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
     return moment(time, "YYYY-MM-DD HH:mm:ss").fromNow();
   };
 
   getDate2 = () => {
-    var time = new Date(this.state.showtime.timeStart);
+    let time = new Date(this.state.showtime.timeStart);
     // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
     return moment(time, "YYYY-MM-DD HH:mm:ss").calendar();
   };
 
   getDetailDay = () => {
-    var time = new Date(this.state.showtime.timeStart);
+    let time = new Date(this.state.showtime.timeStart);
     console.log(time);
     return (
       moment(time, "YYYY-MM-DD HH:mm:ss").format("dddd") +
@@ -252,8 +253,8 @@ export default class BookingCheckout extends Component {
 
   getFoodsPrice() {
     if (this.state.concession) {
-      var sum = this.state.concession.reduce((price, foodId) => {
-        var food = this.state.foods.find((food) => food.id === foodId);
+      let sum = this.state.concession.reduce((price, foodId) => {
+        let food = this.state.foods.find((food) => food.id === foodId);
         return (price += food.price);
       }, 0);
 
@@ -271,8 +272,8 @@ export default class BookingCheckout extends Component {
 
   mappingChosenFoodsData() {
     if (this.state.concession) {
-      var list = this.state.concession.map((foodId, i) => {
-        var food = this.state.foods.find((food) => food.id === foodId);
+      let list = this.state.concession.map((foodId, i) => {
+        let food = this.state.foods.find((food) => food.id === foodId);
 
         return (
           <span className="info" key={i}>
@@ -354,15 +355,16 @@ export default class BookingCheckout extends Component {
 
           // update total amount and tax
           // create order object
-          var totalAmount =
+          let totalAmount =
             this.getTotalPrice() * (1 - res.data[0].percentage) * 1.1;
-          var newData = {
+          let newData = {
             totalAmount: totalAmount,
             tax: totalAmount * 0.1,
           };
-          var order = { ...this.state.order, ...newData };
+          let order = { ...this.state.order, ...newData };
 
           OrderService.updateOrder(order).then((res) => {
+            console.log(res.data)
             this.setState({
               orderId: res.data.id,
               order: res.data,

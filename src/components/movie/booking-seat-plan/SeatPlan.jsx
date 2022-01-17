@@ -32,9 +32,9 @@ export default class SeatPlan extends Component {
     render() {
         return (
             <div>
-                <BannerSeatPlan showtimeId = {this.state.id}></BannerSeatPlan>
+                <BannerSeatPlan showtimeId = {this.state.id}/>
                 {/* <TimeFilterSeatPlan></TimeFilterSeatPlan> */}
-                <MovieSeat showtimeId = {this.state.id}></MovieSeat>
+                <MovieSeat showtimeId = {this.state.id}/>
             </div>
         )
     }

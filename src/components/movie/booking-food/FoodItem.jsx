@@ -23,17 +23,18 @@ export default class FoodItem extends Component {
   }
 
   formatCurrency(n) {
-    var temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    let temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     return temp.slice(0, temp.length - 2) + ' vnd';
   }
 
   render() {
     return (
-      <div className="grid-item combos popcorn bevarage">
+      <div className="grid-item combos popcorn beletage">
         <div className="grid-inner">
           <div className="grid-thumb">
             <img
-              src={"/assets/images/movie/popcorn/" + this.props.food.thumbnail}
+              // src={this.props.food.image}
+                src={"/assets/images/movie/popcorn/pop1.png"}
               alt="movie/popcorn"
             />
             <div className="offer-tag">{this.formatCurrency(this.props.food.price)}</div>
